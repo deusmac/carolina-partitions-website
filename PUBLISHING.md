@@ -86,9 +86,9 @@ Pick one host. Do not use two at once.
 ## 4. Turn on the quote form
 
 The form uses **Formspree**, a free service that emails you each quote request. Quote requests
-should go to **bids@carolina-partitions.com**.
+should go to **jmorgan@carolina-partitions.com**.
 
-1. Go to **formspree.io** and create a free account using **bids@carolina-partitions.com**
+1. Go to **formspree.io** and create a free account using **jmorgan@carolina-partitions.com**
    (or forward Formspree's emails to that address, see note below).
 2. Click **New Form**. Name it "Carolina Partitions Quote". Formspree gives you an endpoint
    that looks like `https://formspree.io/f/abcdwxyz`. The part after `/f/` is your form ID.
@@ -107,7 +107,7 @@ should go to **bids@carolina-partitions.com**.
 
 Note on the destination: Formspree delivers to the email on the Formspree account. If you
 created the account with a different email, add or change the recipient to
-**bids@carolina-partitions.com** in the Formspree form settings.
+**jmorgan@carolina-partitions.com** in the Formspree form settings.
 
 ---
 
@@ -135,7 +135,7 @@ images next to them are representative stand-ins until your real photos go in.
 ## 6. Email on the domain (optional, do it when ready)
 
 Publishing the website does **not** create email addresses. To send and receive from
-**admin@** or **bids@carolina-partitions.com**, you need mail hosting (Microsoft 365 is a
+**jmorgan@carolina-partitions.com**, you need mail hosting (Microsoft 365 is a
 common choice and may already be planned).
 
 - Once you have a mail plan, that provider gives you **MX records** (plus a couple of others).
@@ -156,7 +156,7 @@ delivery on its own.
 - [ ] HTTPS padlock shows on carolina-partitions.com
 - [ ] Formspree form ID pasted into the file and the file re-uploaded
 - [ ] Confirmation email from Formspree clicked
-- [ ] Test quote submitted and received at bids@carolina-partitions.com
+- [ ] Test quote submitted and received at jmorgan@carolina-partitions.com
 - [ ] Opened the live site on a phone and clicked through it once
 
 **Troubleshooting:**

@@ -19,7 +19,56 @@ to read only section 0 and know exactly where things stand.
 - **Project:** Single-file marketing website for Carolina Partitions LLC, a Greenville SC
   commercial drywall/framing/ceilings/painting contractor being re-launched. Public site for
   GC project managers and homeowners. Built per `Carolina_Partitions_Website_Build_Brief.md`.
-- **Current phase (2026-07-23, for review by a design agent next):** Four rounds of
+- **CURRENT PHASE (2026-09-30, Session 9, READ THIS FIRST, it overrides older bullets below):**
+  JC is looking at `index.html` (the complaints below are about that file) and wants a
+  full redesign modeled as closely as possible on **https://usagg.com/** (US Aggregates).
+  Session 9 ran in a cloud sandbox that could NOT reach usagg.com, Pexels, or Unsplash
+  (network policy 403), so the redesign was NOT started. Only the contact change shipped.
+  Next agent (desktop app, which CAN browse): do the "Session 9 open requests" list below.
+  **Session 9 open requests from JC (verbatim intent, all still TODO):**
+  1. Open usagg.com in a real browser, screenshot it at 1440 and 390, and study it section by
+     section. JC wants it "exactly like that": clean, professional, full-width, same element
+     patterns. Copying its layout/element patterns is fine; do NOT copy their text, logo, or
+     photos.
+  2. KILL the pinned "How we build" 1/2/3 scroll sequence in `index.html` (JC: "doesn't look
+     good"). Replace with a clean static section.
+  3. KILL the giant "BUILD" word floating in the middle of the hero (JC: "what the fuck is
+     that"). Rebuild the hero the way usagg actually does it, verified against a screenshot,
+     not from memory. The Session 1 notes about usagg's hero in this file were evidently not
+     executed well; re-study the real site.
+  4. The site feels "compact, not a website, smaller scale." Root cause found: `--maxw:1200px`
+     container plus a modest type scale. Go full-bleed/wide (1440 to 1600px content, edge to
+     edge imagery), bigger type and spacing, like usagg.
+  5. PALETTE: JC likes usagg's YELLOW, does NOT like orange, and likes Carolina Partitions'
+     navy + beige. These pull in different directions: before building, show JC 2 to 3 side by
+     side palette options (e.g. navy + beige + yellow accent; usagg-style yellow + charcoal;
+     navy + beige only) and let him pick by eye (the Session 7 visual-picker lesson). This
+     supersedes landmine 7's clay lock and the Session 6 taupe choice for the redesign.
+  6. IMAGERY: JC says the stock photos look random and do not look like finished projects.
+     Source better photos that show real finished commercial interiors (finished drywall
+     corridors, acoustical ceiling grids in finished offices/clinics, metal stud framing in
+     progress, finished lobbies). Every photo must plausibly match the project it sits on.
+     Still stock, still flagged PLACEHOLDER, still metal-only framing, still zero Brightline
+     imagery.
+  7. PROJECTS: add current Carolina Partitions work (details from the Athena CRM, all Won):
+     - Woodlands at Furman, Greenville SC (GC: Creative Builders)
+     - Bedrock Veterinary Clinic, Greer SC (GC: Gleeson Constructors). JC listed "Bedrock"
+       and "Veterinary Clinic" separately but Athena shows they are ONE project.
+     - "RS - Spartanburg SC - Remodel", Spartanburg SC (GC: Ark Construction). Ask JC what
+       "RS" stands for and what the public-facing name should be before publishing it.
+     Show these as "Current projects" alongside Jack's past career projects. Never publish bid
+     amounts, job numbers, or GC contact details. Placeholder photos until JC supplies real ones.
+     Presentation: simple, clean "pop in" reveal (fade/scale on scroll). JC mentioned Remotion
+     but explicitly does not want heavy animation; keep it light, GSAP/CSS is enough.
+  8. DONE in Session 9: contact is now ONLY Jack Morgan, (864) 505-0066,
+     jmorgan@carolina-partitions.com (old 263-7451 and admin@/bids@ removed everywhere in
+     index.html, index-v2.html, PUBLISHING.md, including JSON-LD and form messages; Formspree
+     routing docs now point at jmorgan@).
+  Recommended order: screenshot usagg, then palette picker to JC, then the rebuild (new file,
+  e.g. `index-v3.html`, so index.html stays as a fallback until JC approves), then projects
+  and photos, then the usual QA gate (0 Brightline, 0 em dashes, 0 emoji, 0 console errors,
+  360/768/1440/1920) WITH real screenshots shown to JC.
+- **Prior phase (2026-07-23, for review by a design agent next):** Four rounds of
   iteration on `index-v2.html` this week, all in one continuous back-and-forth with JC, who
   cannot review visually himself here (see caveat below) so is going purely on his own
   browser. Read the 2026-07-23 "Session 6," "Session 7," and "Session 8" changelog entries
@@ -264,6 +313,20 @@ Now: client go-live (domain, Formspree, real photos per PUBLISHING.md), Lighthou
 ---
 
 ## 9. SESSION CHANGELOG (newest first; never delete old entries)
+
+### 2026-09-30 - Session 9 (cloud sandbox: contact update, redesign brief captured)
+- Ran in a Claude Code cloud session on the git repo (branch `claude/brave-shannon-ahcnb8`),
+  not on JC's desktop. The network policy blocked usagg.com, web.archive.org, Pexels and
+  Unsplash (HTTP 403 at the proxy), so the reference site could not be studied and no new
+  photos could be sourced. JC stopped the session to continue on his desktop app.
+- Shipped: contact change. Only Jack Morgan's number (864) 505-0066 and
+  jmorgan@carolina-partitions.com remain, in index.html, index-v2.html and PUBLISHING.md
+  (nav, contact cards, footer, JSON-LD, form fallback messages, Formspree comments). The
+  index.html contact card label now reads "Call Jack Morgan".
+- Looked up JC's "ongoing projects" in Athena (read-only): Woodlands at Furman, Bedrock
+  Veterinary Clinic (one project, not two), RS Spartanburg Remodel. See section 0 item 7.
+- Diagnosed "looks compact": `--maxw:1200px` container in index.html.
+- Not done: everything else in section 0 "Session 9 open requests". No design work started.
 
 ### 2026-07-23 - Session 8 (index-v2.html: Project Rock, painting service dropped entirely)
 - Same-day continuation, right after Session 7. JC clarified "The Rock" left open at the end
