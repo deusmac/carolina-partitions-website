@@ -19,6 +19,23 @@ to read only section 0 and know exactly where things stand.
 - **Project:** Single-file marketing website for Carolina Partitions LLC, a Greenville SC
   commercial drywall/framing/ceilings/painting contractor being re-launched. Public site for
   GC project managers and homeowners. Built per `Carolina_Partitions_Website_Build_Brief.md`.
+- **UPDATE (2026-09-30, later in Session 9):** JC picked palette **Option C, navy + sand, no
+  yellow** (`plan/palette-options.html`). Built `index-v3.html` (single file, 185KB) in that
+  palette: navy utility bar, white sticky nav with the blue logo, full-height hero with the
+  photo on the left and a sand panel on the right (slanted seam, NO floating BUILD word),
+  3-service strip, stats band, 3 large service cards, "Current projects" (Woodlands at Furman,
+  Bedrock Veterinary Clinic, Spartanburg Remodel) with a simple pop-in reveal, Jack's career
+  projects grid (8 cards plus a text list of the rest), static 3-column "Why" (NO pinned
+  1/2/3 scroll), founder section with Jack's real photo, residential, CTA band, contact with
+  Jack as the one contact, footer. 1560px max content width, 18px body text. No GSAP.
+  Screenshots in `plan/v3-shots/` (photos appear as gray "PHOTO id" stand-ins because the
+  sandbox cannot load Pexels; they load normally in a real browser). Guards: 0 Brightline,
+  0 paint, 0 em dashes, 0 emoji, no horizontal overflow at 390/1440, 0 JS errors.
+  STILL OPEN: (a) JC is having another agent capture usagg.com into `plan/usagg-ref/` and
+  better stock photos into `assets/stock/` (with `assets/stock/PHOTOS.md`); once those land,
+  match v3's layout to the usagg screenshots and swap the photos in. (b) Public name for the
+  "RS" Spartanburg job (currently "Spartanburg Remodel", TODO comment in the HTML).
+  (c) Confirm Woodlands at Furman sector (shown as "Senior living").
 - **CURRENT PHASE (2026-09-30, Session 9, READ THIS FIRST, it overrides older bullets below):**
   JC is looking at `index.html` (the complaints below are about that file) and wants a
   full redesign modeled as closely as possible on **https://usagg.com/** (US Aggregates).
@@ -326,7 +343,8 @@ Now: client go-live (domain, Formspree, real photos per PUBLISHING.md), Lighthou
 - Looked up JC's "ongoing projects" in Athena (read-only): Woodlands at Furman, Bedrock
   Veterinary Clinic (one project, not two), RS Spartanburg Remodel. See section 0 item 7.
 - Diagnosed "looks compact": `--maxw:1200px` container in index.html.
-- Not done: everything else in section 0 "Session 9 open requests". No design work started.
+- Later the same session: JC picked palette Option C (navy + sand). Built index-v3.html, see
+  the UPDATE bullet in section 0. Screenshots in plan/v3-shots/.
 
 ### 2026-07-23 - Session 8 (index-v2.html: Project Rock, painting service dropped entirely)
 - Same-day continuation, right after Session 7. JC clarified "The Rock" left open at the end
