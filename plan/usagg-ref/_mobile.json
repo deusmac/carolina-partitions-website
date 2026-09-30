@@ -1,0 +1,40 @@
+{
+ "mobile_cands": [
+  {
+   "tag": "DIV",
+   "cls": "et_mobile_nav_menu",
+   "x": 332,
+   "y": 56,
+   "w": 36
+  },
+  {
+   "tag": "DIV",
+   "cls": "mobile_nav closed",
+   "x": 332,
+   "y": 56,
+   "w": 36
+  },
+  {
+   "tag": "SPAN",
+   "cls": "mobile_menu_bar",
+   "x": 332,
+   "y": 57,
+   "w": 36
+  },
+  {
+   "tag": "DIV",
+   "cls": "et_pb_section_0 et_pb_section et_section_regular et_block_section et-pb-has-back",
+   "x": 0,
+   "y": 109,
+   "w": 390
+  }
+ ],
+ "menu_clicked": {
+  "tag": "DIV",
+  "cls": "et_mobile_nav_menu",
+  "x": 332,
+  "y": 56,
+  "w": 36
+ },
+ "menu_done": true
+}

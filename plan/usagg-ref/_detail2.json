@@ -1,0 +1,424 @@
+{
+ "strength": [],
+ "hero_tail_html": "usagg-rotator\" data-usagg-rotator=\"on\"> <h2 class=\"usagg-rotator-line\"><strong>Infrastructure</strong> is our</h2> <h2 class=\"usagg-rotator-line\"><strong>Partnership</strong> is our</h2> <h2 class=\"usagg-rotator-line\"><strong>Safety</strong> is our</h2> <h2 class=\"usagg-rotator-line\"><strong>Reliability</strong> is our</h2> <h2 class=\"usagg-rotator-line\"><strong>Engineering</strong> is our</h2> <h2 class=\"usagg-rotator-line\"><strong>Teamwork</strong> is our</h2> <h2 class=\"usagg-rotator-line\"><strong>Community</strong> is our</h2> </div></div></div> <div class=\"et_pb_svg_0 et_pb_svg et_pb_module et_flex_module\"><div class=\"et_pb_svg_inner\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"641\" height=\"114\" viewBox=\"0 0 641 114\" fill=\"none\"> <path d=\"M148.814 39.3428C152.434 39.3428 155.055 40.0191 156.679 41.3721C158.302 42.725 159.114 44.6025 159.114 47.0039C159.114 50.4879 158.133 52.9068 156.171 54.2598C154.209 55.6127 151.689 56.289 148.611 56.2891H144.856V39.3428H148.814Z\" fill=\"#FFC72B\"></path> <path d=\"M640.831 0L540.718 113.581H0.0605469V94.7256C2.4067 95.8289 4.66971 96.7332 6.84961 97.4375C9.04807 98.1139 11.4155 98.6048 13.9521 98.9092C16.5229 99.2136 19.5003 99.3662 22.8828 99.3662C29.6475 99.3662 35.161 98.2499 39.4229 96.0176C43.7187 93.7851 46.8816 90.8755 48.9111 87.29C50.9406 83.6708 51.9551 79.8484 51.9551 75.8232C51.9551 71.9674 51.2787 68.7373 49.9258 66.1328C48.6066 63.4945 46.6784 61.2451 44.1416 59.3848C41.6047 57.4905 38.5265 55.731 34.9072 54.1074C31.2544 52.4163 28.3624 51.0466 26.2314 49.998C24.1343 48.9156 22.6291 47.9172 21.7158 47.0039C20.8364 46.0906 20.3965 45.0592 20.3965 43.9092C20.3965 42.9959 20.6499 42.1839 21.1572 41.4736C21.6984 40.7634 22.5104 40.2057 23.5928 39.7998C24.709 39.3601 26.1295 39.1397 27.8545 39.1396C30.4929 39.1396 33.3516 39.5795 36.4297 40.459C39.5077 41.3046 42.6369 42.4547 45.8164 43.9092L51.9551 28.4346C48.877 27.0477 45.3928 25.8129 41.5029 24.7305C37.647 23.6481 33.3007 23.1065 28.4639 23.1064C22.9503 23.1064 18.0787 23.9184 13.8506 25.542C9.65641 27.1656 6.37552 29.6015 4.00781 32.8486C1.674 36.0619 0.506885 40.0531 0.506836 44.8223C0.506836 48.0018 0.929776 50.7588 1.77539 53.0928C2.62102 55.4267 3.82197 57.4735 5.37793 59.2324C6.96768 60.9574 8.86199 62.4967 11.0605 63.8496C13.2929 65.2025 15.7789 66.5214 18.5186 67.8066C21.732 69.2611 24.3204 70.479 26.2822 71.46C28.2439 72.4408 29.6645 73.3885 30.5439 74.3018C31.457 75.1812 31.9141 76.2636 31.9141 77.5488C31.914 78.6311 31.6088 79.5949 31 80.4404C30.3912 81.2521 29.4444 81.8946 28.1592 82.3682C26.9076 82.8417 25.2838 83.0791 23.2881 83.0791C19.9733 83.0791 16.2695 82.5544 12.1768 81.5059C8.10432 80.4289 4.066 78.8819 0.0605469 76.8672V0H640.831ZM375.055 23.1064C366.632 23.1064 359.512 24.6627 353.694 27.7744C347.91 30.8525 343.529 35.2334 340.553 40.916C337.576 46.5648 336.088 53.2789 336.088 61.0586C336.088 69.7178 337.593 76.8887 340.604 82.5713C343.614 88.2201 347.808 92.4314 353.187 95.2051C358.565 97.9788 364.823 99.3662 371.96 99.3662C377.372 99.3662 382.547 98.9602 387.485 98.1484C392.424 97.3028 396.804 96.2205 400.626 94.9014V54.9189H368.61V70.3945H381.854V82.0137C380.974 82.2504 379.671 82.4529 377.946 82.6221C376.255 82.7912 374.818 82.876 373.634 82.876C370.048 82.876 366.987 82.064 364.45 80.4404C361.947 78.783 360.036 76.381 358.717 73.2354C357.432 70.0559 356.789 66.1663 356.789 61.5664C356.789 57.5412 357.398 53.8705 358.615 50.5557C359.833 47.207 361.778 44.5347 364.45 42.5391C367.156 40.5434 370.725 39.5459",
+ "hero_decor": [
+  {
+   "tag": "H2",
+   "cls": "usagg-rotator-line",
+   "x": 56,
+   "y": 310,
+   "w": 525,
+   "h": 50,
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgimg": "none",
+   "clip": "none",
+   "tf": "matrix(1, 0, 0, 1, 0, 24)",
+   "outer": "<h2 class=\"usagg-rotator-line\"><strong>Infrastructure</strong> is our</h2>"
+  },
+  {
+   "tag": "H2",
+   "cls": "usagg-rotator-line",
+   "x": 56,
+   "y": 310,
+   "w": 442,
+   "h": 50,
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgimg": "none",
+   "clip": "none",
+   "tf": "matrix(1, 0, 0, 1, 0, 24)",
+   "outer": "<h2 class=\"usagg-rotator-line\"><strong>Partnership</strong> is our</h2>"
+  },
+  {
+   "tag": "H2",
+   "cls": "usagg-rotator-line",
+   "x": 56,
+   "y": 287,
+   "w": 308,
+   "h": 50,
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgimg": "none",
+   "clip": "none",
+   "tf": "matrix(1, 0, 0, 1, 0, 0.894829)",
+   "outer": "<h2 class=\"usagg-rotator-line\"><strong>Safety</strong> is our</h2>"
+  },
+  {
+   "tag": "H2",
+   "cls": "usagg-rotator-line",
+   "x": 56,
+   "y": 310,
+   "w": 402,
+   "h": 50,
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgimg": "none",
+   "clip": "none",
+   "tf": "matrix(1, 0, 0, 1, 0, 24)",
+   "outer": "<h2 class=\"usagg-rotator-line\"><strong>Reliability</strong> is our</h2>"
+  },
+  {
+   "tag": "H2",
+   "cls": "usagg-rotator-line",
+   "x": 56,
+   "y": 310,
+   "w": 432,
+   "h": 50,
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgimg": "none",
+   "clip": "none",
+   "tf": "matrix(1, 0, 0, 1, 0, 24)",
+   "outer": "<h2 class=\"usagg-rotator-line\"><strong>Engineering</strong> is our</h2>"
+  },
+  {
+   "tag": "H2",
+   "cls": "usagg-rotator-line",
+   "x": 56,
+   "y": 310,
+   "w": 402,
+   "h": 50,
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgimg": "none",
+   "clip": "none",
+   "tf": "matrix(1, 0, 0, 1, 0, 24)",
+   "outer": "<h2 class=\"usagg-rotator-line\"><strong>Teamwork</strong> is our</h2>"
+  },
+  {
+   "tag": "H2",
+   "cls": "usagg-rotator-line",
+   "x": 56,
+   "y": 310,
+   "w": 408,
+   "h": 50,
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgimg": "none",
+   "clip": "none",
+   "tf": "matrix(1, 0, 0, 1, 0, 24)",
+   "outer": "<h2 class=\"usagg-rotator-line\"><strong>Community</strong> is our</h2>"
+  },
+  {
+   "tag": "svg",
+   "cls": "",
+   "x": 56,
+   "y": 331,
+   "w": 797,
+   "h": 142,
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgimg": "none",
+   "clip": "none",
+   "tf": "none",
+   "outer": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"641\" height=\"114\" viewBox=\"0 0 641 114\" fill=\"none\">\n<path d=\"M148.814 39.3428C152.434 39.3428 155.055 40.0191 156.679 41.3721C158.302 42.725 159.114 44.6025 159.114 47.0039C159.114 50.4879 158.133 52.9068 156.171 54.2598C154.209 55.6127 151.689 56.289 "
+  },
+  {
+   "tag": "IMG",
+   "cls": "wp-image-9143",
+   "x": 740,
+   "y": 354,
+   "w": 943,
+   "h": 553,
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgimg": "none",
+   "clip": "none",
+   "tf": "none",
+   "outer": "<img fetchpriority=\"high\" decoding=\"async\" src=\"https://18352e32.delivery.rocketcdn.me/wp-content/uploads/2026/07/header-shapes.svg\" title=\"header-shapes\" width=\"943\" height=\"553\" srcset=\"https://18352e32.delivery.rocketcdn.me/wp-content/uploads/2026/07/header-shapes.svg 943w\" sizes=\"(min-width: 0px"
+  }
+ ],
+ "custom_css": [],
+ "dropdown": [
+  {
+   "w": 240,
+   "h": 63,
+   "x": 894,
+   "y": 85,
+   "bg": "rgb(255, 255, 255)",
+   "shadow": "rgba(0, 0, 0, 0.1) 0px 2px 5px 0px",
+   "border": "",
+   "borderTop": "3px solid rgb(255, 199, 44)",
+   "pad": "16px 0px",
+   "radius": "0px",
+   "items": [
+    "Aggregate Calculator"
+   ]
+  },
+  {
+   "w": 0,
+   "h": 0,
+   "x": 0,
+   "y": 0,
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "",
+   "borderTop": "3px solid rgb(255, 199, 44)",
+   "pad": "16px 0px",
+   "radius": "0px",
+   "items": [
+    "Aggregate Calculator"
+   ]
+  }
+ ],
+ "nav_hover": {
+  "color": "rgb(51, 63, 72)",
+  "after": {
+   "content": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "h": "auto",
+   "w": "auto",
+   "pos": "static",
+   "bottom": "auto"
+  },
+  "before": {
+   "content": "none",
+   "bg": "rgba(0, 0, 0, 0)",
+   "h": "auto",
+   "w": "auto"
+  }
+ },
+ "hover_cta-contact": {
+  "before": {
+   "bg": "rgb(255, 199, 44)",
+   "color": "rgb(26, 34, 40)",
+   "border": "rgb(51, 51, 51)",
+   "tf": "none",
+   "shadow": "none"
+  },
+  "after": {
+   "bg": "rgb(51, 63, 72)",
+   "color": "rgb(255, 199, 44)",
+   "border": "rgb(51, 51, 51)",
+   "tf": "none",
+   "shadow": "none"
+  }
+ },
+ "hover_hero-btn-primary": {
+  "before": {
+   "bg": "rgb(255, 199, 44)",
+   "color": "rgb(26, 34, 40)",
+   "border": "rgb(51, 51, 51)",
+   "tf": "none",
+   "shadow": "none"
+  },
+  "after": {
+   "bg": "rgb(51, 63, 72)",
+   "color": "rgb(255, 199, 44)",
+   "border": "rgb(51, 51, 51)",
+   "tf": "none",
+   "shadow": "none"
+  }
+ },
+ "hover_hero-btn-secondary": {
+  "before": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "color": "rgb(255, 255, 255)",
+   "border": "rgb(231, 232, 233)",
+   "tf": "none",
+   "shadow": "none"
+  },
+  "after": {
+   "bg": "rgb(99, 106, 113)",
+   "color": "rgb(255, 255, 255)",
+   "border": "rgb(231, 232, 233)",
+   "tf": "none",
+   "shadow": "none"
+  }
+ },
+ "stat_samples": [
+  [
+   "60",
+   "100+",
+   "100%"
+  ],
+  [
+   "60",
+   "100+",
+   "100%"
+  ],
+  [
+   "60",
+   "100+",
+   "100%"
+  ],
+  [
+   "60",
+   "100+",
+   "100%"
+  ],
+  [
+   "60",
+   "100+",
+   "100%"
+  ],
+  [
+   "60",
+   "100+",
+   "100%"
+  ],
+  [
+   "60",
+   "100+",
+   "100%"
+  ],
+  [
+   "60",
+   "100+",
+   "100%"
+  ]
+ ],
+ "anim_classes": [
+  {
+   "cls": "et_pb_image_0 et_pb_image et_pb_image_sticky et_pb_module et_flex_module et_had_animation",
+   "style": "slideRight",
+   "dur": "600ms",
+   "delay": "0ms",
+   "txt": ""
+  },
+  {
+   "cls": "et_pb_column_6 et_pb_column et-last-child et_flex_column et_pb_css_mix_blend_mode_passthrough et_animated et_flex_column",
+   "style": "slideRight",
+   "dur": "600ms",
+   "delay": "250ms",
+   "txt": "STATEWIDE NETWORK\nMORE LOCATIO"
+  }
+ ],
+ "layout": [
+  {
+   "cls": "et_pb_row_0_tb_header et_pb_row et_flex_row",
+   "y": 8,
+   "x": 56,
+   "w": 1328,
+   "h": 24,
+   "maxW": "1328px",
+   "gap": "5.5%",
+   "cols": "1328",
+   "pad": "0px"
+  },
+  {
+   "cls": "et_pb_row_1_tb_header et_pb_row et_flex_row et_pb_",
+   "y": 600,
+   "x": 56,
+   "w": 1328,
+   "h": 62,
+   "maxW": "1328px",
+   "gap": "32px",
+   "cols": "272/768/224",
+   "pad": "0px"
+  },
+  {
+   "cls": "et_pb_row_1_tb_header et_pb_row et_flex_row et_pb_",
+   "y": 40,
+   "x": 56,
+   "w": 1328,
+   "h": 62,
+   "maxW": "1328px",
+   "gap": "32px",
+   "cols": "272/768/224",
+   "pad": "0px"
+  },
+  {
+   "cls": "et_pb_row_0 et_pb_row et_flex_row et-last-child",
+   "y": 103,
+   "x": 0,
+   "w": 1440,
+   "h": 670,
+   "maxW": "100%",
+   "gap": "5.5%",
+   "cols": "1328",
+   "pad": "0px 16px"
+  },
+  {
+   "cls": "et_pb_row_1 et_pb_row et_flex_row",
+   "y": 797,
+   "x": 56,
+   "w": 1328,
+   "h": 70,
+   "maxW": "1328px",
+   "gap": "5.5%",
+   "cols": "394/394/394",
+   "pad": "0px"
+  },
+  {
+   "cls": "et_pb_row_2 et_pb_row et_flex_row",
+   "y": 891,
+   "x": 0,
+   "w": 1440,
+   "h": 560,
+   "maxW": "100%",
+   "gap": "0px",
+   "cols": "704/1440",
+   "pad": "48px 16px"
+  },
+  {
+   "cls": "et_pb_row_3 et_pb_row et_flex_row",
+   "y": 1582,
+   "x": 56,
+   "w": 1328,
+   "h": 297,
+   "maxW": "1328px",
+   "gap": "32px",
+   "cols": "648",
+   "pad": "0px"
+  },
+  {
+   "cls": "et_pb_row_4 et_pb_row et_flex_row",
+   "y": 2075,
+   "x": 56,
+   "w": 1328,
+   "h": 137,
+   "maxW": "1328px",
+   "gap": "5.5%",
+   "cols": "1328",
+   "pad": "0px"
+  },
+  {
+   "cls": "et_pb_row_5 et_pb_row et_grid_row",
+   "y": 2272,
+   "x": 56,
+   "w": 1328,
+   "h": 256,
+   "maxW": "1328px",
+   "gap": "32px",
+   "cols": "308/308/308/308",
+   "pad": "0px"
+  },
+  {
+   "cls": "et_pb_row_6 et_pb_row et_block_row",
+   "y": 2646,
+   "x": 56,
+   "w": 1328,
+   "h": 572,
+   "maxW": "1328px",
+   "gap": "normal",
+   "cols": "1328",
+   "pad": "27px 0px"
+  },
+  {
+   "cls": "et_pb_row_0_tb_footer et_pb_row et_flex_row",
+   "y": 3329,
+   "x": 56,
+   "w": 1328,
+   "h": 5,
+   "maxW": "1328px",
+   "gap": "5.5%",
+   "cols": "1328",
+   "pad": "0px"
+  },
+  {
+   "cls": "et_pb_row_1_tb_footer et_pb_row et_flex_row et_fle",
+   "y": 3366,
+   "x": 56,
+   "w": 1328,
+   "h": 272,
+   "maxW": "1328px",
+   "gap": "5.5%",
+   "cols": "277/394/277",
+   "pad": "0px"
+  },
+  {
+   "cls": "et_pb_row_2_tb_footer et_pb_row et_flex_row",
+   "y": 3669,
+   "x": 56,
+   "w": 1328,
+   "h": 48,
+   "maxW": "1328px",
+   "gap": "5.5%",
+   "cols": "403/852",
+   "pad": "24px 0px 0px"
+  }
+ ]
+}
