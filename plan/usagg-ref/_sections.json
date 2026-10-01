@@ -1,0 +1,109 @@
+[
+ {
+  "i": 0,
+  "tag": "DIV",
+  "id": "",
+  "cls": "et_pb_section_0_tb_header et_pb_section et_section_regular et_flex_section",
+  "top": 0,
+  "h": 40,
+  "w": 1440,
+  "head": "",
+  "txt": "APPLY FOR CREDIT | PAY MY BILL"
+ },
+ {
+  "i": 1,
+  "tag": "DIV",
+  "id": "",
+  "cls": "et_pb_section_1_tb_header et_pb_section et_section_regular et_flex_section et_pb_section--",
+  "top": 40,
+  "h": 63,
+  "w": 1440,
+  "head": "",
+  "txt": "About | Applications | Community | Locations | Products | Re",
+  "shot": "desktop-01-about-applications-community-l.png"
+ },
+ {
+  "i": 2,
+  "tag": "DIV",
+  "id": "",
+  "cls": "et_pb_section_0 et_pb_section et_section_regular et_block_section et-pb-has-background-vid",
+  "top": 103,
+  "h": 670,
+  "w": 1440,
+  "head": "THE MIDWEST'S PREMIER AGGREGATE SUPPLIER",
+  "txt": "Video Player | THE MIDWEST'S PREMIER AGGREGATE SUPPL",
+  "shot": "desktop-02-the-midwest-s-premier-aggregat.png"
+ },
+ {
+  "i": 3,
+  "tag": "DIV",
+  "id": "",
+  "cls": "et_pb_section_1 et_pb_section et_section_regular et_flex_section",
+  "top": 773,
+  "h": 118,
+  "w": 1440,
+  "head": "YEARS OF SERVICE",
+  "txt": "60 |  | YEARS OF SERVICE |  | 100+ |  | PRODUCTS AVAILABLE |  | 10",
+  "shot": "desktop-03-years-of-service.png"
+ },
+ {
+  "i": 4,
+  "tag": "DIV",
+  "id": "",
+  "cls": "et_pb_section_2 et_pb_section et_section_regular et_flex_section",
+  "top": 891,
+  "h": 560,
+  "w": 1440,
+  "head": "THE MATERIALS BEHIND EVERYDAY LIFE",
+  "txt": "APPLICATIONS | THE MATERIALS BEHIND EVERYDAY LIFE |  | Y",
+  "shot": "desktop-04-the-materials-behind-everyday-.png"
+ },
+ {
+  "i": 5,
+  "tag": "DIV",
+  "id": "",
+  "cls": "et_pb_section_3 et_pb_section et_section_regular et_flex_section",
+  "top": 1451,
+  "h": 560,
+  "w": 1440,
+  "head": "MORE LOCATIONS TO SERVE YOU",
+  "txt": "STATEWIDE NETWORK | MORE LOCATIONS TO SERVE YOU |  | Wit",
+  "shot": "desktop-05-more-locations-to-serve-you.png"
+ },
+ {
+  "i": 6,
+  "tag": "DIV",
+  "id": "",
+  "cls": "et_pb_section_4 et_pb_section et_section_regular et_flex_section",
+  "top": 2011,
+  "h": 581,
+  "w": 1440,
+  "head": "COMMUNITY ENGAGEMENT",
+  "txt": "COMMUNITY ENGAGEMENT | WHY CUSTOMERS CHOOSE US AGGRE",
+  "shot": "desktop-06-community-engagement.png"
+ },
+ {
+  "i": 7,
+  "tag": "DIV",
+  "id": "",
+  "cls": "et_pb_section_5 et_pb_section et_section_regular et_block_section",
+  "top": 2592,
+  "h": 680,
+  "w": 1440,
+  "head": "US Aggregates\u00ae Rockstar: Nathan Swafford",
+  "txt": "D | E",
+  "shot": "desktop-07-us-aggregates-rockstar-nathan-.png"
+ },
+ {
+  "i": 8,
+  "tag": "DIV",
+  "id": "",
+  "cls": "et_pb_section_0_tb_footer et_pb_section et_section_regular et_flex_section",
+  "top": 3273,
+  "h": 515,
+  "w": 1440,
+  "head": "HEADQUARTERS",
+  "txt": "HEADQUARTERS |  | 6640 Intech Blvd. Suite 300 | Indianap",
+  "shot": "desktop-08-headquarters.png"
+ }
+]
