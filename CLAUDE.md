@@ -19,6 +19,39 @@ to read only section 0 and know exactly where things stand.
 - **Project:** Single-file marketing website for Carolina Partitions LLC, a Greenville SC
   commercial drywall/framing/ceilings/painting contractor being re-launched. Public site for
   GC project managers and homeowners. Built per `Carolina_Partitions_Website_Build_Brief.md`.
+- **REAL PHOTOS ADDED (2026-10-01, later). `index-v3.html` is still THE current build.**
+  A request came in to put the real photos in "index-v2.html"; it was applied to index-v3.html
+  instead because v3 is the approved build (v2 is superseded and still has residential copy).
+  - `brand-assets/` (merged from branch claude/happy-shannon-tqzr1u; read its README.md) holds
+    the real photos. v3 is a SINGLE FILE again: every image is base64-embedded, resized and
+    re-encoded by a build script (Project Rock grid 440w q62, hero 860w q66, feature 680w q66,
+    RS 640-800w q72-76, Woodlands at native 240x320, stock 560-720w q68-70). HTML is 1.58MB.
+    Only Cabela's and Gatlinburg Aquarium still load from the Pexels CDN.
+  - Where real photos went: hero = Project Rock 09 (finished boulder arch, photo on the right
+    64%, solid navy behind the text). New "Featured project" section (#featured, nav link
+    "Project Rock") = Project Rock 10 plus a "What we build" grid of 01-08 with captions.
+    Services strips: drywall = RS 07, metal framing = Rock 03, ceilings = stock. Current
+    projects: Woodlands card = 3 small tiles (01, 04, 07; NEVER large, 240x320 originals,
+    PLACEHOLDER comment asks for higher-res from Jack), RS card = RS 03, plus a 4-photo RS
+    gallery (02, 04, 05, 08) cropped to the top 68% to hide bare floors. Bedrock stays stock.
+    Project Rock removed from the career carousel (it is featured now).
+  - Captions only state what brand-assets/README.md supports: Project Rock = steel stud
+    framing + OSB/plywood sheathing of climbing walls, boulders, arch and cave features (we do
+    NOT claim the finished climbing surfaces). RS = "Interior build-out" only. Woodlands has no
+    scope claim. Ask JC before adding scope details for RS or Woodlands.
+  - RS photos are by Frank Costa, Heritage Paintworks. Credit is noted in HTML comments only.
+    Ask JC before adding any visible credit. Never present RS as a painting job.
+  - Project Rock photo 01 shows a jobsite banner with 864-288-7663 and carolinapartitions.com,
+    which differ from the site's contact details. Left as is (it is a real photo); flagged to JC.
+  - og-image.jpg (1200x630, Project Rock arch) is in the repo root and must be deployed next to
+    the page; og/twitter/JSON-LD image tags point at https://carolina-partitions.com/og-image.jpg.
+  - Verified: 31/31 embedded images decode, all have alt text, 0 JS errors, no overflow at
+    390/768/1024/1440/1920, 0 Brightline, 0 visible "paint" (4 hits are the credit comments),
+    0 residential, 0 em dashes, 0 emoji. Screenshots in plan/v3-shots/.
+  - Still needs real photos: ceilings service strip, Bedrock Veterinary Clinic, higher-res
+    Woodlands, and all of Jack's career projects (Peace Center, Spartanburg Regional MOB,
+    Poinsett Plaza, Carolina Oaks Dental, Cabela's, Inverness, Gatlinburg Aquarium, Captain's
+    Quarters). Stone Cottage is not on v3.
 - **LATEST (2026-10-01, Session 9 continued). `index-v3.html` IS THE CURRENT BUILD.**
   - Rebuilt on usagg.com's real structure, using the capture another agent pushed to
     `plan/usagg-ref/` (NOTES.md has exact measurements, PNGs per section). Palette is JC's
@@ -393,6 +426,8 @@ Now: client go-live (domain, Formspree, real photos per PUBLISHING.md), Lighthou
   later: also log each lead into Athena as a "possible" project. Waiting on JC's pick.
 - JC picked option 2 (Google Sheet). Built and wired it (see section 0 LEADS); waiting on his
   one-time Google setup. Also: RS job renamed "RS Spartanburg"; Woodlands sector label removed.
+- Real photos from brand-assets/ embedded in index-v3.html (see section 0 REAL PHOTOS ADDED).
+  v3 is single-file again (1.58MB). og-image.jpg added. Applied to v3, not v2, on purpose.
 
 ### 2026-07-23 - Session 8 (index-v2.html: Project Rock, painting service dropped entirely)
 - Same-day continuation, right after Session 7. JC clarified "The Rock" left open at the end
