@@ -14,309 +14,84 @@
 ## 0. COLD-START BRIEFING (keep this section current, newest truth wins)
 
 **Every agent updates this section before ending a session.** A new agent must be able
-to read only section 0 and know exactly where things stand.
+to read only section 0 and know exactly where things stand. History lives in section 9.
 
-- **Project:** Single-file marketing website for Carolina Partitions LLC, a Greenville SC
-  commercial drywall/framing/ceilings/painting contractor being re-launched. Public site for
-  GC project managers and homeowners. Built per `Carolina_Partitions_Website_Build_Brief.md`.
-- **HERO SLIDESHOW, AUTO-SCROLL CAROUSEL, QUOTE ATTACHMENTS (2026-10-01, latest).**
-  - Hero is now a 5-slide crossfade synced to the rotator word every 5.5s: Precision = Project
-    Rock 09 arch, Safety = Rock 01 crew on lifts, Stability = Rock 04 tall steel framing,
-    Craftsmanship = Woodlands (3 crisp 240x320 tiles on navy, never stretched), Quality =
-    RS 03 corridor. Caption chip per slide, progress-bar dots (clickable), pauses when the tab is
-    hidden, static first slide under reduced motion. Hero photos are cropped to the hero's wide
-    frame before encoding (900w).
-  - Jack's career carousel auto-drifts (~36px/s), loops forever by moving the first card to the
-    end (no clones, so no duplicate base64), pauses on hover/touch/focus and for 6s after an
-    arrow click. Reduced motion: no drift, arrows only.
-  - Quote form: optional "Link to plans" (https only) + up to 4 files / 15 MB (PDF, JPG, PNG,
-    DWG, ZIP, XLSX, DOCX), validated in the browser and again in the script by extension
-    whitelist and size. Files go base64 in the POST; the script saves them to a private Drive
-    folder "Carolina Partitions Website Leads - Attachments" (subfolder per lead), writes links
-    to new "Plans link"/"Attachments" columns and attaches them to Jack's email (links only if
-    over 20 MB). NEEDS JC: paste the new script, Run setup (re-authorize with Drive), then
-    Manage deployments > Edit > New version (same URL). Steps in leads/SETUP.md and OneDrive.
-  - HTML is now 2.02MB (38 embedded images). Over the old 1.5MB budget because of the extra
-    hero slides; the Rock 01/04 steel-stud detail compresses poorly. Verified: 38/38 images
-    decode, all have alt, 0 JS errors, no overflow 390-1920, guards all 0. Preview artifact:
-    https://claude.ai/artifact/GZjVWdn9HPuvj8vh7uf15A (republish index-v3.html to update).
-- **REAL PHOTOS ADDED (2026-10-01, later). `index-v3.html` is still THE current build.**
-  A request came in to put the real photos in "index-v2.html"; it was applied to index-v3.html
-  instead because v3 is the approved build (v2 is superseded and still has residential copy).
-  - `brand-assets/` (merged from branch claude/happy-shannon-tqzr1u; read its README.md) holds
-    the real photos. v3 is a SINGLE FILE again: every image is base64-embedded, resized and
-    re-encoded by a build script (Project Rock grid 440w q62, hero 860w q66, feature 680w q66,
-    RS 640-800w q72-76, Woodlands at native 240x320, stock 560-720w q68-70). HTML is 1.58MB.
-    No external images: Cabela's uses embedded stock; Gatlinburg Aquarium is a navy card with no photo.
-  - Where real photos went: hero = Project Rock 09 (finished boulder arch, photo on the right
-    64%, solid navy behind the text). New "Featured project" section (#featured, nav link
-    "Project Rock") = Project Rock 10 plus a "What we build" grid of 01-08 with captions.
-    Services strips: drywall = RS 07, metal framing = Rock 03, ceilings = stock. Current
-    projects: Woodlands card = 3 small tiles (01, 04, 07; NEVER large, 240x320 originals,
-    PLACEHOLDER comment asks for higher-res from Jack), RS card = RS 03, plus a 4-photo RS
-    gallery (02, 04, 05, 08) cropped to the top 68% to hide bare floors. Bedrock stays stock.
-    Project Rock removed from the career carousel (it is featured now).
-  - Captions only state what brand-assets/README.md supports: Project Rock = steel stud
-    framing + OSB/plywood sheathing of climbing walls, boulders, arch and cave features (we do
-    NOT claim the finished climbing surfaces). RS = "Interior build-out" only. Woodlands has no
-    scope claim. Ask JC before adding scope details for RS or Woodlands.
-  - RS photos are by Frank Costa, Heritage Paintworks. Credit is noted in HTML comments only.
-    Ask JC before adding any visible credit. Never present RS as a painting job.
-  - Project Rock photo 01 shows a jobsite banner with 864-288-7663 and carolinapartitions.com,
-    which differ from the site's contact details. Left as is (it is a real photo); flagged to JC.
-  - og-image.jpg (1200x630, Project Rock arch) is in the repo root and must be deployed next to
-    the page; og/twitter/JSON-LD image tags point at https://carolina-partitions.com/og-image.jpg.
-  - Verified: 31/31 embedded images decode, all have alt text, 0 JS errors, no overflow at
-    390/768/1024/1440/1920, 0 Brightline, 0 visible "paint" (4 hits are the credit comments),
-    0 residential, 0 em dashes, 0 emoji. Screenshots in plan/v3-shots/.
-  - Still needs real photos: ceilings service strip, Bedrock Veterinary Clinic, higher-res
-    Woodlands, and all of Jack's career projects (Peace Center, Spartanburg Regional MOB,
-    Poinsett Plaza, Carolina Oaks Dental, Cabela's, Inverness, Gatlinburg Aquarium, Captain's
-    Quarters). Stone Cottage is not on v3.
-- **LATEST (2026-10-01, Session 9 continued). `index-v3.html` IS THE CURRENT BUILD.**
-  - Rebuilt on usagg.com's real structure, using the capture another agent pushed to
-    `plan/usagg-ref/` (NOTES.md has exact measurements, PNGs per section). Palette is JC's
-    pick, Option C navy + sand, mapped onto usagg's color roles (slate -> navy #0A1F4A, ink ->
-    #06142F, card -> #0F2656, yellow -> sand #E6DAC3, bronze #8A7148 for small accents on
-    white). Fonts: Nunito Sans (headings) + Open Sans (body), same as usagg. Square corners,
-    one diagonal angle reused everywhere.
-  - Sections in order: navy utility bar (call/email Jack), sticky white nav (sand Contact
-    button + outline Call Jack, mobile right-aligned panel with sand top border), hero
-    (full-bleed photo, navy gradient from the left, eyebrow, rotating "X is our" line every 5s,
-    "STANDARD" knocked out of a slanted sand band SVG, paragraph, solid + outline buttons,
-    hairline parallelogram and outlined triangle sliding in), 3-column stat bar, Services
-    (text left, three slanted photo strips right like usagg's Applications collage), Current
-    projects (dark, 3 pop-in cards: Woodlands at Furman (no sector label, per JC), Bedrock
-    Veterinary Clinic, RS Spartanburg), Why (dark, 4 cards with sand top borders), Jack's career projects
-    (usagg News-style square-card carousel with sand arrow buttons), About Jack (real photo),
-    Contact (dark, Jack card + quote form), footer (diagonal-band background, 3 columns).
-  - COMMERCIAL ONLY (JC, 2026-10-01): "We're not doing any residential or home interiors."
-    No residential section, no homeowner copy, no residential nav/footer links, form "I am a"
-    options are GC / Owner-Developer / Architect-Designer / Other business. Treat any
-    residential or homeowner wording on v3 as a regression. index.html and index-v2.html still
-    contain residential content (untouched); fix them too if they ever ship.
-  - PHOTOS: v3 references local files in `assets/stock/` (20 Pexels photos, credits in
-    `assets/stock/PHOTOS.md`) by relative path, so v3 is NO LONGER a single file: deploy the
-    `assets/stock/` folder next to it. Three career cards (Project Rock, Cabela's, Gatlinburg
-    Aquarium) still use Pexels CDN URLs. All stock is flagged PLACEHOLDER.
-  - LEADS (JC picked option 2, 2026-10-01): form posts to a Google Apps Script web app that
-    appends each lead to a Google Sheet ("Carolina Partitions Website Leads", tab "Leads") and
-    emails jmorgan@ with reply-to set to the customer. Code: `leads/google-apps-script.gs`,
-    steps: `leads/SETUP.md`. Both also saved to JC's OneDrive folder "Carolina Partitions
-    Website Leads" (john@carolina-partitions.com). NOT LIVE YET: JC must do the ~3 min Google
-    step (only the account owner can create the sheet and authorize the script; Google Drive
-    connector is not connected here and the sandbox cannot reach Google). Then paste the web app
-    URL into `LEADS_URL` in index-v3.html (until then the form shows "call or email Jack") and
-    put the sheet link in SETUP.md and the OneDrive SETUP file. Tested: form POST body via
-    Playwright with a mocked endpoint, and the script with stubbed Google services (honeypot
-    drop, invalid rejected, formula injection neutralized, role/contact whitelisted).
-  - Verified with real screenshots (`plan/v3-shots/`, real photos and fonts loaded): no
-    horizontal overflow at 390/768/1024/1440/1920, 0 JS errors, 0 Brightline, 0 paint,
-    0 residential/homeowner, 0 em dashes, 0 emoji, 181KB HTML.
-  - Leads sheet CREATED via Google Drive connector (owner johnc.tiempo@gmail.com):
-    https://docs.google.com/spreadsheets/d/11oe1XEzhJe5hY6DxnhYVedub2LSoAk3xviybsnaSuTc/edit
-    Script is now standalone (SpreadsheetApp.openById(SHEET_ID)). The Drive connector cannot
-    create Apps Script files ("requires an external mime type"), so pasting + deploying the
-    script is still a manual step for JC. DONE by JC 2026-10-01: web app deployed at
-    https://script.google.com/macros/s/AKfycbwYNTrmw5_wEzBCh35W6OGrQBdi7URQiIQ2jZa_a-v2uPDn1DIpqkconLUn1ALymyL2/exec
-    (wired into LEADS_URL in index-v3.html; "Leads" tab + headers confirmed via Drive read).
-    End-to-end test submission not yet confirmed (sandbox cannot reach script.google.com).
-  - STILL OPEN: (a) confirm one real test submission lands in the sheet + Jack's inbox. (b) real project photos
-    (JC is sending some). (c) PUBLISHING.md still describes Formspree for the old site. (e) build source: v3 is generated from a template with base64
-    tokens (`__LOGO_BLUE__`, `__LOGO_WHITE__`, `__JACK__`, `__FAVICON__`) pulled from
-    index-v2.html; editing index-v3.html directly is fine, the template is not in the repo.
-- **CURRENT PHASE (2026-09-30, Session 9, READ THIS FIRST, it overrides older bullets below):**
-  JC is looking at `index.html` (the complaints below are about that file) and wants a
-  full redesign modeled as closely as possible on **https://usagg.com/** (US Aggregates).
-  Session 9 ran in a cloud sandbox that could NOT reach usagg.com, Pexels, or Unsplash
-  (network policy 403), so the redesign was NOT started. Only the contact change shipped.
-  Next agent (desktop app, which CAN browse): do the "Session 9 open requests" list below.
-  **Session 9 open requests from JC (verbatim intent, all still TODO):**
-  1. Open usagg.com in a real browser, screenshot it at 1440 and 390, and study it section by
-     section. JC wants it "exactly like that": clean, professional, full-width, same element
-     patterns. Copying its layout/element patterns is fine; do NOT copy their text, logo, or
-     photos.
-  2. KILL the pinned "How we build" 1/2/3 scroll sequence in `index.html` (JC: "doesn't look
-     good"). Replace with a clean static section.
-  3. KILL the giant "BUILD" word floating in the middle of the hero (JC: "what the fuck is
-     that"). Rebuild the hero the way usagg actually does it, verified against a screenshot,
-     not from memory. The Session 1 notes about usagg's hero in this file were evidently not
-     executed well; re-study the real site.
-  4. The site feels "compact, not a website, smaller scale." Root cause found: `--maxw:1200px`
-     container plus a modest type scale. Go full-bleed/wide (1440 to 1600px content, edge to
-     edge imagery), bigger type and spacing, like usagg.
-  5. PALETTE: JC likes usagg's YELLOW, does NOT like orange, and likes Carolina Partitions'
-     navy + beige. These pull in different directions: before building, show JC 2 to 3 side by
-     side palette options (e.g. navy + beige + yellow accent; usagg-style yellow + charcoal;
-     navy + beige only) and let him pick by eye (the Session 7 visual-picker lesson). This
-     supersedes landmine 7's clay lock and the Session 6 taupe choice for the redesign.
-  6. IMAGERY: JC says the stock photos look random and do not look like finished projects.
-     Source better photos that show real finished commercial interiors (finished drywall
-     corridors, acoustical ceiling grids in finished offices/clinics, metal stud framing in
-     progress, finished lobbies). Every photo must plausibly match the project it sits on.
-     Still stock, still flagged PLACEHOLDER, still metal-only framing, still zero Brightline
-     imagery.
-  7. PROJECTS: add current Carolina Partitions work (details from the Athena CRM, all Won):
-     - Woodlands at Furman, Greenville SC (GC: Creative Builders)
-     - Bedrock Veterinary Clinic, Greer SC (GC: Gleeson Constructors). JC listed "Bedrock"
-       and "Veterinary Clinic" separately but Athena shows they are ONE project.
-     - "RS - Spartanburg SC - Remodel", Spartanburg SC (GC: Ark Construction). Ask JC what
-       "RS" stands for and what the public-facing name should be before publishing it.
-     Show these as "Current projects" alongside Jack's past career projects. Never publish bid
-     amounts, job numbers, or GC contact details. Placeholder photos until JC supplies real ones.
-     Presentation: simple, clean "pop in" reveal (fade/scale on scroll). JC mentioned Remotion
-     but explicitly does not want heavy animation; keep it light, GSAP/CSS is enough.
-  8. DONE in Session 9: contact is now ONLY Jack Morgan, (864) 505-0066,
-     jmorgan@carolina-partitions.com (old 263-7451 and admin@/bids@ removed everywhere in
-     index.html, index-v2.html, PUBLISHING.md, including JSON-LD and form messages; Formspree
-     routing docs now point at jmorgan@).
-  Recommended order: screenshot usagg, then palette picker to JC, then the rebuild (new file,
-  e.g. `index-v3.html`, so index.html stays as a fallback until JC approves), then projects
-  and photos, then the usual QA gate (0 Brightline, 0 em dashes, 0 emoji, 0 console errors,
-  360/768/1440/1920) WITH real screenshots shown to JC.
-- **Prior phase (2026-07-23, for review by a design agent next):** Four rounds of
-  iteration on `index-v2.html` this week, all in one continuous back-and-forth with JC, who
-  cannot review visually himself here (see caveat below) so is going purely on his own
-  browser. Read the 2026-07-23 "Session 6," "Session 7," and "Session 8" changelog entries
-  below in full before touching this file again; summary of where things landed:
-  1. **Palette pivot (Session 6):** JC rejected the navy+clay-orange combo outright as too
-     close to a former company he hates. Palette is now navy (darkened further, `--navy`
-     `#081A3E` / weave background `#060F26`) + a warm taupe accent (`--clay` `#A9906F`, plus
-     `--clay-deep`/`--clay-dark`/`--clay-tint`/`--on-clay` derived from it). THE PALETTE LOCK
-     FROM `index.html` (navy + clay-ORANGE, see section 4/landmine 7 for the original build)
-     DOES NOT APPLY TO `index-v2.html` ANYMORE. Do not reintroduce orange into `index-v2.html`.
-     If asked to make `index-v2.html` "pop" or fix "dullness," reach for value contrast/atmosphere
-     within navy+taupe, not a new hue, same principle as the old lock, just a different pair.
-  2. **Fluid 3D motion (Session 6):** cursor-tilt + glare on `.dcard` cards, magnetic `.btn`
-     buttons, cursor-parallax on the hero collage. All gated to `(hover:hover) and (pointer:fine)`
-     and `prefers-reduced-motion`.
-  3. **Recent projects rebuilt as an infinite marquee (Session 7):** was a static 3-column
-     grid, now a full-bleed, oversized (`min(74vh,660px)` tall), continuously auto-scrolling
-     GSAP loop (`#projMarquee` / `#projTrack`, duplicate-content technique, see landmine 12).
-     Cursor position over the marquee controls playback speed (left half slows toward 0.15x,
-     right half speeds up toward 3.2x, resets to 1x on mouse-leave); never fully stops. Falls
-     back to plain native horizontal scroll on touch/reduced-motion/no-GSAP.
-  4. **Projects list expanded from 6 to 17 (Session 7 + 8):** the original 6 (Peace Center,
-     Cabela's, Gatlinburg Aquarium, Spartanburg Regional MOB, Poinsett Plaza, Captain's
-     Quarters) plus 10 more project NAMES sourced from a document JC uploaded,
-     `BL Sales Profile.pdf`, this is BRIGHTLINE CONTRACTING'S own company profile (JC's
-     actual employer; Jack Morgan is also connected to Brightline, per section 1). Landmine 1
-     is a hard, repeated rule: zero Brightline branding/photography on this site, ever. Only
-     the bare project NAMES + locations were pulled (Drygoods, Stanton Optical, Rack Room
-     Shoes, Five Forks Shopping Center, Walgreens, Inverness Assisted Living, Carolina Oaks
-     Dental Care, Holmes Memorial Church, Holmes Bible College, Comfort Suites); every image
-     is unrelated representative Pexels stock, same as the original 6. NEVER pull actual
-     photography, logos, taglines, or contact info out of that PDF or any future Brightline
-     document. Plus a 17th, Project Rock (a Greenville indoor climbing gym, added in Session
-     8 once JC clarified it), which is also featured by name in hero slide 2 as a "featured
-     project" highlight.
-  5. **Painting dropped as a service entirely (Session 8):** JC said the company doesn't do
-     it anymore. Removed from the services grid (now 3 cards, not 4) and from every meta
-     tag/JSON-LD/footer/residential mention, see Session 8's changelog entry for the full list
-     of 7 spots touched. If painting language ever reappears anywhere on this site, that's a
-     regression, not a stylistic choice, remove it.
-  6. **JC wants a fresh design agent to give this a final review/polish pass.** Whoever picks
-     this up next should treat `index-v2.html`'s current state (taupe/navy palette, big
-     project marquee, 17 projects, no painting service) as the accepted baseline to refine,
-     not a draft to redo from scratch, unless JC says otherwise.
-  IMPORTANT CAVEAT (still true as of Session 8): this environment's Browser-pane tool would
-  not composite frames all session (`screenshot` errored "pane not displayed" on every
-  attempt). Every change above was verified structurally only (DOM/CSS inspection,
-  console-error checks, HTTP 200 on every image URL, tag-balance checks, GSAP tween
-  inspection via `gsap.getTweensOf()`, simulated mousemove events to confirm the marquee
-  speed logic actually changes `timeScale()`, responsive viewport checks), never by actually
-  looking at the rendered page. If the next agent's environment CAN screenshot, do that first
-  before changing anything further; don't assume this description is accurate to the pixel.
-  Prior phase: A SECOND, SEPARATE VERSION exists: `index-v2.html`, a full alternate homepage
-  modeled on a client-supplied reference
-  (spectruminteriors-sc.com) with all CP branding/copy/photos carried over. Client to compare
-  both and pick. Earlier phase: REDESIGN EXECUTED AND COMPLETE on index.html (2026-07-11). All 8 phases of
-  `plan/OPERATION-SAVE-WEBSITE.md` shipped in one session: cinematic footage, global drama
-  pass (diagonal dividers + mega type + ghost watermarks), hero Ken Burns, asymmetric services
-  rows, dark full-bleed projects stage, pinned "How we build" scroll sequence, atmosphere
-  polish (skyline dusk/stars, image wipes, blueprint texture). Full QA gate passed: 0
-  Brightline, 0 em dashes, 0 emojis, 21 placeholders, 216KB, 0 console errors at all 5
-  breakpoints (360/768/1024/1440/1920). Before/after screenshots in `plan/before/` and
-  `plan/after/`. Awaiting client review of the new build, then client go-live tasks.
-- **Where the work lives:** `C:\Users\User\Desktop\Carolina Partitions Website\`. Not a git
-  repo. Deliverables: `index.html` (the whole site) and `PUBLISHING.md`. `brand-directions.html`
-  is the brand-proposal reference. `assets/` holds the logo files and Jack's source headshot
-  (`JACK MORGAN HEAD SHOT.jpeg`, keep this file, it is the client's original). `plan/` holds
-  the redesign operation (OPERATION-SAVE-WEBSITE.md, DESIGN.md, AUDIT.md, all still valid as
-  the design system reference for future work) plus `before/` and `after/` screenshot sets.
-- **How to run it:** Double-click `index.html` (opens from file://, video autoplays). For QA
-  with playwright (file:// is blocked in it), serve locally: `node /tmp/serve.js "<projectdir>"`
-  on port 8799, then browse `http://localhost:8799/index.html`.
-- **How to verify changes:** Serve on 8799, drive with the playwright MCP. Note: viewport
-  screenshots suffer a scroll-reset quirk in this harness; use element-target screenshots, or
-  scroll through first to fire GSAP reveals, then screenshot. The projects carousel runs a
-  continuous `gsap.ticker` loop that is NOT paused by `gsap.globalTimeline.pause()` (ticker
-  callbacks are independent), so `fullPage` screenshots can time out waiting for "stable" while
-  it runs, use viewport screenshots per-section instead, or close/reopen the page fresh.
-- **Last session did:** Executed the entire approved plan end to end in one sitting (JC said
-  "do whatever it takes, complete this"). Phase 1: replaced both boring stock clips with
-  genuinely cinematic ones (moody LED-sander glow for hero, active sanding shot for mid-band).
-  Phase 2: added a reusable diagonal-divider technique (linear-gradient hard-stop, NOT clip-path
-  overlap, see landmine below), ghost watermark headings, mega type scale. Phase 3: slow Ken
-  Burns drift on the hero video. Phase 4: services rebuilt as 4 asymmetric numbered editorial
-  rows (01 Drywall is the oversized feature row) replacing the identical-card grid. Phase 5:
-  projects carousel moved onto a full-bleed dark navy stage with a radial glow and a seamless
-  GSAP marquee for the sector chips. Phase 6: built the site's new signature moment, a pinned
-  ScrollTrigger sequence for "How we build" (3 steps wipe via clip-path as the user scrolls,
-  degrades to a plain stacked grid on mobile/reduced-motion/short viewports). Phase 7: skyline
-  got a dusk gradient + twinkling stars, About/Residential photos get a clip-path reveal wipe,
-  stats bar got a blueprint-grid texture. Phase 8: full QA gate, all green, documented below.
-- **Site now has (cumulative, all client-approved):** Hero matching usagg.com's real structure
-  (near-vertical seam, giant near-black "BUILD" straddling it, rotating word overlapping,
-  corner notch, slow Ken Burns drift; mobile = clean full-bleed video with stacked headline).
-  Direction 3 "Upstate Modern" palette throughout (clay/terracotta #C1552E accent, warm
-  off-white #FAF8F4 background, no safety-orange anywhere), now with real value-rhythm
-  variation (dark/light/dark bands cut with diagonal dividers) instead of one long light run.
-  Genuinely metal framing imagery. Services is 4 asymmetric numbered rows (not identical
-  cards). Projects is a live 3D coverflow carousel on a dark full-bleed stage with a glow and a
-  marquee sector strip, 11 images, falls back to native scroll on touch/reduced-motion. The
-  pinned "How we build" scroll sequence is the new centerpiece motion moment. Skyline has a
-  dusk atmosphere with stars. Jack's real photo in the About section, now with a reveal wipe.
-  GSAP entrance timeline, 3D mouse parallax, card tilt, magnetic CTA throughout (the GSAP+CSS3D
-  answer to the client's repeated "Framer Motion" request).
-- **Next up (priority order):** (1) Client reviews the new build and gives feedback. (2) Client
-  go-live tasks: domain, Formspree endpoint ID, real project photos per `PUBLISHING.md` step 5.
-  (3) Optional Lighthouse run once live on HTTPS.
-- **Landmines:** (1) HARD RULE: zero "Brightline" anywhere, no shared photography, ever. It is
-  a legal/brand-separation requirement. (2) Never fabricate testimonials, license numbers, or
-  claims. (3) Single-file discipline: logo is embedded as base64 data URI, external requests
-  only for Google Fonts, stock CDN media, GSAP CDN, and the Formspree endpoint. (4) House copy
-  style: no em dashes, no emojis, phone without a leading plus, SVG icons only. (5) Free GSAP
-  only, no paid plugins, and no React/Framer Motion (client asks periodically; the answer is
-  GSAP + CSS 3D inside the single-file rule). (6) All imagery is stock flagged
-  `<!-- PLACEHOLDER -->`; every asset needs a license line in the manifest comment.
-  (7) Palette is LOCKED to Direction 3 (navy #09245F + clay #C1552E on warm off-white); fix
-  any perceived dullness with value contrast and drama, never with new colors. (8) Metal studs
-  only in framing imagery, never wood. (9) The redesign must not regress the client-approved
-  items listed in `plan/AUDIT.md` "What is explicitly GOOD". (10) DIAGONAL DIVIDER TECHNIQUE:
-  do not use clip-path-on-section-A + negative-margin-overlap-on-section-B for diagonal seams,
-  it silently fails in this codebase for reasons never fully isolated (computed clip-path was
-  correct, DOM hit-testing said the overlap section was topmost, yet the notch never visually
-  showed the color underneath, across multiple root-cause attempts). Use the `.diag` standalone
-  divider instead: a small fixed-height full-width div between two sections with
-  `background:linear-gradient(to bottom right, colorA 49.7%, colorB 50.3%)`, a hard two-color
-  diagonal split with zero clip-path/z-index/stacking-context risk. See any of the 5 `.diag`
-  divs in index.html for the pattern. (11) ScrollTrigger tied via `.fromTo(el,{},{},{scrollTrigger:{...}})`
-  can, in this codebase, end up with its animation silently detached (the ScrollTrigger instance
-  vanishes from `ScrollTrigger.getAll()` after later, unrelated `gsap.to()` calls target the
-  same element/property elsewhere, e.g. a manual debug tween). Prefer a plain
-  `ScrollTrigger.create({trigger, onEnter, onLeaveBack})` that calls `gsap.to()` itself inside
-  the callback (see the About/Residential image-wipe code) over the fromTo-linked-scrollTrigger
-  shorthand for anything important. (12) INFINITE MARQUEE TECHNIQUE (index-v2.html Recent
-  Projects carousel): don't reach for GSAP's official `horizontalLoop()` helper or a
-  ScrollTrigger-driven approach for a continuously-auto-playing (not scroll-driven) infinite
-  strip. What's actually in the codebase and works: clone the track's children once at init
-  (`track.cloneNode(true)`, append the clone's children back onto the same track), measure the
-  ORIGINAL (pre-clone) width, then a single `gsap.to(track, {x: -originalWidth, duration,
-  ease:"none", repeat:-1})`. Because the clone is pixel-identical and appended immediately
-  after the original, the loop point is seamless with zero extra math. Cursor-position speed
-  control is just `loopTween.timeScale(x)` on `mousemove`, no separate tween needed. See
-  `#projMarquee`/`#projTrack` in index-v2.html.
+- **Project:** Marketing website for Carolina Partitions LLC, a Greenville SC COMMERCIAL
+  drywall, metal stud framing and acoustical ceilings contractor (no painting, no residential).
+  Audience: GC project managers, owners/developers, architects. Owner and only public contact:
+  Jack Morgan, (864) 505-0066, jmorgan@carolina-partitions.com, 16 Rutledge Ave, Greenville SC 29617.
+- **THE CURRENT BUILD IS `index-v3.html`.** `index.html` (v1) and `index-v2.html` are superseded
+  and still contain residential/old content; do not ship or edit them unless JC asks.
+- **Where the work lives:** git repo `deusmac/carolina-partitions-website`, branch
+  `claude/brave-shannon-ahcnb8` (JC also keeps a non-git copy on his desktop). Preview link
+  (private artifact, republish index-v3.html to update): https://claude.ai/artifact/GZjVWdn9HPuvj8vh7uf15A
+- **How v3 is built:** `python build/build_v3.py` (needs Pillow) turns
+  `build/index-v3.template.html` into the single-file `index-v3.html` (every image base64,
+  ~2.0MB) plus `og-image.jpg`. Template tokens: `__LOGO_BLUE__ __LOGO_WHITE__ __JACK__
+  __FAVICON__` (from `build/base64-assets.json`) and `{{IMG path|width|quality|x0,y0,x1,y1}}`
+  (crop fractions, resize, JPEG re-encode, EXIF rotation baked in). EDIT THE TEMPLATE, then
+  rebuild; hand edits to index-v3.html are lost on the next build. Rebuild is byte-identical.
+- **Design:** structure modeled on usagg.com (capture + exact measurements in
+  `plan/usagg-ref/NOTES.md`), palette JC picked = "Option C" navy #0A1F4A / ink #06142F /
+  card #0F2656 / sand #E6DAC3 / bronze #8A7148. Nunito Sans + Open Sans. Square corners, one
+  diagonal angle. No orange anywhere, no yellow (JC chose sand over usagg yellow).
+- **Page, top to bottom:** utility bar, sticky white nav (About, Services, Projects, Project
+  Rock, Why Us, Contact, Call Jack); HERO = 5-slide crossfade synced with "<word> is our
+  STANDARD" every 5.5s (Precision/Rock 09 arch, Safety/Rock 01 crew on lifts, Stability/Rock 04
+  steel framing, Craftsmanship/Woodlands as 3 small tiles, Quality/RS 03), caption chip per
+  slide, clickable progress dots; stats bar; Services (text + 3 slanted photo strips: RS 07,
+  Rock 03, stock ceilings); Current projects (Woodlands at Furman tiles, Bedrock Veterinary
+  Clinic stock, RS Spartanburg + 4-photo RS gallery); Featured project Project Rock (photo 10 +
+  "What we build" grid of 01-08); Why (4 cards); Jack's career projects carousel (auto-drifts,
+  loops by moving cards, pauses on hover/touch, arrows still work); About Jack (real headshot);
+  Contact (Jack card + quote form); footer.
+- **Leads:** form POSTs to Google Apps Script web app
+  https://script.google.com/macros/s/AKfycbwYNTrmw5_wEzBCh35W6OGrQBdi7URQiIQ2jZa_a-v2uPDn1DIpqkconLUn1ALymyL2/exec
+  (`LEADS_URL` in the template) which appends to the Google Sheet "Carolina Partitions Website
+  Leads" tab Leads (https://docs.google.com/spreadsheets/d/11oe1XEzhJe5hY6DxnhYVedub2LSoAk3xviybsnaSuTc/edit,
+  owner johnc.tiempo@gmail.com) and emails Jack (reply-to = customer). Form also takes a
+  "Link to plans" and up to 4 files / 15 MB (PDF JPG PNG DWG ZIP XLSX DOCX) saved to a private
+  Drive folder and attached to the email. Code `leads/google-apps-script.gs`, steps
+  `leads/SETUP.md`; copies in JC's OneDrive folder "Carolina Partitions Website Leads".
+- **Open items (as of 2026-10-01):**
+  1. JC must paste the NEW script (attachments version), Run setup, and redeploy as a new
+     version of the same deployment. As of the last check the sheet still had the old 8
+     headers, so it was not done yet.
+  2. No real end-to-end test lead yet (the cloud sandbox cannot reach script.google.com).
+  3. Real photos still needed: ceilings strip, Bedrock, higher-res Woodlands, all career
+     projects. Stone Cottage is not on the site.
+  4. Go-live: domain, Netlify upload of index.html (renamed from index-v3.html) + og-image.jpg,
+     per `PUBLISHING.md` (rewritten for v3).
+  5. Photo 01 at Project Rock shows a jobsite banner with 864-288-7663 / carolinapartitions.com,
+     different from Jack's number; flagged to JC, left as is.
+  6. RS Spartanburg photos are by Frank Costa, Heritage Paintworks: credit is in HTML comments
+     only. Ask JC before adding a visible credit.
+- **Verification that works in the cloud sandbox:** Playwright + preinstalled Chromium
+  (`NODE_PATH=$(npm root -g)`), open index-v3.html via file://, `ignoreHTTPSErrors:true` so
+  Google Fonts load through the proxy, route/mock script.google.com for form tests. Check:
+  every data: image decodes, all imgs have alt, 0 page errors, no horizontal overflow at
+  390/768/1024/1440/1920, and the guards (0 Brightline, 0 visible "paint", 0
+  residential/homeowner, 0 em dashes, 0 emoji). The sandbox network blocks usagg, Pexels,
+  Unsplash and Google script hosts; GitHub, npm, PyPI and Google Fonts work.
+- **Landmines (current):**
+  1. HARD RULE: zero "Brightline" anywhere, no Brightline photography, ever (legal/brand
+     separation). Never pull anything but bare project names from Brightline documents.
+  2. Never fabricate testimonials, license numbers, stats, or project scope. Captions say only
+     what `brand-assets/README.md` supports (Project Rock = steel stud framing + OSB/plywood
+     sheathing of walls, boulders, arch and cave; we do NOT claim the finished climbing
+     surfaces). RS = "Interior build-out" only. Woodlands has no scope claim.
+  3. COMMERCIAL ONLY and NO PAINTING. Any residential/homeowner/painting wording is a
+     regression, including meta tags and JSON-LD. Grep the whole file, not just the visible card.
+  4. Woodlands photos are 240x320: small tiles only, never hero-size or full-width.
+  5. Single file: images base64 via the build; external requests only Google Fonts and the
+     Apps Script endpoint. Keep an eye on size (2.0MB now).
+  6. House copy style: no em dashes, no emojis, phone without a leading plus, SVG icons only.
+  7. Metal studs only in framing imagery, never wood.
+  8. Stock photos stay flagged `<!-- PLACEHOLDER -->` with a manifest line at the bottom.
+  9. JC judges visually: show real screenshots before calling design work done, and for big
+     choices (palette etc.) give him a side-by-side to pick from by eye.
+  10. Older landmines about index.html/index-v2.html (`.diag` dividers, GSAP ScrollTrigger
+      quirks, the GSAP marquee technique) are in section 9's Session 4/7 entries; v3 uses no GSAP.
 
 ## 1. Who you are working for
 
@@ -449,6 +224,13 @@ Now: client go-live (domain, Formspree, real photos per PUBLISHING.md), Lighthou
   one-time Google setup. Also: RS job renamed "RS Spartanburg"; Woodlands sector label removed.
 - Real photos from brand-assets/ embedded in index-v3.html (see section 0 REAL PHOTOS ADDED).
   v3 is single-file again (1.58MB). og-image.jpg added. Applied to v3, not v2, on purpose.
+- Same day: hero became a 5-slide photo slideshow synced to the rotator word (JC wanted
+  "safety is our standard, stability is our standard" with changing project photos, including
+  Woodlands); career carousel now auto-scrolls; quote form got a plans link + file attachments
+  (script saves to Drive, attaches to Jack's email). HTML grew to 2.0MB.
+- Housekeeping: build script + template moved into `build/` (rebuild verified byte-identical),
+  PUBLISHING.md rewritten for v3 (two-file Netlify upload, Google Sheet leads, attachments
+  update), section 0 of this file rewritten as a single current-state briefing.
 
 ### 2026-07-23 - Session 8 (index-v2.html: Project Rock, painting service dropped entirely)
 - Same-day continuation, right after Session 7. JC clarified "The Rock" left open at the end
