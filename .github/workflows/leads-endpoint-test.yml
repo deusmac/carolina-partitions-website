@@ -1,0 +1,29 @@
+# Sends one TEST quote request to the live leads web app from GitHub's servers (normal internet),
+# so the Google Sheet + email path can be verified without a browser. Runs when this file changes
+# or by hand from the Actions tab.
+name: Leads endpoint test
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/brave-shannon-ahcnb8]
+    paths: [.github/workflows/leads-endpoint-test.yml]
+jobs:
+  post-test-lead:
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST a test lead (same fields the website form sends)
+        run: |
+          URL="https://script.google.com/macros/s/AKfycbwYNTrmw5_wEzBCh35W6OGrQBdi7URQiIQ2jZa_a-v2uPDn1DIpqkconLUn1ALymyL2/exec"
+          echo "--- POST (follows Google's redirect) ---"
+          curl -sS -L -X POST "$URL" \
+            --data-urlencode "_gotcha=" \
+            --data-urlencode "name=TEST website form check, please ignore" \
+            --data-urlencode "i_am_a=General Contractor" \
+            --data-urlencode "email=john@carolina-partitions.com" \
+            --data-urlencode "phone=" \
+            --data-urlencode "preferred_contact=Email" \
+            --data-urlencode "project=Automated test from GitHub Actions to confirm the website form reaches the leads sheet. Safe to delete." \
+            -w "\nHTTP %{http_code}  final URL: %{url_effective}\n" | head -c 3000
+          echo
+          echo "--- GET (doGet check) ---"
+          curl -sS -L "$URL" -w "\nHTTP %{http_code}\n" | head -c 600
