@@ -21,8 +21,8 @@ if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
 $clasp = 'npx -y @google/clasp@2.4.2'
 
 Step "Turn on the Apps Script API (one switch)"
-Write-Host "A browser tab will open. Set 'Google Apps Script API' to ON, then come back here."
-Start-Process "https://script.google.com/home/usersettings"
+Write-Host "A browser tab will open. If it says you do not have access, click 'Sign in with a different account' and pick johnc.tiempo@gmail.com (your work Google account has Apps Script turned off). Then set 'Google Apps Script API' to ON and come back here."
+Start-Process "https://script.google.com/home/usersettings?authuser=johnc.tiempo@gmail.com"
 Read-Host "Press Enter when the switch is ON"
 
 Step "Sign in to Google (johnc.tiempo@gmail.com)"
@@ -197,7 +197,7 @@ Step "Approve the web app (one time)"
 Write-Host "A browser tab will open. Click Review permissions, pick johnc.tiempo@gmail.com,"
 Write-Host "Advanced, 'Go to Carolina Partitions Website Leads (unsafe)', Allow."
 Write-Host "You should then see: 'Carolina Partitions leads: setup done.'"
-Start-Process $url
+Start-Process ($url + "?authuser=johnc.tiempo@gmail.com")
 Read-Host "Press Enter after you see 'setup done'"
 
 Step "Sending one test quote request (with a small PDF)"
