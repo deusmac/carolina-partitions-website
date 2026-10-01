@@ -20,6 +20,11 @@ to read only section 0 and know exactly where things stand. History lives in sec
   drywall, metal stud framing and acoustical ceilings contractor (no painting, no residential).
   Audience: GC project managers, owners/developers, architects. Owner and only public contact:
   Jack Morgan, (864) 505-0066, jmorgan@carolina-partitions.com, 16 Rutledge Ave, Greenville SC 29617.
+- **LIVE SITE (2026-10-01): https://deusmac.github.io/carolina-partitions-website/** = GitHub Pages
+  serving the `main` branch. JC approved pushing to main. To update the live site: rebuild
+  index-v3.html, copy it to index.html, merge to main and push (Pages redeploys in ~1 minute).
+  `index-v1.html` is the old first version. Custom domain not connected yet (a CNAME was added
+  and removed on main earlier).
 - **THE CURRENT BUILD IS `index-v3.html`.** `index.html` (v1) and `index-v2.html` are superseded
   and still contain residential/old content; do not ship or edit them unless JC asks.
 - **Where the work lives:** git repo `deusmac/carolina-partitions-website`, branch
