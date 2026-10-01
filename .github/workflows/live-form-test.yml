@@ -1,0 +1,42 @@
+# Opens the LIVE GitHub Pages site in real Chrome, fills in the quote form like a visitor and
+# presses Send. Then check the Leads sheet for the row. Runs when this file changes or by hand.
+name: Live site form test
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/brave-shannon-ahcnb8]
+    paths: [.github/workflows/live-form-test.yml]
+jobs:
+  submit-form:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for the new site to be live
+        run: |
+          for i in $(seq 1 40); do
+            if curl -sS https://deusmac.github.io/carolina-partitions-website/ | grep -q 'credentials:"omit"'; then echo "new site is live"; exit 0; fi
+            sleep 15
+          done
+          echo "new site never appeared"; exit 1
+      - name: Submit the quote form in Chrome
+        run: |
+          npm init -y >/dev/null && npm i playwright@1.56.1 >/dev/null && npx playwright install chromium >/dev/null
+          cat > t.js <<'JS'
+          const { chromium } = require('playwright');
+          (async () => {
+            const b = await chromium.launch(); const p = await b.newPage();
+            p.on('pageerror', e => console.log('PAGE ERROR', e.message));
+            p.on('response', r => { if (/script\.google/.test(r.url())) console.log('google responded', r.status()); });
+            await p.goto('https://deusmac.github.io/carolina-partitions-website/', { waitUntil: 'load' });
+            console.log('title:', await p.title());
+            await p.fill('#f-name', 'TEST live site form, please ignore');
+            await p.selectOption('#f-role', 'General Contractor');
+            await p.fill('#f-email', 'john@carolina-partitions.com');
+            await p.fill('#f-msg', 'Automated test from the live GitHub Pages site in Chrome. Safe to delete.');
+            await p.fill('#f-plans', 'https://example.com/test-plans');
+            await p.click('#quoteForm button[type=submit]');
+            await p.waitForTimeout(6000);
+            console.log('form message:', await p.textContent('#formMsg'));
+            await b.close();
+          })();
+          JS
+          node t.js
