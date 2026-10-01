@@ -310,6 +310,8 @@ h1,h2,h3,h4,p{margin:0}
 .form .btn{width:100%}
 .form__note{margin-top:12px; text-align:center; font-size:14px; color:var(--steel)}
 .form__msg{margin-top:10px; font-size:15px}
+.form__drawings{text-align:left; margin:-4px 0 18px; font-size:15px}
+.form__drawings a{color:var(--navy); font-weight:600}
 .form__msg.ok{color:#1E6B3A}.form__msg.err{color:#9B2C2C}
 
 /* ---------- Footer ---------- */
@@ -732,12 +734,7 @@ h1,h2,h3,h4,p{margin:0}
         </div>
         <div class="field"><label for="f-msg">Project details <span class="req">*</span></label><textarea id="f-msg" name="project" placeholder="Scope, location, and rough timeline. The more detail, the faster we can price it." required></textarea></div>
         <div class="field"><label for="f-plans">Link to plans (optional)</label><input id="f-plans" name="plans_link" type="url" inputmode="url" placeholder="https:// Dropbox, Google Drive, BuildingConnected or Procore link"></div>
-        <div class="field">
-          <label for="f-files">Attach drawings or photos (optional)</label>
-          <input id="f-files" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.dwg,.zip,.xlsx,.docx">
-          <small>Up to 4 files, 15 MB total: PDF, JPG, PNG, DWG, ZIP, XLSX or DOCX. For full plan sets, paste a link above instead.</small>
-          <ul class="file-list" id="fileList" aria-live="polite"></ul>
-        </div>
+        <p class="form__note form__drawings">Have drawings or photos? Email them to <a href="mailto:jmorgan@carolina-partitions.com?subject=Drawings%20for%20quote%20request">jmorgan@carolina-partitions.com</a> after you send this form, or paste a link above.</p>
         <div class="field"><label for="f-contact">Preferred contact</label>
           <select id="f-contact" name="preferred_contact"><option>Email</option><option>Phone call</option><option>Text message</option></select></div>
         <button class="btn btn--solid" type="submit">Send Quote Request</button>
@@ -867,55 +864,19 @@ h1,h2,h3,h4,p{margin:0}
   // Quote form -> Google Sheet (Apps Script web app, see leads/SETUP.md)
   var LEADS_URL = "https://script.google.com/macros/s/AKfycbwYNTrmw5_wEzBCh35W6OGrQBdi7URQiIQ2jZa_a-v2uPDn1DIpqkconLUn1ALymyL2/exec";
   var form = document.getElementById("quoteForm"), msg = document.getElementById("formMsg");
-  var fileInput = document.getElementById("f-files"), fileList = document.getElementById("fileList");
-  var MAX_FILES = 4, MAX_BYTES = 15 * 1024 * 1024, OK_EXT = ["pdf","jpg","jpeg","png","dwg","zip","xlsx","docx"];
-  function fileProblem(files){
-    if (files.length > MAX_FILES) return "Please attach up to " + MAX_FILES + " files.";
-    var total = 0;
-    for (var i = 0; i < files.length; i++) {
-      var ext = files[i].name.split(".").pop().toLowerCase();
-      if (OK_EXT.indexOf(ext) < 0) return files[i].name + " is not an accepted file type.";
-      total += files[i].size;
-    }
-    if (total > MAX_BYTES) return "Attachments are over 15 MB. Please paste a link to the plans instead.";
-    return "";
-  }
-  fileInput.addEventListener("change", function(){
-    fileList.innerHTML = ""; msg.className = "form__msg"; msg.textContent = "";
-    var files = fileInput.files;
-    for (var i = 0; i < files.length; i++) {
-      var li = document.createElement("li");
-      li.textContent = files[i].name + " (" + (files[i].size / 1048576).toFixed(1) + " MB)";
-      fileList.appendChild(li);
-    }
-    var problem = fileProblem(files);
-    if (problem) { msg.classList.add("err"); msg.textContent = problem; }
-  });
-  function readB64(file){
-    return new Promise(function(res, rej){
-      var r = new FileReader();
-      r.onload = function(){ res(String(r.result).split(",")[1] || ""); };
-      r.onerror = rej;
-      r.readAsDataURL(file);
-    });
-  }
   form.addEventListener("submit", function(e){
     e.preventDefault();
     msg.className = "form__msg";
     if (!form.checkValidity()) { msg.classList.add("err"); msg.textContent = "Please fill in the required fields marked with *, and check the plans link starts with https://."; return; }
-    var files = fileInput.files, problem = fileProblem(files);
-    if (problem) { msg.classList.add("err"); msg.textContent = problem; return; }
     if (LEADS_URL.indexOf("https://script.google.com/") !== 0) { msg.classList.add("err"); msg.textContent = "The quote form is almost ready. Until then, call (864) 505-0066 or email jmorgan@carolina-partitions.com."; return; }
     var btn = form.querySelector("button[type=submit]"), label = btn.textContent;
     btn.disabled = true; btn.style.opacity = ".7"; btn.textContent = "Sending...";
-    msg.textContent = files.length ? "Uploading " + files.length + " file" + (files.length > 1 ? "s" : "") + " and sending your request..." : "Sending your request...";
+    msg.textContent = "Sending your request...";
     var body = new URLSearchParams(new FormData(form));
-    Promise.all(Array.prototype.map.call(files, readB64))
-      .then(function(datas){
-        datas.forEach(function(d, i){ body.append("file" + (i + 1) + "_name", files[i].name); body.append("file" + (i + 1) + "_data", d); });
-        return fetch(LEADS_URL, { method:"POST", mode:"no-cors", body:body });
-      })
-      .then(function(){ form.reset(); fileList.innerHTML = ""; msg.classList.add("ok"); msg.textContent = "Thank you. Your request is in, and Jack will get back to you within one business day."; })
+    var link = (body.get("plans_link") || "").trim();
+    if (link) body.set("project", body.get("project") + "\n\nPlans link: " + link);   // saved by the live script in Project details
+    fetch(LEADS_URL, { method:"POST", mode:"no-cors", body:body })
+      .then(function(){ form.reset(); msg.classList.add("ok"); msg.textContent = "Thank you. Your request is in, and Jack will get back to you within one business day. If you have drawings, email them to jmorgan@carolina-partitions.com."; })
       .catch(function(){ msg.classList.add("err"); msg.textContent = "Something went wrong sending the form. Please call (864) 505-0066 or email jmorgan@carolina-partitions.com."; })
       .then(function(){ btn.disabled = false; btn.style.opacity = "1"; btn.textContent = label; });
   });

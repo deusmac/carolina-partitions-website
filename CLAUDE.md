@@ -50,15 +50,16 @@ to read only section 0 and know exactly where things stand. History lives in sec
   (`LEADS_URL` in the template) which appends to the Google Sheet "Carolina Partitions Website
   Leads" tab Leads (https://docs.google.com/spreadsheets/d/11oe1XEzhJe5hY6DxnhYVedub2LSoAk3xviybsnaSuTc/edit,
   owner johnc.tiempo@gmail.com) and emails Jack (reply-to = customer). Form also takes a
-  "Link to plans" and up to 4 files / 15 MB (PDF JPG PNG DWG ZIP XLSX DOCX), attached to the
-  email to Jack and listed by name in the sheet. Code `leads/google-apps-script.gs`, steps
+  "Link to plans" (folded into Project details); drawings are emailed to Jack directly (mailto
+  link on the form), no file upload. Code `leads/google-apps-script.gs`, steps
   `leads/SETUP.md`; copies in JC's OneDrive folder "Carolina Partitions Website Leads".
 - **Open items (as of 2026-10-01):**
-  1. JC runs `leads/setup-leads.ps1` once on his PC (also in his OneDrive leads folder). It
-     creates a NEW standalone web app and prints its URL. Then swap LEADS_URL in
-     `build/index-v3.template.html` to that URL, rebuild, republish the preview, and confirm
-     the TEST row (with setup-test.pdf) via the Google Drive connector. Attachments are
-     emailed to Jack and named in the sheet; there is no Drive folder anymore.
+  1. ATTACHMENTS DROPPED (JC, 2026-10-01: Google setup kept failing because his browser's
+     default Google account is a work account with Apps Script disabled). The site now uses the
+     ORIGINAL live deployment as is: the plans link is folded into "Project details" before
+     sending, and the form tells visitors to email drawings to jmorgan@ (mailto link). No file
+     upload field. `leads/setup-leads.ps1` + the attachments script remain in the repo if JC ever
+     wants uploads; running it needs johnc.tiempo@gmail.com, not the work account.
   2. No real end-to-end test lead yet (the cloud sandbox cannot reach script.google.com).
   3. Real photos still needed: ceilings strip, Bedrock, higher-res Woodlands, all career
      projects. Stone Cottage is not on the site.
