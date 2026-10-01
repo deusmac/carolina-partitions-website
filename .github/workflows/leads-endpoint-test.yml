@@ -23,7 +23,10 @@ jobs:
             --data-urlencode "phone=" \
             --data-urlencode "preferred_contact=Email" \
             --data-urlencode "project=Automated test from GitHub Actions to confirm the website form reaches the leads sheet. Safe to delete." \
-            -w "\nHTTP %{http_code}  final URL: %{url_effective}\n" | head -c 3000
+            -o post.html -w "\nHTTP %{http_code}  final URL: %{url_effective}\n"
+          echo "--- visible text of the response ---"
+          sed -e 's/<script[^>]*>.*<\/script>//g' -e 's/<style[^>]*>.*<\/style>//g' -e 's/<[^>]*>/ /g' post.html | tr -s ' \n' | head -c 1500
           echo
           echo "--- GET (doGet check) ---"
-          curl -sS -L "$URL" -w "\nHTTP %{http_code}\n" | head -c 600
+          curl -sS -L "$URL" -o get.html -w "\nHTTP %{http_code}\n"
+          sed -e 's/<script[^>]*>.*<\/script>//g' -e 's/<[^>]*>/ /g' get.html | tr -s ' \n' | head -c 800
