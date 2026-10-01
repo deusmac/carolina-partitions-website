@@ -51,9 +51,13 @@ to read only section 0 and know exactly where things stand. History lives in sec
   (`|sharp2` token) and shown as 1 big + 2 stacked (hero and card); services strips cut tall
   from the full-size originals. HTML ~2.3MB. Measure rendered vs natural image sizes with
   Playwright before shipping; nothing should be upscaled by the browser.
-- **Form transport:** the quote form posts a hidden HTML form into a hidden iframe (not fetch),
-  because fetch was blocked in the preview/file:// contexts (JC's test failed and no row reached
-  the sheet). Success = iframe load; 20s timeout shows the call/email fallback.
+- **Form transport:** fetch(no-cors, credentials:"omit") first, so the POST never carries the
+  visitor's Google cookies; if fetch is blocked (sandboxed preview), fall back to a hidden form
+  posted into a hidden iframe. ROOT CAUSE of JC's failed tests: his Chrome's default Google
+  account is a work Workspace account with Apps Script disabled, so requests sent with his
+  cookies got "Sorry, the file cannot be opened" (incognito showed "Script function not found:
+  doGet" = deployment is public and fine). The browser cannot read the opaque response, so
+  "Thank you" only means the request was sent; verify leads in the sheet/Jack's inbox.
 - **Leads:** form POSTs to Google Apps Script web app
   https://script.google.com/macros/s/AKfycbwYNTrmw5_wEzBCh35W6OGrQBdi7URQiIQ2jZa_a-v2uPDn1DIpqkconLUn1ALymyL2/exec
   (`LEADS_URL` in the template) which appends to the Google Sheet "Carolina Partitions Website
