@@ -32,8 +32,8 @@ to read only section 0 and know exactly where things stand.
     "STANDARD" knocked out of a slanted sand band SVG, paragraph, solid + outline buttons,
     hairline parallelogram and outlined triangle sliding in), 3-column stat bar, Services
     (text left, three slanted photo strips right like usagg's Applications collage), Current
-    projects (dark, 3 pop-in cards: Woodlands at Furman, Bedrock Veterinary Clinic,
-    Spartanburg Remodel), Why (dark, 4 cards with sand top borders), Jack's career projects
+    projects (dark, 3 pop-in cards: Woodlands at Furman (no sector label, per JC), Bedrock
+    Veterinary Clinic, RS Spartanburg), Why (dark, 4 cards with sand top borders), Jack's career projects
     (usagg News-style square-card carousel with sand arrow buttons), About Jack (real photo),
     Contact (dark, Jack card + quote form), footer (diagonal-band background, 3 columns).
   - COMMERCIAL ONLY (JC, 2026-10-01): "We're not doing any residential or home interiors."
@@ -45,15 +45,22 @@ to read only section 0 and know exactly where things stand.
     `assets/stock/PHOTOS.md`) by relative path, so v3 is NO LONGER a single file: deploy the
     `assets/stock/` folder next to it. Three career cards (Project Rock, Cabela's, Gatlinburg
     Aquarium) still use Pexels CDN URLs. All stock is flagged PLACEHOLDER.
-  - QUOTE FORM IS NOT CONNECTED YET: action is still `https://formspree.io/f/YOUR_FORM_ID`, so
-    submissions only show "call or email Jack" for now. JC asked where leads will go;
-    recommended setup is in the Session 9 changelog entry. Needs JC's decision.
+  - LEADS (JC picked option 2, 2026-10-01): form posts to a Google Apps Script web app that
+    appends each lead to a Google Sheet ("Carolina Partitions Website Leads", tab "Leads") and
+    emails jmorgan@ with reply-to set to the customer. Code: `leads/google-apps-script.gs`,
+    steps: `leads/SETUP.md`. Both also saved to JC's OneDrive folder "Carolina Partitions
+    Website Leads" (john@carolina-partitions.com). NOT LIVE YET: JC must do the ~3 min Google
+    step (only the account owner can create the sheet and authorize the script; Google Drive
+    connector is not connected here and the sandbox cannot reach Google). Then paste the web app
+    URL into `LEADS_URL` in index-v3.html (until then the form shows "call or email Jack") and
+    put the sheet link in SETUP.md and the OneDrive SETUP file. Tested: form POST body via
+    Playwright with a mocked endpoint, and the script with stubbed Google services (honeypot
+    drop, invalid rejected, formula injection neutralized, role/contact whitelisted).
   - Verified with real screenshots (`plan/v3-shots/`, real photos and fonts loaded): no
     horizontal overflow at 390/768/1024/1440/1920, 0 JS errors, 0 Brightline, 0 paint,
     0 residential/homeowner, 0 em dashes, 0 emoji, 181KB HTML.
-  - STILL OPEN: (a) public name for the "RS" Spartanburg job (TODO comment in HTML).
-    (b) confirm Woodlands at Furman sector ("Senior living"). (c) form/lead routing.
-    (d) real project photos. (e) build source: v3 is generated from a template with base64
+  - STILL OPEN: (a) JC's Google setup + web app URL for leads. (b) real project photos
+    (JC is sending some). (c) PUBLISHING.md still describes Formspree for the old site. (e) build source: v3 is generated from a template with base64
     tokens (`__LOGO_BLUE__`, `__LOGO_WHITE__`, `__JACK__`, `__FAVICON__`) pulled from
     index-v2.html; editing index-v3.html directly is fine, the template is not in the repo.
 - **CURRENT PHASE (2026-09-30, Session 9, READ THIS FIRST, it overrides older bullets below):**
@@ -376,6 +383,8 @@ Now: client go-live (domain, Formspree, real photos per PUBLISHING.md), Lighthou
   For a live spreadsheet, either Formspree's Google Sheets plugin (paid plans) or a free Google
   Apps Script web app that appends each submission to a Google Sheet and emails Jack. Optional
   later: also log each lead into Athena as a "possible" project. Waiting on JC's pick.
+- JC picked option 2 (Google Sheet). Built and wired it (see section 0 LEADS); waiting on his
+  one-time Google setup. Also: RS job renamed "RS Spartanburg"; Woodlands sector label removed.
 
 ### 2026-07-23 - Session 8 (index-v2.html: Project Rock, painting service dropped entirely)
 - Same-day continuation, right after Session 7. JC clarified "The Rock" left open at the end
