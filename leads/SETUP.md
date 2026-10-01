@@ -44,3 +44,18 @@ runs a test submission, and saves the sheet link here.
 - Bots that fill the hidden field are dropped. Text that starts with =, +, - or @ is stored
   as plain text so nothing in a lead can run as a spreadsheet formula.
 - Google free accounts can send about 100 emails a day from a script, far more than needed.
+
+## Update (2026-10-01): attachments on the quote form
+
+The website form now accepts a "Link to plans" and up to 4 files (15 MB total; PDF, JPG, PNG,
+DWG, ZIP, XLSX, DOCX). The script saves files to a private Drive folder
+"Carolina Partitions Website Leads - Attachments" (one subfolder per request), adds the links
+to new "Plans link" and "Attachments" columns, and attaches the files to Jack's email.
+
+To turn it on (2 minutes, signed in as johnc.tiempo@gmail.com):
+1. Open the leads sheet, Extensions, Apps Script.
+2. Replace all the code with the new `google-apps-script.gs` and Save.
+3. Pick "setup" and Run. Google asks for permission again (now including Drive). Allow.
+4. Deploy, Manage deployments, pencil icon, Version: New version, Deploy.
+   Keep the SAME deployment so the web app URL does not change.
+Until this is done, the form still works, but attached files and the plans link are ignored.

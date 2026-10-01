@@ -19,6 +19,27 @@ to read only section 0 and know exactly where things stand.
 - **Project:** Single-file marketing website for Carolina Partitions LLC, a Greenville SC
   commercial drywall/framing/ceilings/painting contractor being re-launched. Public site for
   GC project managers and homeowners. Built per `Carolina_Partitions_Website_Build_Brief.md`.
+- **HERO SLIDESHOW, AUTO-SCROLL CAROUSEL, QUOTE ATTACHMENTS (2026-10-01, latest).**
+  - Hero is now a 5-slide crossfade synced to the rotator word every 5.5s: Precision = Project
+    Rock 09 arch, Safety = Rock 01 crew on lifts, Stability = Rock 04 tall steel framing,
+    Craftsmanship = Woodlands (3 crisp 240x320 tiles on navy, never stretched), Quality =
+    RS 03 corridor. Caption chip per slide, progress-bar dots (clickable), pauses when the tab is
+    hidden, static first slide under reduced motion. Hero photos are cropped to the hero's wide
+    frame before encoding (900w).
+  - Jack's career carousel auto-drifts (~36px/s), loops forever by moving the first card to the
+    end (no clones, so no duplicate base64), pauses on hover/touch/focus and for 6s after an
+    arrow click. Reduced motion: no drift, arrows only.
+  - Quote form: optional "Link to plans" (https only) + up to 4 files / 15 MB (PDF, JPG, PNG,
+    DWG, ZIP, XLSX, DOCX), validated in the browser and again in the script by extension
+    whitelist and size. Files go base64 in the POST; the script saves them to a private Drive
+    folder "Carolina Partitions Website Leads - Attachments" (subfolder per lead), writes links
+    to new "Plans link"/"Attachments" columns and attaches them to Jack's email (links only if
+    over 20 MB). NEEDS JC: paste the new script, Run setup (re-authorize with Drive), then
+    Manage deployments > Edit > New version (same URL). Steps in leads/SETUP.md and OneDrive.
+  - HTML is now 2.02MB (38 embedded images). Over the old 1.5MB budget because of the extra
+    hero slides; the Rock 01/04 steel-stud detail compresses poorly. Verified: 38/38 images
+    decode, all have alt, 0 JS errors, no overflow 390-1920, guards all 0. Preview artifact:
+    https://claude.ai/artifact/GZjVWdn9HPuvj8vh7uf15A (republish index-v3.html to update).
 - **REAL PHOTOS ADDED (2026-10-01, later). `index-v3.html` is still THE current build.**
   A request came in to put the real photos in "index-v2.html"; it was applied to index-v3.html
   instead because v3 is the approved build (v2 is superseded and still has residential copy).
