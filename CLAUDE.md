@@ -19,23 +19,43 @@ to read only section 0 and know exactly where things stand.
 - **Project:** Single-file marketing website for Carolina Partitions LLC, a Greenville SC
   commercial drywall/framing/ceilings/painting contractor being re-launched. Public site for
   GC project managers and homeowners. Built per `Carolina_Partitions_Website_Build_Brief.md`.
-- **UPDATE (2026-09-30, later in Session 9):** JC picked palette **Option C, navy + sand, no
-  yellow** (`plan/palette-options.html`). Built `index-v3.html` (single file, 185KB) in that
-  palette: navy utility bar, white sticky nav with the blue logo, full-height hero with the
-  photo on the left and a sand panel on the right (slanted seam, NO floating BUILD word),
-  3-service strip, stats band, 3 large service cards, "Current projects" (Woodlands at Furman,
-  Bedrock Veterinary Clinic, Spartanburg Remodel) with a simple pop-in reveal, Jack's career
-  projects grid (8 cards plus a text list of the rest), static 3-column "Why" (NO pinned
-  1/2/3 scroll), founder section with Jack's real photo, residential, CTA band, contact with
-  Jack as the one contact, footer. 1560px max content width, 18px body text. No GSAP.
-  Screenshots in `plan/v3-shots/` (photos appear as gray "PHOTO id" stand-ins because the
-  sandbox cannot load Pexels; they load normally in a real browser). Guards: 0 Brightline,
-  0 paint, 0 em dashes, 0 emoji, no horizontal overflow at 390/1440, 0 JS errors.
-  STILL OPEN: (a) JC is having another agent capture usagg.com into `plan/usagg-ref/` and
-  better stock photos into `assets/stock/` (with `assets/stock/PHOTOS.md`); once those land,
-  match v3's layout to the usagg screenshots and swap the photos in. (b) Public name for the
-  "RS" Spartanburg job (currently "Spartanburg Remodel", TODO comment in the HTML).
-  (c) Confirm Woodlands at Furman sector (shown as "Senior living").
+- **LATEST (2026-10-01, Session 9 continued). `index-v3.html` IS THE CURRENT BUILD.**
+  - Rebuilt on usagg.com's real structure, using the capture another agent pushed to
+    `plan/usagg-ref/` (NOTES.md has exact measurements, PNGs per section). Palette is JC's
+    pick, Option C navy + sand, mapped onto usagg's color roles (slate -> navy #0A1F4A, ink ->
+    #06142F, card -> #0F2656, yellow -> sand #E6DAC3, bronze #8A7148 for small accents on
+    white). Fonts: Nunito Sans (headings) + Open Sans (body), same as usagg. Square corners,
+    one diagonal angle reused everywhere.
+  - Sections in order: navy utility bar (call/email Jack), sticky white nav (sand Contact
+    button + outline Call Jack, mobile right-aligned panel with sand top border), hero
+    (full-bleed photo, navy gradient from the left, eyebrow, rotating "X is our" line every 5s,
+    "STANDARD" knocked out of a slanted sand band SVG, paragraph, solid + outline buttons,
+    hairline parallelogram and outlined triangle sliding in), 3-column stat bar, Services
+    (text left, three slanted photo strips right like usagg's Applications collage), Current
+    projects (dark, 3 pop-in cards: Woodlands at Furman, Bedrock Veterinary Clinic,
+    Spartanburg Remodel), Why (dark, 4 cards with sand top borders), Jack's career projects
+    (usagg News-style square-card carousel with sand arrow buttons), About Jack (real photo),
+    Contact (dark, Jack card + quote form), footer (diagonal-band background, 3 columns).
+  - COMMERCIAL ONLY (JC, 2026-10-01): "We're not doing any residential or home interiors."
+    No residential section, no homeowner copy, no residential nav/footer links, form "I am a"
+    options are GC / Owner-Developer / Architect-Designer / Other business. Treat any
+    residential or homeowner wording on v3 as a regression. index.html and index-v2.html still
+    contain residential content (untouched); fix them too if they ever ship.
+  - PHOTOS: v3 references local files in `assets/stock/` (20 Pexels photos, credits in
+    `assets/stock/PHOTOS.md`) by relative path, so v3 is NO LONGER a single file: deploy the
+    `assets/stock/` folder next to it. Three career cards (Project Rock, Cabela's, Gatlinburg
+    Aquarium) still use Pexels CDN URLs. All stock is flagged PLACEHOLDER.
+  - QUOTE FORM IS NOT CONNECTED YET: action is still `https://formspree.io/f/YOUR_FORM_ID`, so
+    submissions only show "call or email Jack" for now. JC asked where leads will go;
+    recommended setup is in the Session 9 changelog entry. Needs JC's decision.
+  - Verified with real screenshots (`plan/v3-shots/`, real photos and fonts loaded): no
+    horizontal overflow at 390/768/1024/1440/1920, 0 JS errors, 0 Brightline, 0 paint,
+    0 residential/homeowner, 0 em dashes, 0 emoji, 181KB HTML.
+  - STILL OPEN: (a) public name for the "RS" Spartanburg job (TODO comment in HTML).
+    (b) confirm Woodlands at Furman sector ("Senior living"). (c) form/lead routing.
+    (d) real project photos. (e) build source: v3 is generated from a template with base64
+    tokens (`__LOGO_BLUE__`, `__LOGO_WHITE__`, `__JACK__`, `__FAVICON__`) pulled from
+    index-v2.html; editing index-v3.html directly is fine, the template is not in the repo.
 - **CURRENT PHASE (2026-09-30, Session 9, READ THIS FIRST, it overrides older bullets below):**
   JC is looking at `index.html` (the complaints below are about that file) and wants a
   full redesign modeled as closely as possible on **https://usagg.com/** (US Aggregates).
@@ -345,6 +365,17 @@ Now: client go-live (domain, Formspree, real photos per PUBLISHING.md), Lighthou
 - Diagnosed "looks compact": `--maxw:1200px` container in index.html.
 - Later the same session: JC picked palette Option C (navy + sand). Built index-v3.html, see
   the UPDATE bullet in section 0. Screenshots in plan/v3-shots/.
+- 2026-10-01: JC had another agent push `plan/usagg-ref/` (usagg capture) and `assets/stock/`
+  (20 photos). Rebuilt index-v3.html on usagg's real structure (see section 0 LATEST). JC then
+  said commercial only, no residential: removed the residential section and every homeowner
+  mention from v3. Fixed a mobile horizontal-scroll bug (an unrevealed slide-in element 60px
+  off-canvas in a section without overflow clipping; `main{overflow-x:clip}`).
+- LEAD ROUTING (JC asked where quote requests go): today nowhere, the form is a placeholder.
+  Recommended: Formspree free plan (50 submissions/month) on jmorgan@carolina-partitions.com,
+  which emails Jack every request and keeps all leads in the Formspree dashboard (CSV export).
+  For a live spreadsheet, either Formspree's Google Sheets plugin (paid plans) or a free Google
+  Apps Script web app that appends each submission to a Google Sheet and emails Jack. Optional
+  later: also log each lead into Athena as a "possible" project. Waiting on JC's pick.
 
 ### 2026-07-23 - Session 8 (index-v2.html: Project Rock, painting service dropped entirely)
 - Same-day continuation, right after Session 7. JC clarified "The Rock" left open at the end
