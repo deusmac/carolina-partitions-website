@@ -51,15 +51,15 @@ to read only section 0 and know exactly where things stand. History lives in sec
   (`|sharp2` token) and shown as 1 big + 2 stacked (hero and card); services strips cut tall
   from the full-size originals. HTML ~2.3MB. Measure rendered vs natural image sizes with
   Playwright before shipping; nothing should be upscaled by the browser.
-- **Quote form = EMAIL FIRST (JC, 2026-10-01, after repeated failed Google tests):** pressing
-  "Email My Quote Request" opens a prefilled email to jmorgan@ in the visitor's own mail app
-  (mailto with subject + all fields; visitor attaches drawings and sends). A panel with an
-  "Open the email to Jack" button + phone shows as fallback. The Google Sheet POST still fires in
-  the background (fetch no-cors, credentials omit, keepalive) as a best-effort log; its success
-  was never confirmed (JC's tests ran in the claude.ai preview, which blocks outbound form
-  posts, and his Chrome's default Google account is a work account with Apps Script disabled;
-  incognito showed the web app itself is public: "Script function not found: doGet").
-  Do not reintroduce a form that depends only on the Google script.
+- **Quote form = sends in the page (VERIFIED WORKING 2026-10-01).** fetch POST (no-cors,
+  credentials:"omit") to the live web app. Verified end to end from GitHub Actions
+  (`.github/workflows/leads-endpoint-test.yml`, runs when that file changes or by hand): 2 TEST
+  rows landed in the Leads tab and 2 emails reached jmorgan@, BUT IN JACK'S JUNK FOLDER (sender
+  johnc.tiempo@gmail.com via Google). Needs a safe-sender/inbox rule in Jack's mailbox (ask JC
+  before changing his mailbox). Earlier failures were test-setup problems, not the script: the
+  claude.ai preview blocks outbound posts, and JC's Chrome sends his work Google account (Apps
+  Script disabled). Test the real path with the GitHub workflow, never through the preview.
+  The mailto approach was tried and rejected by JC ("we don't want to open another app").
 - **Leads:** form POSTs to Google Apps Script web app
   https://script.google.com/macros/s/AKfycbwYNTrmw5_wEzBCh35W6OGrQBdi7URQiIQ2jZa_a-v2uPDn1DIpqkconLUn1ALymyL2/exec
   (`LEADS_URL` in the template) which appends to the Google Sheet "Carolina Partitions Website
