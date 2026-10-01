@@ -26,7 +26,7 @@ to read only section 0 and know exactly where things stand.
     the real photos. v3 is a SINGLE FILE again: every image is base64-embedded, resized and
     re-encoded by a build script (Project Rock grid 440w q62, hero 860w q66, feature 680w q66,
     RS 640-800w q72-76, Woodlands at native 240x320, stock 560-720w q68-70). HTML is 1.58MB.
-    Only Cabela's and Gatlinburg Aquarium still load from the Pexels CDN.
+    No external images: Cabela's uses embedded stock; Gatlinburg Aquarium is a navy card with no photo.
   - Where real photos went: hero = Project Rock 09 (finished boulder arch, photo on the right
     64%, solid navy behind the text). New "Featured project" section (#featured, nav link
     "Project Rock") = Project Rock 10 plus a "What we build" grid of 01-08 with captions.
