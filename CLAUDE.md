@@ -51,13 +51,15 @@ to read only section 0 and know exactly where things stand. History lives in sec
   (`|sharp2` token) and shown as 1 big + 2 stacked (hero and card); services strips cut tall
   from the full-size originals. HTML ~2.3MB. Measure rendered vs natural image sizes with
   Playwright before shipping; nothing should be upscaled by the browser.
-- **Form transport:** fetch(no-cors, credentials:"omit") first, so the POST never carries the
-  visitor's Google cookies; if fetch is blocked (sandboxed preview), fall back to a hidden form
-  posted into a hidden iframe. ROOT CAUSE of JC's failed tests: his Chrome's default Google
-  account is a work Workspace account with Apps Script disabled, so requests sent with his
-  cookies got "Sorry, the file cannot be opened" (incognito showed "Script function not found:
-  doGet" = deployment is public and fine). The browser cannot read the opaque response, so
-  "Thank you" only means the request was sent; verify leads in the sheet/Jack's inbox.
+- **Quote form = EMAIL FIRST (JC, 2026-10-01, after repeated failed Google tests):** pressing
+  "Email My Quote Request" opens a prefilled email to jmorgan@ in the visitor's own mail app
+  (mailto with subject + all fields; visitor attaches drawings and sends). A panel with an
+  "Open the email to Jack" button + phone shows as fallback. The Google Sheet POST still fires in
+  the background (fetch no-cors, credentials omit, keepalive) as a best-effort log; its success
+  was never confirmed (JC's tests ran in the claude.ai preview, which blocks outbound form
+  posts, and his Chrome's default Google account is a work account with Apps Script disabled;
+  incognito showed the web app itself is public: "Script function not found: doGet").
+  Do not reintroduce a form that depends only on the Google script.
 - **Leads:** form POSTs to Google Apps Script web app
   https://script.google.com/macros/s/AKfycbwYNTrmw5_wEzBCh35W6OGrQBdi7URQiIQ2jZa_a-v2uPDn1DIpqkconLUn1ALymyL2/exec
   (`LEADS_URL` in the template) which appends to the Google Sheet "Carolina Partitions Website

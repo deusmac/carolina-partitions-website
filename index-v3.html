@@ -314,6 +314,9 @@ h1,h2,h3,h4,p{margin:0}
 .form__msg{margin-top:10px; font-size:15px}
 .form__drawings{text-align:left; margin:-4px 0 18px; font-size:15px}
 .form__drawings a{color:var(--navy); font-weight:600}
+.mail-panel{margin-top:16px; padding:16px; background:var(--paper); border-left:4px solid var(--sand); font-size:15px}
+.mail-panel p{margin:0 0 10px}
+.mail-panel .btn{width:100%; margin-bottom:10px}
 .form__msg.ok{color:#1E6B3A}.form__msg.err{color:#9B2C2C}
 
 /* ---------- Footer ---------- */
@@ -736,10 +739,15 @@ h1,h2,h3,h4,p{margin:0}
         </div>
         <div class="field"><label for="f-msg">Project details <span class="req">*</span></label><textarea id="f-msg" name="project" placeholder="Scope, location, and rough timeline. The more detail, the faster we can price it." required></textarea></div>
         <div class="field"><label for="f-plans">Link to plans (optional)</label><input id="f-plans" name="plans_link" type="url" inputmode="url" placeholder="https:// Dropbox, Google Drive, BuildingConnected or Procore link"></div>
-        <p class="form__note form__drawings">Have drawings or photos? Email them to <a href="mailto:jmorgan@carolina-partitions.com?subject=Drawings%20for%20quote%20request">jmorgan@carolina-partitions.com</a> after you send this form, or paste a link above.</p>
+        <p class="form__note form__drawings">Have drawings or photos? Email them to <a href="mailto:jmorgan@carolina-partitions.com?subject=Drawings%20for%20quote%20request">jmorgan@carolina-partitions.com</a> or attach them to the email this form opens.</p>
         <div class="field"><label for="f-contact">Preferred contact</label>
           <select id="f-contact" name="preferred_contact"><option>Email</option><option>Phone call</option><option>Text message</option></select></div>
-        <button class="btn btn--solid" type="submit">Send Quote Request</button>
+        <button class="btn btn--solid" type="submit">Email My Quote Request</button>
+        <div class="mail-panel" id="mailPanel" hidden>
+          <p><b>Your email app did not open?</b></p>
+          <a class="btn btn--line-dark" id="mailLink" href="mailto:jmorgan@carolina-partitions.com">Open the email to Jack</a>
+          <p>Or email <a href="mailto:jmorgan@carolina-partitions.com">jmorgan@carolina-partitions.com</a> or call <a href="tel:8645050066">(864) 505-0066</a>.</p>
+        </div>
         <p class="form__note">We reply to most requests within one business day.</p>
         <div class="form__msg" id="formMsg" role="status" aria-live="polite"></div>
       </form>
@@ -866,48 +874,44 @@ h1,h2,h3,h4,p{margin:0}
   // Quote form -> Google Sheet (Apps Script web app, see leads/SETUP.md)
   var LEADS_URL = "https://script.google.com/macros/s/AKfycbwYNTrmw5_wEzBCh35W6OGrQBdi7URQiIQ2jZa_a-v2uPDn1DIpqkconLUn1ALymyL2/exec";
   var form = document.getElementById("quoteForm"), msg = document.getElementById("formMsg");
+  // Quote requests go to Jack as a normal email from the visitor's own mail app (works anywhere,
+  // no third-party service, and the visitor can attach drawings). In the background the request
+  // is also logged to the Google Sheet when that endpoint is reachable (best effort, no cookies).
+  var mailPanel = document.getElementById("mailPanel"), mailLink = document.getElementById("mailLink");
   form.addEventListener("submit", function(e){
     e.preventDefault();
-    msg.className = "form__msg";
+    msg.className = "form__msg"; mailPanel.hidden = true;
     if (!form.checkValidity()) { msg.classList.add("err"); msg.textContent = "Please fill in the required fields marked with *, and check the plans link starts with https://."; return; }
-    if (LEADS_URL.indexOf("https://script.google.com/") !== 0) { msg.classList.add("err"); msg.textContent = "The quote form is almost ready. Until then, call (864) 505-0066 or email jmorgan@carolina-partitions.com."; return; }
-    var btn = form.querySelector("button[type=submit]"), label = btn.textContent;
-    btn.disabled = true; btn.style.opacity = ".7"; btn.textContent = "Sending...";
-    msg.textContent = "Sending your request...";
-    var data = new FormData(form), link = String(data.get("plans_link") || "").trim();
-    var fields = [];
-    data.forEach(function(v, k){
-      if (k === "plans_link") return;
-      if (k === "project" && link) v = v + "\n\nPlans link: " + link;   // saved in Project details
-      fields.push([k, String(v)]);
-    });
-    var done = false, timer = null;
-    function finish(ok){
-      if (done) return; done = true; clearTimeout(timer);
-      msg.className = "form__msg " + (ok ? "ok" : "err");
-      msg.textContent = ok ? "Thank you. Your request is in, and Jack will get back to you within one business day. If you have drawings, email them to jmorgan@carolina-partitions.com."
-                           : "Something went wrong sending the form. Please call (864) 505-0066 or email jmorgan@carolina-partitions.com.";
-      if (ok) form.reset();
-      btn.disabled = false; btn.style.opacity = "1"; btn.textContent = label;
+    var d = new FormData(form);
+    var get = function(k){ return String(d.get(k) || "").trim(); };
+    var project = get("project"), link = get("plans_link");
+    var subject = "Quote request from " + get("name") + " (" + get("i_am_a") + ")";
+    var body = [
+      "Hi Jack,", "",
+      "I would like a quote.", "",
+      "Name: " + get("name"),
+      "I am a: " + get("i_am_a"),
+      "Email: " + get("email"),
+      "Phone: " + (get("phone") || "not given"),
+      "Preferred contact: " + get("preferred_contact"), "",
+      "Project details:", project.slice(0, 1500), "",
+      "Plans link: " + (link || "none"), "",
+      "(Drawings or photos attached, if any.)", "",
+      "Sent from the quote form on carolina-partitions.com"
+    ].join("\r\n");
+    var href = "mailto:jmorgan@carolina-partitions.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    mailLink.href = href;
+    mailPanel.hidden = false;
+    msg.classList.add("ok");
+    msg.textContent = "Your email to Jack is ready. Attach any drawings or photos, then press Send in your email app.";
+    window.location.href = href;
+
+    // Background log to the leads sheet (ignored if unreachable).
+    if (LEADS_URL.indexOf("https://script.google.com/") === 0) {
+      var fields = new URLSearchParams();
+      d.forEach(function(v, k){ if (k !== "plans_link") fields.append(k, k === "project" && link ? v + "\n\nPlans link: " + link : v); });
+      try { fetch(LEADS_URL, { method:"POST", mode:"no-cors", credentials:"omit", keepalive:true, body:fields }).catch(function(){}); } catch (err) {}
     }
-    // 1) fetch with credentials omitted: the request never carries the visitor's Google login,
-    //    so a company Google account with Apps Script turned off cannot break it.
-    // 2) if fetch itself is blocked (sandboxed previews), post a normal form into a hidden iframe.
-    function viaIframe(){
-      var frameName = "leadsFrame" + Date.now();
-      var frame = document.createElement("iframe");
-      frame.name = frameName; frame.title = "Quote form sender"; frame.style.display = "none";
-      var post = document.createElement("form");
-      post.method = "POST"; post.action = LEADS_URL; post.target = frameName; post.style.display = "none";
-      fields.forEach(function(f){ var i = document.createElement("input"); i.type = "hidden"; i.name = f[0]; i.value = f[1]; post.appendChild(i); });
-      timer = setTimeout(function(){ finish(false); }, 20000);
-      frame.addEventListener("load", function(){ finish(true); setTimeout(function(){ frame.remove(); post.remove(); }, 2000); });
-      document.body.appendChild(frame); document.body.appendChild(post);
-      post.submit();
-    }
-    fetch(LEADS_URL, { method:"POST", mode:"no-cors", credentials:"omit", body:new URLSearchParams(fields) })
-      .then(function(){ finish(true); })
-      .catch(viaIframe);
   });
 })();
 </script>
