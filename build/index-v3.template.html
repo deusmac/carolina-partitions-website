@@ -127,10 +127,10 @@ h1,h2,h3,h4,p{margin:0}
 .hslide figcaption{position:absolute; z-index:4; right:120px; bottom:26px; background:rgba(6,20,47,.82); color:var(--white); font-family:var(--head); font-weight:800; font-size:12px; letter-spacing:1.1px; text-transform:uppercase; padding:8px 12px; border-left:3px solid var(--sand)}
 .hslide figcaption span{font-family:var(--body); font-weight:400; letter-spacing:0; text-transform:none; color:var(--line); margin-left:8px}
 /* Woodlands photos are only 240x320: shown as crisp small tiles, never stretched */
-.hslide--tiles{z-index:2; background:linear-gradient(90deg,var(--navy) 0%,var(--card) 45%,var(--ink) 100%)}
-.hslide--tiles .tiles{position:absolute; right:7%; top:50%; transform:translateY(-58%); display:grid; grid-template-columns:repeat(3,minmax(0,200px)); gap:12px; width:min(52%,624px)}
-.hslide--tiles .tiles img{width:100%; aspect-ratio:3/4; object-fit:cover; border-top:4px solid var(--sand); box-shadow:0 18px 40px rgba(0,0,0,.35)}
-.hslide--tiles .tiles img:nth-child(2){transform:translateY(28px)}
+.hslide--tiles{z-index:3; background:linear-gradient(90deg,var(--navy) 0%,var(--card) 45%,var(--ink) 100%)}
+.hslide--tiles .tiles{position:absolute; right:4%; top:50%; transform:translateY(-54%); display:grid; grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(2,1fr); gap:14px; width:min(56%,560px); height:min(80%,600px)}
+.hslide--tiles .tiles img{width:100%; height:100%; min-height:0; object-fit:cover; border-top:4px solid var(--sand); box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.hslide--tiles .tiles img:first-child{grid-row:span 2}
 .hero__dots{display:flex; gap:8px; margin-top:34px}
 .hero__dots button{width:34px; height:4px; padding:0; border:0; background:rgba(255,255,255,.3); cursor:pointer; position:relative; overflow:hidden}
 .hero__dots button.on{background:rgba(255,255,255,.3)}
@@ -216,13 +216,14 @@ h1,h2,h3,h4,p{margin:0}
 .why-card p{font-size:16px; line-height:1.5; color:var(--line)}
 
 /* Woodlands mosaic: source photos are only 240x320, so they stay small */
-.cur__img--tiles{display:grid; grid-template-columns:repeat(3,1fr); gap:4px; background:var(--card)}
-.cur__img--tiles img{height:100%; max-height:320px; object-fit:cover}
+.cur__img--tiles{display:grid; grid-template-columns:3fr 2fr; grid-template-rows:repeat(2,1fr); gap:4px; background:var(--card); aspect-ratio:4/3}
+.cur__img--tiles img{width:100%; height:100%; min-height:0; object-fit:cover}
+.cur__img--tiles img:first-child{grid-row:span 2}
 /* RS Spartanburg gallery */
-.cur-gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:32px}
+.cur-gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:32px}
 .cur-gallery figure{margin:0}
 .cur-gallery img{width:100%; aspect-ratio:16/10; object-fit:cover; border-top:4px solid var(--sand)}
-.cur-gallery figcaption{font-size:14px; color:var(--line); margin-top:10px}
+.cur-gallery figcaption{font-size:15px; color:var(--line); margin-top:10px}
 .cur-gallery figcaption b{display:block; font-family:var(--head); font-weight:900; font-size:13px; letter-spacing:1.1px; text-transform:uppercase; color:var(--sand)}
 
 /* ---------- Featured project: Project Rock ---------- */
@@ -239,9 +240,10 @@ h1,h2,h3,h4,p{margin:0}
 .cap-head{margin:72px 0 28px; display:flex; justify-content:space-between; align-items:flex-end; gap:24px}
 .cap-head h3{font-family:var(--head); font-weight:900; font-size:clamp(26px,1.2rem + 1vw,36px); text-transform:uppercase; color:var(--navy); margin-top:12px}
 .cap-head p{max-width:520px; color:var(--steel)}
-.cap-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px}
+.cap-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
+.cap-grid figure:first-child{grid-column:span 2}
 .cap-grid figure{margin:0}
-.cap-grid img{width:100%; aspect-ratio:4/5; object-fit:cover; background:var(--paper)}
+.cap-grid img{width:100%; height:clamp(320px,36vw,540px); object-fit:cover; background:var(--paper)}
 
 /* ---------- Career carousel ---------- */
 .career{background:var(--paper); padding:56px 0 64px}
@@ -365,6 +367,7 @@ h1,h2,h3,h4,p{margin:0}
   .feat-img{max-width:560px}
   .cap-head{flex-direction:column; align-items:flex-start}
   .cap-grid{grid-template-columns:repeat(2,1fr); gap:16px}
+  .cap-grid img{height:clamp(220px,58vw,420px)}
   .cur-grid{grid-template-columns:1fr}
   .founder .row,.contact .row{grid-template-columns:1fr}
   .f-photo{max-width:480px}
@@ -384,8 +387,7 @@ h1,h2,h3,h4,p{margin:0}
   .hero__cta .btn{flex:1 1 100%}
   .hero__deco{width:100%; height:40%}
   .hslide figcaption{right:auto; left:16px; bottom:16px}
-  .hslide--tiles .tiles{right:auto; left:16px; top:auto; bottom:64px; transform:none; width:calc(100% - 32px); gap:8px}
-  .hslide--tiles .tiles img:nth-child(2){transform:none}
+  .hslide--tiles .tiles{right:auto; left:16px; top:auto; bottom:64px; transform:none; width:calc(100% - 32px); height:230px; gap:8px}
   .hero__dots{margin-top:26px}
   .stats .row{grid-template-columns:1fr}
   .stat{padding:12px}
@@ -452,29 +454,29 @@ h1,h2,h3,h4,p{margin:0}
   <!-- Hero slideshow: REAL Carolina Partitions photos. Order matches the rotator words below. -->
   <div class="hero__slides" id="heroSlides" role="group" aria-roledescription="slideshow" aria-label="Carolina Partitions projects">
     <figure class="hslide on">
-      <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-09-finished-boulder-arch.jpg|900|66|0,0.22,1,0.84}}" alt="Finished boulder arch at Project Rock, a Greenville indoor climbing gym framed and sheathed by Carolina Partitions" fetchpriority="high">
+      <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-09-finished-boulder-arch.jpg|1040|64|0,0.22,1,0.84}}" alt="Finished boulder arch at Project Rock, a Greenville indoor climbing gym framed and sheathed by Carolina Partitions" fetchpriority="high">
       <figcaption>Project Rock<span>Greenville, SC. Steel stud framing and sheathing</span></figcaption>
     </figure>
     <figure class="hslide">
-      <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-01-carolina-partitions-crew-framing-and-sheathing-climbing-walls.jpg|900|56|0,0.36,1,0.98}}" alt="Carolina Partitions crew framing and sheathing climbing walls from scissor and boom lifts at Project Rock">
+      <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-01-carolina-partitions-crew-framing-and-sheathing-climbing-walls.jpg|1040|56|0,0.36,1,0.98}}" alt="Carolina Partitions crew framing and sheathing climbing walls from scissor and boom lifts at Project Rock">
       <figcaption>Project Rock<span>Our crew framing and sheathing from lifts</span></figcaption>
     </figure>
     <figure class="hslide">
-      <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-04-tall-steel-stud-climbing-wall-framing.jpg|900|56|0,0.14,1,0.76}}" alt="Multi-story steel stud framing for a climbing wall at Project Rock">
+      <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-04-tall-steel-stud-climbing-wall-framing.jpg|1040|56|0,0.14,1,0.76}}" alt="Multi-story steel stud framing for a climbing wall at Project Rock">
       <figcaption>Project Rock<span>Multi-story steel stud framing</span></figcaption>
     </figure>
     <!-- Woodlands photos are 240x320 originals: small tiles only. PLACEHOLDER: replace with higher-res Woodlands photos from Jack -->
     <figure class="hslide hslide--tiles">
       <div class="tiles">
-        <img src="{{IMG brand-assets/woodlands-at-furman-interiors/woodlands-furman-cafe-coffee-bar-01.jpg|240|82|0,0,1,1}}" alt="Finished cafe coffee bar at Woodlands at Furman">
-        <img src="{{IMG brand-assets/woodlands-at-furman-interiors/woodlands-furman-dining-round-tables-06.jpg|240|82|0,0,1,1}}" alt="Finished dining room with round tables at Woodlands at Furman">
-        <img src="{{IMG brand-assets/woodlands-at-furman-interiors/woodlands-furman-servery-wood-ceiling-09.jpg|240|82|0,0,1,1}}" alt="Finished servery with a wood slat ceiling at Woodlands at Furman">
+        <img src="{{IMG brand-assets/woodlands-at-furman-interiors/woodlands-furman-cafe-coffee-bar-01.jpg|480|80|0,0,1,1|sharp2}}" alt="Finished cafe coffee bar at Woodlands at Furman">
+        <img src="{{IMG brand-assets/woodlands-at-furman-interiors/woodlands-furman-dining-round-tables-06.jpg|480|80|0,0,1,1|sharp2}}" alt="Finished dining room with round tables at Woodlands at Furman">
+        <img src="{{IMG brand-assets/woodlands-at-furman-interiors/woodlands-furman-servery-wood-ceiling-09.jpg|480|80|0,0,1,1|sharp2}}" alt="Finished servery with a wood slat ceiling at Woodlands at Furman">
       </div>
       <figcaption>Woodlands at Furman<span>Greenville, SC</span></figcaption>
     </figure>
     <!-- RS Spartanburg. PHOTO CREDIT: Frank Costa, Heritage Paintworks. A visible credit may be needed; ask JC before adding one. -->
     <figure class="hslide">
-      <img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-corridor-blue-wall-glass-partition-03.jpg|860|68|0,0,1,0.74}}" alt="Corridor with a blue accent wall and glass partition at RS Spartanburg">
+      <img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-corridor-blue-wall-glass-partition-03.jpg|1100|66|0.08,0,0.92,0.74}}" alt="Corridor with a blue accent wall and glass partition at RS Spartanburg">
       <figcaption>RS Spartanburg<span>Interior build-out</span></figcaption>
     </figure>
   </div>
@@ -541,11 +543,11 @@ h1,h2,h3,h4,p{margin:0}
   </div>
   <div class="collage" id="collage">
     <!-- REAL PHOTO: RS Spartanburg interior build-out. PHOTO CREDIT: Frank Costa, Heritage Paintworks. A visible credit may be needed; ask JC before adding one. -->
-    <div class="strip"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-hallway-doors-07.jpg|720|74|0,0,1,0.74}}" alt="Finished drywall corridor with door openings at RS Spartanburg" loading="lazy"><em>Drywall</em></div>
+    <div class="strip"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-hallway-doors-07.jpg|620|70|0.27,0,0.73,0.92}}" alt="Finished drywall corridor with door openings at RS Spartanburg" loading="lazy"><em>Drywall</em></div>
     <!-- REAL PHOTO: Project Rock -->
-    <div class="strip"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-03-steel-stud-framing-and-osb-sheathing.jpg|440|62|0,0,1,1}}" alt="Steel stud framing with OSB sheathing on a climbing wall at Project Rock" loading="lazy"><em>Metal framing</em></div>
+    <div class="strip"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-03-steel-stud-framing-and-osb-sheathing.jpg|620|64|0.05,0,0.95,1}}" alt="Steel stud framing with OSB sheathing on a climbing wall at Project Rock" loading="lazy"><em>Metal framing</em></div>
     <!-- PLACEHOLDER: stock photo, replace with a real Carolina Partitions ceiling photo -->
-    <div class="strip"><img src="{{IMG assets/stock/office-open-plan-ceiling-grid.jpg|640|70|0,0,1,1}}" alt="Open office with a suspended acoustical ceiling grid (representative stock photo)" loading="lazy"><em>Ceilings</em></div>
+    <div class="strip"><img src="{{IMG assets/stock/office-open-plan-ceiling-grid.jpg|620|68|0.25,0,0.75,1}}" alt="Open office with a suspended acoustical ceiling grid (representative stock photo)" loading="lazy"><em>Ceilings</em></div>
   </div>
 </section>
 
@@ -564,9 +566,9 @@ h1,h2,h3,h4,p{margin:0}
         <!-- REAL PHOTOS (240x320 only, keep small) -->
         <!-- PLACEHOLDER: replace with higher-res Woodlands photos from Jack -->
         <div class="cur__img cur__img--tiles">
-          <img src="{{IMG brand-assets/woodlands-at-furman-interiors/woodlands-furman-cafe-coffee-bar-01.jpg|240|82|0,0,1,1}}" alt="Finished cafe coffee bar at Woodlands at Furman" loading="lazy">
-          <img src="{{IMG brand-assets/woodlands-at-furman-interiors/woodlands-furman-lounge-seating-artwork-04.jpg|240|82|0,0,1,1}}" alt="Finished lounge with seating and artwork at Woodlands at Furman" loading="lazy">
-          <img src="{{IMG brand-assets/woodlands-at-furman-interiors/woodlands-furman-dining-chandelier-07.jpg|240|82|0,0,1,1}}" alt="Finished dining room with a chandelier at Woodlands at Furman" loading="lazy">
+          <img src="{{IMG brand-assets/woodlands-at-furman-interiors/woodlands-furman-cafe-coffee-bar-01.jpg|480|80|0,0,1,1|sharp2}}" alt="Finished cafe coffee bar at Woodlands at Furman" loading="lazy">
+          <img src="{{IMG brand-assets/woodlands-at-furman-interiors/woodlands-furman-lounge-seating-artwork-04.jpg|480|80|0,0,1,1|sharp2}}" alt="Finished lounge with seating and artwork at Woodlands at Furman" loading="lazy">
+          <img src="{{IMG brand-assets/woodlands-at-furman-interiors/woodlands-furman-dining-chandelier-07.jpg|480|80|0,0,1,1|sharp2}}" alt="Finished dining room with a chandelier at Woodlands at Furman" loading="lazy">
           <span class="cur__tag"><i></i>In progress</span>
         </div>
         <div class="cur__body"><h3>Woodlands at Furman</h3><p>Greenville, SC</p></div>
@@ -591,10 +593,10 @@ h1,h2,h3,h4,p{margin:0}
     <!-- REAL PHOTOS: RS Spartanburg interior build-out, cropped above the unfinished floors.
          PHOTO CREDIT: Frank Costa, Heritage Paintworks. A visible credit may be needed; ask JC before adding one. -->
     <div class="cur-gallery">
-      <figure class="pop"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-blue-accent-wall-doors-02.jpg|640|72|0,0,1,0.68}}" alt="Blue accent wall and door openings at RS Spartanburg" loading="lazy"><figcaption><b>RS Spartanburg</b>Interior build-out</figcaption></figure>
-      <figure class="pop d1"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-glass-partition-blue-wall-04.jpg|640|72|0,0,1,0.68}}" alt="Interior glass partitions and blue accent wall at RS Spartanburg" loading="lazy"><figcaption><b>RS Spartanburg</b>Glass partitions and finished walls</figcaption></figure>
-      <figure class="pop d2"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-hallway-interior-window-05.jpg|640|72|0,0,1,0.68}}" alt="Hallway with an interior window opening at RS Spartanburg" loading="lazy"><figcaption><b>RS Spartanburg</b>Hallway and interior window</figcaption></figure>
-      <figure class="pop d3"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-office-windows-08.jpg|640|72|0,0,1,0.68}}" alt="Office with finished walls and window openings at RS Spartanburg" loading="lazy"><figcaption><b>RS Spartanburg</b>Office interior</figcaption></figure>
+      <figure class="pop"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-blue-accent-wall-doors-02.jpg|960|70|0,0,1,0.68}}" alt="Blue accent wall and door openings at RS Spartanburg" loading="lazy"><figcaption><b>RS Spartanburg</b>Interior build-out</figcaption></figure>
+      <figure class="pop d1"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-glass-partition-blue-wall-04.jpg|960|70|0,0,1,0.68}}" alt="Interior glass partitions and blue accent wall at RS Spartanburg" loading="lazy"><figcaption><b>RS Spartanburg</b>Glass partitions and finished walls</figcaption></figure>
+      <figure class="pop d2"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-hallway-interior-window-05.jpg|960|70|0,0,1,0.68}}" alt="Hallway with an interior window opening at RS Spartanburg" loading="lazy"><figcaption><b>RS Spartanburg</b>Hallway and interior window</figcaption></figure>
+      <figure class="pop d3"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-office-windows-08.jpg|960|70|0,0,1,0.68}}" alt="Office with finished walls and window openings at RS Spartanburg" loading="lazy"><figcaption><b>RS Spartanburg</b>Office interior</figcaption></figure>
     </div>
   </div>
 </section>
@@ -627,14 +629,14 @@ h1,h2,h3,h4,p{margin:0}
       <p class="rise">The structure behind the climbing walls at Project Rock, from bare steel to sheathed faces.</p>
     </div>
     <div class="cap-grid">
-      <figure class="pop"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-01-carolina-partitions-crew-framing-and-sheathing-climbing-walls.jpg|440|62|0,0.03,1,0.97}}" alt="Carolina Partitions crew framing and sheathing climbing walls from lifts, with the company banner on a scissor lift at Project Rock" loading="lazy"><figcaption>Our crew framing and sheathing the climbing walls</figcaption></figure>
-      <figure class="pop d1"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-02-climbing-wall-sheathing-with-scissor-and-boom-lifts.jpg|440|62|0,0.03,1,0.97}}" alt="Climbing wall sheathing in progress from scissor and boom lifts at Project Rock" loading="lazy"><figcaption>Sheathing multi-story walls from scissor and boom lifts</figcaption></figure>
-      <figure class="pop d2"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-03-steel-stud-framing-and-osb-sheathing.jpg|440|62|0,0.03,1,0.97}}" alt="Tall steel stud frame with OSB sheathing going on at Project Rock" loading="lazy"><figcaption>Steel stud framing with OSB sheathing</figcaption></figure>
-      <figure class="pop d3"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-04-tall-steel-stud-climbing-wall-framing.jpg|440|62|0,0.03,1,0.97}}" alt="Multi-story steel stud framing for a climbing wall at Project Rock" loading="lazy"><figcaption>Tall steel stud climbing wall framing</figcaption></figure>
-      <figure class="pop"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-05-overhead-steel-stud-framing.jpg|440|62|0.2,0,0.8,1}}" alt="Overhead steel stud framing at Project Rock" loading="lazy"><figcaption>Overhead steel stud framing</figcaption></figure>
-      <figure class="pop d1"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-06-steel-stud-boulder-framing.jpg|440|62|0.2,0,0.8,1}}" alt="Steel stud framing for a freestanding climbing boulder at Project Rock" loading="lazy"><figcaption>Steel stud framing for a freestanding boulder</figcaption></figure>
-      <figure class="pop d2"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-07-osb-sheathed-climbing-wall-faces.jpg|440|62|0,0.03,1,0.97}}" alt="Climbing wall faces sheathed in OSB at Project Rock" loading="lazy"><figcaption>OSB sheathed climbing wall faces</figcaption></figure>
-      <figure class="pop d3"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-08-plywood-boulder-wall-construction.jpg|440|62|0.2,0,0.8,1}}" alt="Angled boulder walls being sheathed in plywood at Project Rock" loading="lazy"><figcaption>Plywood boulder wall construction</figcaption></figure>
+      <figure class="pop"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-01-carolina-partitions-crew-framing-and-sheathing-climbing-walls.jpg|1000|60|0,0.42,1,0.98}}" alt="Carolina Partitions crew framing and sheathing climbing walls from lifts, with the company banner on a scissor lift at Project Rock" loading="lazy"><figcaption>Our crew framing and sheathing the climbing walls</figcaption></figure>
+      <figure class="pop d1"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-02-climbing-wall-sheathing-with-scissor-and-boom-lifts.jpg|600|62|0,0.03,1,0.97}}" alt="Climbing wall sheathing in progress from scissor and boom lifts at Project Rock" loading="lazy"><figcaption>Sheathing multi-story walls from scissor and boom lifts</figcaption></figure>
+      <figure class="pop d2"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-03-steel-stud-framing-and-osb-sheathing.jpg|600|62|0,0.03,1,0.97}}" alt="Tall steel stud frame with OSB sheathing going on at Project Rock" loading="lazy"><figcaption>Steel stud framing with OSB sheathing</figcaption></figure>
+      <figure class="pop d3"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-04-tall-steel-stud-climbing-wall-framing.jpg|600|62|0,0.03,1,0.97}}" alt="Multi-story steel stud framing for a climbing wall at Project Rock" loading="lazy"><figcaption>Tall steel stud climbing wall framing</figcaption></figure>
+      <figure class="pop"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-05-overhead-steel-stud-framing.jpg|600|62|0.2,0,0.8,1}}" alt="Overhead steel stud framing at Project Rock" loading="lazy"><figcaption>Overhead steel stud framing</figcaption></figure>
+      <figure class="pop d1"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-06-steel-stud-boulder-framing.jpg|600|62|0.2,0,0.8,1}}" alt="Steel stud framing for a freestanding climbing boulder at Project Rock" loading="lazy"><figcaption>Steel stud framing for a freestanding boulder</figcaption></figure>
+      <figure class="pop d2"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-07-osb-sheathed-climbing-wall-faces.jpg|600|62|0,0.03,1,0.97}}" alt="Climbing wall faces sheathed in OSB at Project Rock" loading="lazy"><figcaption>OSB sheathed climbing wall faces</figcaption></figure>
+      <figure class="pop d3"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-08-plywood-boulder-wall-construction.jpg|600|62|0.2,0,0.8,1}}" alt="Angled boulder walls being sheathed in plywood at Project Rock" loading="lazy"><figcaption>Plywood boulder wall construction</figcaption></figure>
     </div>
   </div>
 </section>
@@ -872,13 +874,33 @@ h1,h2,h3,h4,p{margin:0}
     var btn = form.querySelector("button[type=submit]"), label = btn.textContent;
     btn.disabled = true; btn.style.opacity = ".7"; btn.textContent = "Sending...";
     msg.textContent = "Sending your request...";
-    var body = new URLSearchParams(new FormData(form));
-    var link = (body.get("plans_link") || "").trim();
-    if (link) body.set("project", body.get("project") + "\n\nPlans link: " + link);   // saved by the live script in Project details
-    fetch(LEADS_URL, { method:"POST", mode:"no-cors", body:body })
-      .then(function(){ form.reset(); msg.classList.add("ok"); msg.textContent = "Thank you. Your request is in, and Jack will get back to you within one business day. If you have drawings, email them to jmorgan@carolina-partitions.com."; })
-      .catch(function(){ msg.classList.add("err"); msg.textContent = "Something went wrong sending the form. Please call (864) 505-0066 or email jmorgan@carolina-partitions.com."; })
-      .then(function(){ btn.disabled = false; btn.style.opacity = "1"; btn.textContent = label; });
+    // Post a normal HTML form into a hidden iframe. Unlike fetch(), this is not blocked by
+    // browsers from file:// pages or sandboxed previews, and needs no CORS from Google.
+    var data = new FormData(form), link = String(data.get("plans_link") || "").trim();
+    var frameName = "leadsFrame" + Date.now();
+    var frame = document.createElement("iframe");
+    frame.name = frameName; frame.title = "Quote form sender"; frame.style.display = "none";
+    var post = document.createElement("form");
+    post.method = "POST"; post.action = LEADS_URL; post.target = frameName; post.style.display = "none";
+    data.forEach(function(v, k){
+      if (k === "plans_link") return;
+      if (k === "project" && link) v = v + "\n\nPlans link: " + link;   // saved in Project details
+      var i = document.createElement("input"); i.type = "hidden"; i.name = k; i.value = v; post.appendChild(i);
+    });
+    var done = false;
+    function finish(ok){
+      if (done) return; done = true; clearTimeout(timer);
+      msg.classList.add(ok ? "ok" : "err");
+      msg.textContent = ok ? "Thank you. Your request is in, and Jack will get back to you within one business day. If you have drawings, email them to jmorgan@carolina-partitions.com."
+                           : "Something went wrong sending the form. Please call (864) 505-0066 or email jmorgan@carolina-partitions.com.";
+      if (ok) form.reset();
+      btn.disabled = false; btn.style.opacity = "1"; btn.textContent = label;
+      setTimeout(function(){ frame.remove(); post.remove(); }, 2000);
+    }
+    var timer = setTimeout(function(){ finish(false); }, 20000);
+    frame.addEventListener("load", function(){ finish(true); });
+    document.body.appendChild(frame); document.body.appendChild(post);
+    post.submit();
   });
 })();
 </script>
