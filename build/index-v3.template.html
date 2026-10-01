@@ -184,9 +184,9 @@ h1,h2,h3,h4,p{margin:0}
 .dark{background:var(--ink); color:var(--line)}
 .current{padding:72px 0 64px; position:relative}
 .cur-head{display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-bottom:40px}
-.cur-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px}
+.cur-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:32px}
 .cur{position:relative; background:var(--card); border-top:4px solid var(--sand); overflow:hidden}
-.cur__img{position:relative; aspect-ratio:4/3; overflow:hidden}
+.cur__img{position:relative; aspect-ratio:16/10; overflow:hidden}
 .cur__img img{width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease)}
 .cur:hover .cur__img img{transform:scale(1.05)}
 .cur__tag{position:absolute; top:16px; left:16px; display:inline-flex; align-items:center; gap:8px; background:var(--ink); color:var(--sand); font-family:var(--head); font-weight:900; font-size:11px; letter-spacing:1.1px; text-transform:uppercase; padding:6px 10px}
@@ -216,34 +216,22 @@ h1,h2,h3,h4,p{margin:0}
 .why-card p{font-size:16px; line-height:1.5; color:var(--line)}
 
 /* Woodlands mosaic: source photos are only 240x320, so they stay small */
-.cur__img--tiles{display:grid; grid-template-columns:3fr 2fr; grid-template-rows:repeat(2,1fr); gap:4px; background:var(--card); aspect-ratio:4/3}
+.cur__img--tiles{display:grid; grid-template-columns:3fr 2fr; grid-template-rows:repeat(2,1fr); gap:4px; background:var(--card); aspect-ratio:16/10}
 .cur__img--tiles img{width:100%; height:100%; min-height:0; object-fit:cover}
 .cur__img--tiles img:first-child{grid-row:span 2}
-/* RS Spartanburg gallery */
-.cur-gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:32px}
-.cur-gallery figure{margin:0}
-.cur-gallery img{width:100%; aspect-ratio:16/10; object-fit:cover; border-top:4px solid var(--sand)}
-.cur-gallery figcaption{font-size:15px; color:var(--line); margin-top:10px}
-.cur-gallery figcaption b{display:block; font-family:var(--head); font-weight:900; font-size:13px; letter-spacing:1.1px; text-transform:uppercase; color:var(--sand)}
 
 /* ---------- Featured project: Project Rock ---------- */
-.feature{padding:80px 0 72px; background:var(--white)}
+.feature{padding:88px 0 96px; background:var(--white)}
 .feat-top{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(36px,5vw,90px); align-items:center}
 .feat-top .h2 span{display:block; font-size:.5em; color:var(--bronze); margin-top:10px}
 .feat-img{margin:0; position:relative}
 .feat-img img{width:100%; max-height:760px; aspect-ratio:4/5; object-fit:cover}
 .feat-img::after{content:""; position:absolute; right:-14px; bottom:-14px; width:42%; height:42%; border-right:4px solid var(--sand); border-bottom:4px solid var(--sand); pointer-events:none}
-.feat-img figcaption,.cap-grid figcaption{font-size:14px; line-height:1.5; color:var(--steel); margin-top:12px}
+.feat-img figcaption{font-size:14px; line-height:1.5; color:var(--steel); margin-top:12px}
 .feat-facts{list-style:none; padding:0; margin:24px 0 30px; display:grid; gap:10px}
 .feat-facts li{display:flex; gap:12px; align-items:baseline; font-weight:600; color:var(--navy)}
 .feat-facts li::before{content:""; flex:none; width:10px; height:10px; background:var(--bronze); clip-path:polygon(100% 0,100% 100%,0 100%)}
-.cap-head{margin:72px 0 28px; display:flex; justify-content:space-between; align-items:flex-end; gap:24px}
-.cap-head h3{font-family:var(--head); font-weight:900; font-size:clamp(26px,1.2rem + 1vw,36px); text-transform:uppercase; color:var(--navy); margin-top:12px}
-.cap-head p{max-width:520px; color:var(--steel)}
-.cap-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
-.cap-grid figure:first-child,.cap-grid figure:last-child{grid-column:span 2}
-.cap-grid figure{margin:0}
-.cap-grid img{width:100%; height:clamp(320px,36vw,540px); object-fit:cover; background:var(--paper)}
+.feat-img .feat-inset{position:absolute; max-height:none; left:-48px; bottom:64px; width:42%; aspect-ratio:4/5; object-fit:cover; border:6px solid var(--white); box-shadow:0 18px 40px rgba(6,20,47,.28)}
 
 /* ---------- Career carousel ---------- */
 .career{background:var(--paper); padding:56px 0 64px}
@@ -365,13 +353,8 @@ h1,h2,h3,h4,p{margin:0}
   .strip:hover img{transform:scale(1.05)}
   .strip em{transform:translateX(-50%); font-size:12px; bottom:18px}
   .cur-head{flex-direction:column; align-items:flex-start}
-  .cur-gallery{grid-template-columns:repeat(2,1fr)}
   .feat-top{grid-template-columns:1fr}
-  .feat-img{max-width:560px}
-  .cap-head{flex-direction:column; align-items:flex-start}
-  .cap-grid{grid-template-columns:repeat(2,1fr); gap:16px}
-  .cap-grid figure:last-child{grid-column:auto}
-  .cap-grid img{height:clamp(220px,58vw,420px)}
+  .feat-img{max-width:560px; margin-left:48px}
   .cur-grid{grid-template-columns:1fr}
   .founder .row,.contact .row{grid-template-columns:1fr}
   .f-photo{max-width:480px}
@@ -393,10 +376,27 @@ h1,h2,h3,h4,p{margin:0}
   .hslide figcaption{right:auto; left:16px; bottom:16px}
   .hslide--tiles .tiles{right:auto; left:16px; top:auto; bottom:64px; transform:none; width:calc(100% - 32px); height:230px; gap:8px}
   .hero__dots{margin-top:26px}
-  .stats .row{grid-template-columns:1fr}
-  .stat{padding:12px}
-  .stat + .stat::before{left:30%; right:30%; top:0; bottom:auto; width:auto; height:1px}
-  .why-grid{grid-template-columns:1fr}
+  .hero::before{background:linear-gradient(180deg,rgba(10,31,74,.92) 0%,rgba(10,31,74,.78) 48%,rgba(10,31,74,.1) 82%)}
+  .hero__p{font-size:15px; line-height:1.6; margin:18px 0 24px}
+  .stats{padding:18px 0}
+  .stat{padding:4px 6px}
+  .stat b{font-size:30px}
+  .stat span{font-size:10px; line-height:1.3}
+  .collage{height:240px}
+  .current{padding:56px 0 48px}
+  .cur-grid{gap:24px}
+  .cur__body{padding:18px 20px 22px}
+  .feature{padding:56px 0 64px}
+  .feat-img{margin-left:0}
+  .feat-img .feat-inset{left:12px; bottom:56px; width:40%; border-width:4px}
+  .feat-img::after{right:-8px; bottom:-8px}
+  .why{padding:52px 0 56px}
+  .why-grid{grid-template-columns:1fr; gap:16px; margin-top:32px}
+  .why-card{padding:26px 22px}
+  .why-card h3{font-size:22px; margin-bottom:10px}
+  .why-card p{font-size:15px}
+  .person{padding:22px 20px}
+  .person a{font-size:16px; overflow-wrap:anywhere}
   .car-head{flex-direction:column; align-items:flex-start}
   .form .two,.office{grid-template-columns:1fr}
   .f-main{grid-template-columns:1fr}
@@ -462,7 +462,7 @@ h1,h2,h3,h4,p{margin:0}
       <figcaption>Project Rock<span>Greenville, SC. Steel stud framing and sheathing</span></figcaption>
     </figure>
     <figure class="hslide">
-      <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-01-carolina-partitions-crew-framing-and-sheathing-climbing-walls.jpg|1040|56|0,0.36,1,0.98}}" alt="Carolina Partitions crew framing and sheathing climbing walls from scissor and boom lifts at Project Rock">
+      <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-01-carolina-partitions-crew-framing-and-sheathing-climbing-walls.jpg|1040|56|0,0.28,1,0.80}}" alt="Carolina Partitions crew framing and sheathing climbing walls from scissor and boom lifts at Project Rock">
       <figcaption>Project Rock<span>Our crew framing and sheathing from lifts</span></figcaption>
     </figure>
     <figure class="hslide">
@@ -561,7 +561,7 @@ h1,h2,h3,h4,p{margin:0}
       <div class="slide-r">
         <span class="eyebrow">Now building</span>
         <h2 class="h2">Current projects</h2>
-        <p class="lead">Jobs Carolina Partitions is building right now across the Upstate. Bedrock Veterinary Clinic is shown with a representative photo until jobsite photography is ready.</p>
+        <p class="lead">Jobs Carolina Partitions is framing and finishing right now across the Upstate.</p>
       </div>
       <a class="btn btn--solid rise" href="#contact">Start Your Project</a>
     </div>
@@ -575,7 +575,7 @@ h1,h2,h3,h4,p{margin:0}
           <img src="{{IMG brand-assets/woodlands-at-furman-interiors/hd/woodlands-furman-dining-chandelier-07-4x.jpg|560|80|0,0,1,1}}" alt="Finished dining room with a chandelier at Woodlands at Furman" loading="lazy">
           <span class="cur__tag"><i></i>In progress</span>
         </div>
-        <div class="cur__body"><h3>Woodlands at Furman</h3><p>Greenville, SC</p></div>
+        <div class="cur__body"><span>Senior living</span><h3>Woodlands at Furman</h3><p>Greenville, SC</p></div>
       </article>
       <article class="cur pop d1">
         <div class="cur__img">
@@ -585,22 +585,6 @@ h1,h2,h3,h4,p{margin:0}
         </div>
         <div class="cur__body"><span>Veterinary clinic</span><h3>Bedrock Veterinary Clinic</h3><p>Greer, SC</p></div>
       </article>
-      <article class="cur pop d2">
-        <div class="cur__img">
-          <!-- REAL PHOTO: RS Spartanburg. PHOTO CREDIT: Frank Costa, Heritage Paintworks. A visible credit may be needed; ask JC before adding one. -->
-          <img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-corridor-blue-wall-glass-partition-03.jpg|800|76|0,0,1,0.74}}" alt="Corridor with a blue accent wall and glass partition at RS Spartanburg" loading="lazy">
-          <span class="cur__tag"><i></i>In progress</span>
-        </div>
-        <div class="cur__body"><span>Commercial remodel</span><h3>RS Spartanburg</h3><p>Spartanburg, SC. Interior build-out.</p></div>
-      </article>
-    </div>
-    <!-- REAL PHOTOS: RS Spartanburg interior build-out, cropped above the unfinished floors.
-         PHOTO CREDIT: Frank Costa, Heritage Paintworks. A visible credit may be needed; ask JC before adding one. -->
-    <div class="cur-gallery">
-      <figure class="pop"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-blue-accent-wall-doors-02.jpg|960|70|0,0,1,0.68}}" alt="Blue accent wall and door openings at RS Spartanburg" loading="lazy"><figcaption><b>RS Spartanburg</b>Interior build-out</figcaption></figure>
-      <figure class="pop d1"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-glass-partition-blue-wall-04.jpg|960|70|0,0,1,0.68}}" alt="Interior glass partitions and blue accent wall at RS Spartanburg" loading="lazy"><figcaption><b>RS Spartanburg</b>Glass partitions and finished walls</figcaption></figure>
-      <figure class="pop d2"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-hallway-interior-window-05.jpg|960|70|0,0,1,0.68}}" alt="Hallway with an interior window opening at RS Spartanburg" loading="lazy"><figcaption><b>RS Spartanburg</b>Hallway and interior window</figcaption></figure>
-      <figure class="pop d3"><img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-office-windows-08.jpg|960|70|0,0,1,0.68}}" alt="Office with finished walls and window openings at RS Spartanburg" loading="lazy"><figcaption><b>RS Spartanburg</b>Office interior</figcaption></figure>
     </div>
   </div>
 </section>
@@ -622,24 +606,9 @@ h1,h2,h3,h4,p{margin:0}
       </div>
       <figure class="feat-img pop">
         <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-04-tall-steel-stud-climbing-wall-framing.jpg|760|68|0,0,1,1}}" alt="Multi-story steel stud framing for the climbing walls at Project Rock, with a crew working from a scissor lift" loading="lazy">
-        <figcaption>Multi-story steel stud framing by Carolina Partitions, before sheathing.</figcaption>
+        <img class="feat-inset" src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-07-osb-sheathed-climbing-wall-faces.jpg|420|70|0,0.05,1,0.85}}" alt="Climbing wall faces sheathed in OSB at Project Rock" loading="lazy">
+        <figcaption>Steel stud framing, then OSB sheathing. Both by Carolina Partitions.</figcaption>
       </figure>
-    </div>
-    <div class="cap-head">
-      <div class="rise">
-        <span class="eyebrow">What we build</span>
-        <h3>Steel stud framing and sheathing</h3>
-      </div>
-      <p class="rise">The structure behind the climbing walls at Project Rock, from bare steel to sheathed faces.</p>
-    </div>
-    <div class="cap-grid">
-      <figure class="pop"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-01-carolina-partitions-crew-framing-and-sheathing-climbing-walls.jpg|1000|60|0,0.42,1,0.98}}" alt="Carolina Partitions crew framing and sheathing climbing walls from lifts, with the company banner on a scissor lift at Project Rock" loading="lazy"><figcaption>Our crew framing and sheathing the climbing walls</figcaption></figure>
-      <figure class="pop d1"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-02-climbing-wall-sheathing-with-scissor-and-boom-lifts.jpg|600|62|0,0.03,1,0.97}}" alt="Climbing wall sheathing in progress from scissor and boom lifts at Project Rock" loading="lazy"><figcaption>Sheathing multi-story walls from scissor and boom lifts</figcaption></figure>
-      <figure class="pop d2"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-03-steel-stud-framing-and-osb-sheathing.jpg|600|62|0,0.03,1,0.97}}" alt="Tall steel stud frame with OSB sheathing going on at Project Rock" loading="lazy"><figcaption>Steel stud framing with OSB sheathing</figcaption></figure>
-      <figure class="pop"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-05-overhead-steel-stud-framing.jpg|600|62|0.2,0,0.8,1}}" alt="Overhead steel stud framing at Project Rock" loading="lazy"><figcaption>Overhead steel stud framing</figcaption></figure>
-      <figure class="pop d1"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-06-steel-stud-boulder-framing.jpg|600|62|0.2,0,0.8,1}}" alt="Steel stud framing for a freestanding climbing boulder at Project Rock" loading="lazy"><figcaption>Steel stud framing for a freestanding boulder</figcaption></figure>
-      <figure class="pop d2"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-07-osb-sheathed-climbing-wall-faces.jpg|600|62|0,0.03,1,0.97}}" alt="Climbing wall faces sheathed in OSB at Project Rock" loading="lazy"><figcaption>OSB sheathed climbing wall faces</figcaption></figure>
-      <figure class="pop d3"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-08-plywood-boulder-wall-construction.jpg|1000|60|0,0.1,1,0.9}}" alt="Angled boulder walls being sheathed in plywood at Project Rock" loading="lazy"><figcaption>Plywood boulder wall construction</figcaption></figure>
     </div>
   </div>
 </section>

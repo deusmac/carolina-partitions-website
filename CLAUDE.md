@@ -45,9 +45,10 @@ to read only section 0 and know exactly where things stand. History lives in sec
   STANDARD" every 5.5s (Precision/Rock 09 arch, Safety/Rock 01 crew on lifts, Stability/Rock 04
   steel framing, Craftsmanship/Woodlands as 3 small tiles, Quality/RS 03), caption chip per
   slide, clickable progress dots; stats bar; Services (text + 3 slanted photo strips: RS 07,
-  Rock 03, stock ceilings); Current projects (Woodlands at Furman tiles, Bedrock Veterinary
-  Clinic stock (drywall on steel studs), RS Spartanburg + 4-photo RS gallery); Featured project
-  Project Rock (photo 04 + "What we build" grid of 01-03, 05-08); Why (4 cards); Jack's career projects carousel (auto-drifts,
+  Rock 03, stock ceilings); Current projects (2 cards only: Woodlands at Furman tiles, Bedrock
+  Veterinary Clinic stock (drywall on steel studs); RS card + RS gallery REMOVED per JC);
+  Featured project Project Rock (photo 04 with photo 07 as an overlapping inset; the "What we
+  build" photo grid was REMOVED per JC, "looks like a report"); Why (4 cards); Jack's career projects carousel (auto-drifts,
   loops by moving cards, pauses on hover/touch, arrows still work); About Jack (real headshot);
   Contact (Jack card + quote form); footer.
 - **Image sizing (2026-10-01, JC: "images are so small"):** build now outputs WebP (about a
@@ -226,6 +227,15 @@ Now: client go-live (domain, Formspree, real photos per PUBLISHING.md), Lighthou
 ---
 
 ## 9. SESSION CHANGELOG (newest first; never delete old entries)
+
+### 2026-10-01 - Session 11 (brochure cleanup + mobile)
+- JC wants a clean brochure look, not a report. Removed the RS Spartanburg project card and the
+  4-photo RS gallery; removed the Project Rock "What we build" photo grid (replaced by one inset
+  photo on the feature image). Current projects is now 2 cards, 16:10 images.
+- Mobile pass: hero photo visible (lighter bottom gradient), stats in one 3-column row, tighter
+  cards and section padding, contact email no longer overflows. Hero Safety slide (Rock 01)
+  recropped to 0.28-0.80 so the old jobsite banner with 864-288-7663 is out of frame.
+- RS photos remain only in hero slide 5 (Quality) and the services drywall strip. HTML 1.55MB.
 
 ### 2026-10-01 - Session 10 (image fixes)
 - JC: Bedrock photo did not show drywall, skull climbing wall disliked, Woodlands not HD.
