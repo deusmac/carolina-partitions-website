@@ -59,3 +59,13 @@ To turn it on (2 minutes, signed in as johnc.tiempo@gmail.com):
 4. Deploy, Manage deployments, pencil icon, Version: New version, Deploy.
    Keep the SAME deployment so the web app URL does not change.
 Until this is done, the form still works, but attached files and the plans link are ignored.
+
+## Update (2026-10-01, later): one-click setup script, no Drive
+
+`leads/setup-leads.ps1` does the whole Google side from JC's PC (also saved to the OneDrive
+folder "Carolina Partitions Website Leads"): turns on the Apps Script API, signs in with clasp,
+creates a NEW standalone script project, pushes the code, deploys it as a web app, opens it once
+for the Allow click (doGet runs setup), sends one TEST lead with a small PDF, and prints the new
+web app URL. That URL replaces LEADS_URL in the site (the old manual deployment can be ignored).
+Attachments are now emailed to Jack and listed by name in the sheet (no Drive folder, so no
+extra Google permission).

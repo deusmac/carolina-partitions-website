@@ -1,16 +1,15 @@
 /**
- * Carolina Partitions website leads -> Google Sheet + email to Jack.
- * Standalone script tied to the leads sheet by ID.
- * Deploy > New deployment > Web app (Execute as: Me, Who has access: Anyone).
+ * Carolina Partitions website leads -> Google Sheet + email to Jack (with attachments).
+ * Standalone script tied to the leads sheet by ID. Installed by leads/setup-leads.ps1
+ * (or by hand: Deploy > New deployment > Web app, Execute as: Me, Who has access: Anyone).
+ * Needs only Sheets + send-mail permission. Attachments go to Jack's email, not Drive.
  */
 const SHEET_ID = '11oe1XEzhJe5hY6DxnhYVedub2LSoAk3xviybsnaSuTc';  // Carolina Partitions Website Leads
 const SHEET_NAME = 'Leads';
 const NOTIFY = 'jmorgan@carolina-partitions.com';   // add more, comma separated
 const HEADERS = ['Received', 'Name', 'I am a', 'Email', 'Phone', 'Preferred contact', 'Project details', 'Status', 'Plans link', 'Attachments'];
-const FOLDER_NAME = 'Carolina Partitions Website Leads - Attachments';   // private Drive folder, created on first upload
 const MAX_FILES = 4;
 const MAX_BYTES = 15 * 1024 * 1024;   // 15 MB total per request
-const MAIL_ATTACH_MAX = 20 * 1024 * 1024;   // above this, the email gets links only
 const MIME = { pdf: 'application/pdf', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png',
   dwg: 'application/acad', zip: 'application/zip',
   xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -34,13 +33,13 @@ function doPost(e) {
     return json_({ ok: false, error: 'missing or invalid fields' });
   }
 
-  const files = saveFiles_(p, name);
+  const files = saveFiles_(p);
 
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
   try {
     sheet_().appendRow([new Date(), name, role, email, phone, contact, project, 'New', plansLink,
-      files.links.join('\n')]);
+      files.names.length ? files.names.join('\n') + '\n(attached to the email to Jack)' : '']);
   } finally {
     lock.releaseLock();
   }
@@ -62,25 +61,31 @@ function doPost(e) {
       project,
       '',
       'Plans link: ' + (plansLink || 'none'),
-      'Attachments: ' + (files.links.length ? '\n' + files.links.join('\n') : 'none'),
+      'Attachments: ' + (files.names.length ? files.names.join(', ') + ' (attached)' : 'none'),
       files.skipped.length ? 'Not saved (wrong type or over the size limit): ' + files.skipped.join(', ') : '',
       '',
       'All leads: ' + ss_().getUrl()
     ].join('\n'),
-    attachments: files.bytes <= MAIL_ATTACH_MAX ? files.blobs : []
+    attachments: files.blobs
   });
 
   return json_({ ok: true });
 }
 
-// Run once from the editor (select "setup", click Run) to create the header row.
+// Run once (from the editor, or by opening the web app URL as the owner) to set the header row.
 function setup() { sheet_(); }
 
+// Opening the web app URL in a browser as the owner authorizes the script and runs setup.
+function doGet() {
+  setup();
+  return HtmlService.createHtmlOutput('<p style="font:16px sans-serif">Carolina Partitions leads: setup done. You can close this tab.</p>');
+}
+
 // Files arrive as base64 fields file1_name/file1_data ... file4_*. Type is decided by the
-// file extension (whitelist), never by what the browser claims. Saved privately to Drive.
-function saveFiles_(p, leadName) {
-  const out = { links: [], blobs: [], skipped: [], bytes: 0 };
-  let folder = null;
+// file extension (whitelist), never by what the browser claims. They are attached to the
+// email to Jack; the sheet records the file names.
+function saveFiles_(p) {
+  const out = { names: [], blobs: [], skipped: [], bytes: 0 };
   for (let i = 1; i <= MAX_FILES; i++) {
     const rawName = String(p['file' + i + '_name'] || '');
     const data = String(p['file' + i + '_data'] || '');
@@ -92,14 +97,8 @@ function saveFiles_(p, leadName) {
     try { bytes = Utilities.base64Decode(data); } catch (err) { out.skipped.push(safe); continue; }
     if (out.bytes + bytes.length > MAX_BYTES) { out.skipped.push(safe); continue; }
     out.bytes += bytes.length;
-    const blob = Utilities.newBlob(bytes, MIME[ext], safe);
-    if (!folder) {
-      const it = DriveApp.getFoldersByName(FOLDER_NAME);
-      const root = it.hasNext() ? it.next() : DriveApp.createFolder(FOLDER_NAME);
-      folder = root.createFolder(Utilities.formatDate(new Date(), 'America/New_York', 'yyyy-MM-dd HHmm') + ' ' + leadName.replace(/[^\w\- ]/g, '').slice(0, 60));
-    }
-    out.links.push(folder.createFile(blob).getUrl());
-    out.blobs.push(blob);
+    out.names.push(safe);
+    out.blobs.push(Utilities.newBlob(bytes, MIME[ext], safe));
   }
   return out;
 }
