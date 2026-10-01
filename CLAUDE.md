@@ -46,14 +46,14 @@ to read only section 0 and know exactly where things stand. History lives in sec
   steel framing, Craftsmanship/Woodlands as 3 small tiles, Quality/RS 03), caption chip per
   slide, clickable progress dots; stats bar; Services (text + 3 slanted photo strips: RS 07,
   Rock 03, stock ceilings); Current projects (Woodlands at Furman tiles, Bedrock Veterinary
-  Clinic stock, RS Spartanburg + 4-photo RS gallery); Featured project Project Rock (photo 10 +
-  "What we build" grid of 01-08); Why (4 cards); Jack's career projects carousel (auto-drifts,
+  Clinic stock (drywall on steel studs), RS Spartanburg + 4-photo RS gallery); Featured project
+  Project Rock (photo 04 + "What we build" grid of 01-03, 05-08); Why (4 cards); Jack's career projects carousel (auto-drifts,
   loops by moving cards, pauses on hover/touch, arrows still work); About Jack (real headshot);
   Contact (Jack card + quote form); footer.
 - **Image sizing (2026-10-01, JC: "images are so small"):** build now outputs WebP (about a
   third smaller than JPEG) and encodes every photo at or above its on-screen size. Project Rock
-  grid = 3 columns with photo 01 spanning 2; RS gallery = 2x2; Woodlands upscaled 2x + sharpened
-  (`|sharp2` token) and shown as 1 big + 2 stacked (hero and card); services strips cut tall
+  grid = 3 columns with photo 01 spanning 2; RS gallery = 2x2; Woodlands AI-upscaled 4x (hd/ folder, see
+  next bullet) and shown as 1 big + 2 stacked (hero and card); services strips cut tall
   from the full-size originals. HTML ~2.3MB. Measure rendered vs natural image sizes with
   Playwright before shipping; nothing should be upscaled by the browser.
 - **Image swaps (2026-10-01, JC):** Bedrock card = stock `metal-stud-drywall-screwing.jpg`
@@ -114,7 +114,7 @@ to read only section 0 and know exactly where things stand. History lives in sec
      surfaces). RS = "Interior build-out" only. Woodlands has no scope claim.
   3. COMMERCIAL ONLY and NO PAINTING. Any residential/homeowner/painting wording is a
      regression, including meta tags and JSON-LD. Grep the whole file, not just the visible card.
-  4. Woodlands photos are 240x320: small tiles only, never hero-size or full-width.
+  4. Woodlands originals are 240x320 (AI 4x upscales in hd/): tiles only, never full-width.
   5. Single file: images base64 via the build; external requests only Google Fonts and the
      Apps Script endpoint. Keep an eye on size (2.0MB now).
   6. House copy style: no em dashes, no emojis, phone without a leading plus, SVG icons only.
