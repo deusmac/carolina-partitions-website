@@ -56,6 +56,13 @@ to read only section 0 and know exactly where things stand. History lives in sec
   (`|sharp2` token) and shown as 1 big + 2 stacked (hero and card); services strips cut tall
   from the full-size originals. HTML ~2.3MB. Measure rendered vs natural image sizes with
   Playwright before shipping; nothing should be upscaled by the browser.
+- **Image swaps (2026-10-01, JC):** Bedrock card = stock `metal-stud-drywall-screwing.jpg`
+  (drywall on steel studs; the vet exam-room photo did not read as drywall). Project Rock
+  featured image = photo 04 (tall steel stud framing); photo 10 (skull boulder) is OFF the site,
+  JC dislikes it. "What we build" grid = 01-03, 05-08 (01 and 08 span 2 on desktop). Woodlands
+  = AI 4x upscales in `brand-assets/woodlands-at-furman-interiors/hd/` made once with
+  `build/upscale_woodlands.py` (Real-ESRGAN x4plus, torch from PyPI; pytorch.org is blocked in
+  the sandbox). Originals untouched. HTML ~2.36MB.
 - **Quote form = sends in the page (VERIFIED WORKING 2026-10-01).** fetch POST (no-cors,
   credentials:"omit") to the live web app. Verified end to end from GitHub Actions
   (`.github/workflows/leads-endpoint-test.yml`, runs when that file changes or by hand): 2 TEST
@@ -219,6 +226,14 @@ Now: client go-live (domain, Formspree, real photos per PUBLISHING.md), Lighthou
 ---
 
 ## 9. SESSION CHANGELOG (newest first; never delete old entries)
+
+### 2026-10-01 - Session 10 (image fixes)
+- JC: Bedrock photo did not show drywall, skull climbing wall disliked, Woodlands not HD.
+  Shipped: Bedrock = drywall-on-steel-studs stock; featured Project Rock = framing photo 04,
+  skull (10) removed; Woodlands upscaled 4x with Real-ESRGAN (clearly sharper than the old
+  Lanczos+sharpen). Found an "Enlarged 4x" folder in OneDrive Woodlands (plain upscales,
+  ~130KB each), not used. Guards green, 0 overflow 390-1920, 0 errors. Published to main.
+- Still open: hero slide 1 is Rock 09 (finished boulder arch), not asked to change.
 
 ### 2026-09-30 - Session 9 (cloud sandbox: contact update, redesign brief captured)
 - Ran in a Claude Code cloud session on the git repo (branch `claude/brave-shannon-ahcnb8`),
