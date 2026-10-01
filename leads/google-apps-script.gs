@@ -1,8 +1,9 @@
 /**
  * Carolina Partitions website leads -> Google Sheet + email to Jack.
- * Paste this whole file into the sheet's Extensions > Apps Script editor,
- * then Deploy > New deployment > Web app (Execute as: Me, Who has access: Anyone).
+ * Standalone script tied to the leads sheet by ID.
+ * Deploy > New deployment > Web app (Execute as: Me, Who has access: Anyone).
  */
+const SHEET_ID = '11oe1XEzhJe5hY6DxnhYVedub2LSoAk3xviybsnaSuTc';  // Carolina Partitions Website Leads
 const SHEET_NAME = 'Leads';
 const NOTIFY = 'jmorgan@carolina-partitions.com';   // add more, comma separated
 const HEADERS = ['Received', 'Name', 'I am a', 'Email', 'Phone', 'Preferred contact', 'Project details', 'Status'];
@@ -48,7 +49,7 @@ function doPost(e) {
       'Project details:',
       project,
       '',
-      'All leads: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl()
+      'All leads: ' + ss_().getUrl()
     ].join('\n')
   });
 
@@ -58,11 +59,14 @@ function doPost(e) {
 // Run once from the editor (select "setup", click Run) to create the header row.
 function setup() { sheet_(); }
 
+function ss_() { return SpreadsheetApp.openById(SHEET_ID); }
+
 function sheet_() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = ss_();
   let sh = ss.getSheetByName(SHEET_NAME);
-  if (!sh) sh = ss.insertSheet(SHEET_NAME);
-  if (sh.getLastRow() === 0) {
+  if (!sh) { sh = ss.getSheets()[0]; sh.setName(SHEET_NAME); }
+  if (sh.getLastRow() <= 1) {
+    sh.clear();
     sh.appendRow(HEADERS);
     sh.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold').setBackground('#0A1F4A').setFontColor('#FFFFFF');
     sh.setFrozenRows(1);

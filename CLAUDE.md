@@ -59,6 +59,11 @@ to read only section 0 and know exactly where things stand.
   - Verified with real screenshots (`plan/v3-shots/`, real photos and fonts loaded): no
     horizontal overflow at 390/768/1024/1440/1920, 0 JS errors, 0 Brightline, 0 paint,
     0 residential/homeowner, 0 em dashes, 0 emoji, 181KB HTML.
+  - Leads sheet CREATED via Google Drive connector (owner johnc.tiempo@gmail.com):
+    https://docs.google.com/spreadsheets/d/11oe1XEzhJe5hY6DxnhYVedub2LSoAk3xviybsnaSuTc/edit
+    Script is now standalone (SpreadsheetApp.openById(SHEET_ID)). The Drive connector cannot
+    create Apps Script files ("requires an external mime type"), so pasting + deploying the
+    script is still a manual step for JC.
   - STILL OPEN: (a) JC's Google setup + web app URL for leads. (b) real project photos
     (JC is sending some). (c) PUBLISHING.md still describes Formspree for the old site. (e) build source: v3 is generated from a template with base64
     tokens (`__LOGO_BLUE__`, `__LOGO_WHITE__`, `__JACK__`, `__FAVICON__`) pulled from

@@ -9,8 +9,8 @@ steps have to be done while signed in to the Google account that should own the 
 
 ## Steps
 
-1. Open https://sheets.new (signed in to the Google account that should own the leads).
-2. Rename the sheet (top left) to: Carolina Partitions Website Leads
+1. The sheet already exists (link below). Open it, signed in as johnc.tiempo@gmail.com.
+2. (nothing to rename)
 3. Click Extensions, then Apps Script.
 4. Delete everything in the editor and paste the full contents of `google-apps-script.gs`
    (in this folder, saved as google-apps-script.txt in OneDrive). Click the Save icon.
@@ -33,7 +33,7 @@ runs a test submission, and saves the sheet link here.
 
 ## Links (filled in after setup)
 
-- Leads sheet: (pending)
+- Leads sheet: https://docs.google.com/spreadsheets/d/11oe1XEzhJe5hY6DxnhYVedub2LSoAk3xviybsnaSuTc/edit (owner johnc.tiempo@gmail.com, created by Claude via the Google Drive connector)
 - Web app URL: (pending)
 
 ## Notes
