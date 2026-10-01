@@ -64,6 +64,8 @@ to read only section 0 and know exactly where things stand. History lives in sec
   before changing his mailbox). Earlier failures were test-setup problems, not the script: the
   claude.ai preview blocks outbound posts, and JC's Chrome sends his work Google account (Apps
   Script disabled). Test the real path with the GitHub workflow, never through the preview.
+  ALSO VERIFIED ON THE LIVE SITE: `.github/workflows/live-form-test.yml` opened the GitHub Pages
+  site in real Chrome, submitted the form, and the row (with plans link) landed in the sheet.
   The mailto approach was tried and rejected by JC ("we don't want to open another app").
 - **Leads:** form POSTs to Google Apps Script web app
   https://script.google.com/macros/s/AKfycbwYNTrmw5_wEzBCh35W6OGrQBdi7URQiIQ2jZa_a-v2uPDn1DIpqkconLUn1ALymyL2/exec
