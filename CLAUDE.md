@@ -63,8 +63,11 @@ to read only section 0 and know exactly where things stand.
     https://docs.google.com/spreadsheets/d/11oe1XEzhJe5hY6DxnhYVedub2LSoAk3xviybsnaSuTc/edit
     Script is now standalone (SpreadsheetApp.openById(SHEET_ID)). The Drive connector cannot
     create Apps Script files ("requires an external mime type"), so pasting + deploying the
-    script is still a manual step for JC.
-  - STILL OPEN: (a) JC's Google setup + web app URL for leads. (b) real project photos
+    script is still a manual step for JC. DONE by JC 2026-10-01: web app deployed at
+    https://script.google.com/macros/s/AKfycbwYNTrmw5_wEzBCh35W6OGrQBdi7URQiIQ2jZa_a-v2uPDn1DIpqkconLUn1ALymyL2/exec
+    (wired into LEADS_URL in index-v3.html; "Leads" tab + headers confirmed via Drive read).
+    End-to-end test submission not yet confirmed (sandbox cannot reach script.google.com).
+  - STILL OPEN: (a) confirm one real test submission lands in the sheet + Jack's inbox. (b) real project photos
     (JC is sending some). (c) PUBLISHING.md still describes Formspree for the old site. (e) build source: v3 is generated from a template with base64
     tokens (`__LOGO_BLUE__`, `__LOGO_WHITE__`, `__JACK__`, `__FAVICON__`) pulled from
     index-v2.html; editing index-v3.html directly is fine, the template is not in the repo.

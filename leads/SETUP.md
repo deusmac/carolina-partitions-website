@@ -34,7 +34,7 @@ runs a test submission, and saves the sheet link here.
 ## Links (filled in after setup)
 
 - Leads sheet: https://docs.google.com/spreadsheets/d/11oe1XEzhJe5hY6DxnhYVedub2LSoAk3xviybsnaSuTc/edit (owner johnc.tiempo@gmail.com, created by Claude via the Google Drive connector)
-- Web app URL: (pending)
+- Web app URL: https://script.google.com/macros/s/AKfycbwYNTrmw5_wEzBCh35W6OGrQBdi7URQiIQ2jZa_a-v2uPDn1DIpqkconLUn1ALymyL2/exec
 
 ## Notes
 
