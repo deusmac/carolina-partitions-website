@@ -127,10 +127,6 @@ h1,h2,h3,h4,p{margin:0}
 .hslide.on > img{transform:scale(1); transition:transform 7s var(--ease)}
 .hslide figcaption{position:absolute; z-index:4; right:120px; bottom:26px; background:rgba(6,20,47,.82); color:var(--white); font-family:var(--head); font-weight:800; font-size:12px; letter-spacing:1.1px; text-transform:uppercase; padding:8px 12px; border-left:3px solid var(--sand)}
 .hslide figcaption span{font-family:var(--body); font-weight:400; letter-spacing:0; text-transform:none; color:var(--line); margin-left:8px}
-/* Woodlands: one large photo (AI 4x upscale, 960x1280), shown no bigger than its natural size */
-.hslide--tiles{z-index:3; background:linear-gradient(90deg,var(--navy) 0%,var(--card) 45%,var(--ink) 100%)}
-.hslide--tiles .tiles{position:absolute; right:6%; top:50%; transform:translateY(-54%); height:min(90%,640px); aspect-ratio:3/4}
-.hslide--tiles .tiles img{width:100%; height:100%; min-height:0; object-fit:cover; border-top:4px solid var(--sand); box-shadow:0 18px 40px rgba(0,0,0,.35)}
 .hero__dots{display:flex; gap:8px; margin-top:34px}
 .hero__dots button{width:34px; height:4px; padding:0; border:0; background:rgba(255,255,255,.3); cursor:pointer; position:relative; overflow:hidden}
 .hero__dots button.on{background:rgba(255,255,255,.3)}
@@ -138,7 +134,7 @@ h1,h2,h3,h4,p{margin:0}
 @keyframes dotFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .hero.paused .hero__dots button.on::after{animation:none; transform:none}
 .hero::before{content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(90deg,rgba(10,31,74,1) 38%,rgba(10,31,74,.6) 50%,rgba(10,31,74,0) 66%),rgba(6,20,47,.25)}
-@media (min-width:641px){.hslide:not(.hslide--tiles){left:auto; right:0; width:64%}.hslide--tiles{left:36%}}
+@media (min-width:641px){.hslide{left:auto; right:0; width:64%}}
 .hero .row{position:relative; z-index:3; padding-block:80px}
 .hero__text{max-width:800px}
 .hero__est{display:inline-block; font-family:var(--head); font-weight:900; font-size:12px; letter-spacing:1.4px; text-transform:uppercase; color:var(--ink); background:var(--sand); padding:6px 12px; margin-bottom:16px}
@@ -222,17 +218,32 @@ h1,h2,h3,h4,p{margin:0}
 .cur__img--tiles img:first-child{grid-row:span 2}
 
 /* ---------- Featured project: Project Rock ---------- */
-.feature{padding:88px 0 96px; background:var(--white)}
-.feat-top{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(36px,5vw,90px); align-items:center}
-.feat-top .h2 span{display:block; font-size:.5em; color:var(--bronze); margin-top:10px}
-.feat-img{margin:0; position:relative}
-.feat-img img{width:100%; max-height:760px; aspect-ratio:4/5; object-fit:cover}
-.feat-img::after{content:""; position:absolute; right:-14px; bottom:-14px; width:42%; height:42%; border-right:4px solid var(--sand); border-bottom:4px solid var(--sand); pointer-events:none}
-.feat-img figcaption{font-size:14px; line-height:1.5; color:var(--steel); margin-top:12px}
-.feat-facts{list-style:none; padding:0; margin:24px 0 30px; display:grid; gap:10px}
-.feat-facts li{display:flex; gap:12px; align-items:baseline; font-weight:600; color:var(--navy)}
-.feat-facts li::before{content:""; flex:none; width:10px; height:10px; background:var(--bronze); clip-path:polygon(100% 0,100% 100%,0 100%)}
-.feat-img .feat-inset{position:absolute; max-height:none; left:-48px; bottom:64px; width:42%; aspect-ratio:4/5; object-fit:cover; border:6px solid var(--white); box-shadow:0 18px 40px rgba(6,20,47,.28)}
+.feature{padding:96px 0 104px; background:var(--navy); color:var(--line); position:relative; overflow:hidden}
+.feat-ghost{position:absolute; right:-1vw; top:6px; font-family:var(--head); font-weight:900; font-size:clamp(160px,28vw,420px); line-height:.8; text-transform:uppercase; color:transparent; -webkit-text-stroke:2px rgba(230,218,195,.13); pointer-events:none; user-select:none}
+.feat-head{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(28px,5vw,90px); align-items:end; margin-bottom:40px; position:relative}
+.feature .h2{color:var(--sand)}
+.feature .h2 span{display:block; font-size:.5em; color:var(--white); margin-top:10px}
+.feat-stage{position:relative}
+.feat-frames{position:relative; aspect-ratio:21/9; min-height:380px; background:var(--ink); overflow:hidden; border-top:4px solid var(--sand); box-shadow:0 28px 60px rgba(0,0,0,.4)}
+.feat-frame{position:absolute; inset:0; margin:0; opacity:0; transition:opacity 1s ease}
+.feat-frame.on{opacity:1}
+.feat-frame img{width:100%; height:100%; object-fit:cover; transform:scale(1.08); transition:transform 7s var(--ease)}
+.feat-frame.on img{transform:scale(1)}
+.feat-frames::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,20,47,0) 40%,rgba(6,20,47,.9) 100%); pointer-events:none}
+.feat-steps{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; position:absolute; left:28px; right:28px; bottom:22px; z-index:2}
+.feat-steps button{all:unset; box-sizing:border-box; display:block; width:100%; cursor:pointer; padding-top:14px; position:relative; color:var(--line)}
+.feat-steps button::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:rgba(255,255,255,.28)}
+.feat-steps button::after{content:""; position:absolute; left:0; top:0; height:3px; width:100%; background:var(--sand); transform:scaleX(0); transform-origin:left}
+.feat-steps button.on::after{animation:featFill 5.5s linear forwards}
+.feature.paused .feat-steps button.on::after{animation:none; transform:scaleX(1)}
+@keyframes featFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.feat-steps b{display:block; font-family:var(--head); font-weight:900; font-size:clamp(26px,1.2rem + 1.2vw,40px); line-height:1; color:rgba(255,255,255,.4)}
+.feat-steps .on b{color:var(--sand)}
+.feat-steps strong{display:block; font-family:var(--head); font-weight:800; font-size:13px; letter-spacing:1.1px; text-transform:uppercase; color:var(--white); margin:6px 0 4px}
+.feat-steps small{display:block; font-size:14px; line-height:1.45; color:var(--line)}
+.feat-steps button:focus-visible{outline:2px solid var(--sand); outline-offset:4px}
+.feat-cta{margin-top:40px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; position:relative}
+.feat-cta p{font-size:14px; color:var(--line); max-width:52ch}
 
 /* ---------- Career carousel ---------- */
 .career{background:var(--paper); padding:56px 0 64px}
@@ -354,8 +365,7 @@ h1,h2,h3,h4,p{margin:0}
   .strip:hover img{transform:scale(1.05)}
   .strip em{transform:translateX(-50%); font-size:12px; bottom:18px}
   .cur-head{flex-direction:column; align-items:flex-start}
-  .feat-top{grid-template-columns:1fr}
-  .feat-img{max-width:560px; margin-left:48px}
+  .feat-head{grid-template-columns:1fr}
   .cur-grid{grid-template-columns:1fr}
   .founder .row,.contact .row{grid-template-columns:1fr}
   .f-photo{max-width:480px}
@@ -375,8 +385,6 @@ h1,h2,h3,h4,p{margin:0}
   .hero__cta .btn{flex:1 1 100%}
   .hero__deco{width:100%; height:40%}
   .hslide figcaption{right:auto; left:16px; bottom:16px}
-  .hslide--tiles .tiles{right:auto; left:16px; top:auto; bottom:64px; transform:none; width:calc(100% - 32px); height:200px; aspect-ratio:auto}
-  .hslide--tiles .tiles img{object-position:50% 55%}
   .hero__dots{margin-top:26px}
   .hero::before{background:linear-gradient(180deg,rgba(10,31,74,.92) 0%,rgba(10,31,74,.78) 48%,rgba(10,31,74,.1) 82%)}
   .hero__p{font-size:15px; line-height:1.6; margin:18px 0 24px}
@@ -389,9 +397,11 @@ h1,h2,h3,h4,p{margin:0}
   .cur-grid{gap:24px}
   .cur__body{padding:18px 20px 22px}
   .feature{padding:56px 0 64px}
-  .feat-img{margin-left:0}
-  .feat-img .feat-inset{left:12px; bottom:56px; width:40%; border-width:4px}
-  .feat-img::after{right:-8px; bottom:-8px}
+  .feat-head{grid-template-columns:1fr; gap:14px; margin-bottom:26px}
+  .feat-frames{aspect-ratio:auto; height:420px; min-height:0}
+  .feat-steps{left:14px; right:14px; bottom:14px; gap:10px}
+  .feat-steps strong{font-size:11px; letter-spacing:.6px}
+  .feat-steps small{display:none}
   .why{padding:52px 0 56px}
   .why-grid{grid-template-columns:1fr; gap:16px; margin-top:32px}
   .why-card{padding:26px 22px}
@@ -471,11 +481,9 @@ h1,h2,h3,h4,p{margin:0}
       <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-04-tall-steel-stud-climbing-wall-framing.jpg|1040|56|0,0.14,1,0.76}}" alt="Multi-story steel stud framing for a climbing wall at Project Rock">
       <figcaption>Project Rock<span>Multi-story steel stud framing</span></figcaption>
     </figure>
-    <!-- Woodlands: 240x320 original AI-upscaled 4x (build/upscale_woodlands.py), one large photo. PLACEHOLDER: replace with a real high-res Woodlands photo from Jack -->
-    <figure class="hslide hslide--tiles">
-      <div class="tiles">
-        <img src="{{IMG brand-assets/woodlands-at-furman-interiors/hd/woodlands-furman-dining-round-tables-06-4x.jpg|960|84|0,0,1,1}}" alt="Finished dining room with round tables and a coffered ceiling at Woodlands at Furman">
-      </div>
+    <!-- Woodlands: 240x320 original AI-upscaled 4x (build/upscale_woodlands.py), cropped wide, full-bleed like the other slides. PLACEHOLDER: replace with a real high-res Woodlands photo from Jack -->
+    <figure class="hslide">
+      <img src="{{IMG brand-assets/woodlands-at-furman-interiors/hd/woodlands-furman-dining-round-tables-06-4x.jpg|1500|80|0,0.14,1,0.80|sharp2}}" alt="Finished dining room with round tables and a coffered ceiling at Woodlands at Furman">
       <figcaption>Woodlands at Furman<span>Greenville, SC</span></figcaption>
     </figure>
     <!-- RS Spartanburg. PHOTO CREDIT: Frank Costa, Heritage Paintworks. A visible credit may be needed; ask JC before adding one. -->
@@ -618,26 +626,32 @@ h1,h2,h3,h4,p{margin:0}
   </div>
 </section>
 
-<section class="feature" id="featured">
+<section class="feature dark" id="featured">
   <!-- REAL PHOTOS: Project Rock (brand-assets/project-rock-climbing-gym). Facts per brand-assets/README.md only. -->
+  <div class="feat-ghost" aria-hidden="true">Rock</div>
   <div class="row">
-    <div class="feat-top">
-      <div class="rise">
+    <div class="feat-head rise">
+      <div>
         <span class="eyebrow">Featured project</span>
         <h2 class="h2">Project Rock<span>Indoor climbing gym, Greenville, SC</span></h2>
-        <p class="lead">Carolina Partitions built the steel stud framing and the OSB and plywood sheathing behind Project Rock's multi-story climbing walls, freestanding boulders, and its arch and cave features.</p>
-        <ul class="feat-facts">
-          <li>Steel stud framing for multi-story climbing walls</li>
-          <li>OSB and plywood sheathing</li>
-          <li>Freestanding boulders, arch and cave features</li>
-        </ul>
-        <a class="btn btn--solid" href="#contact">Talk to Jack About Your Project</a>
       </div>
-      <figure class="feat-img pop">
-        <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-04-tall-steel-stud-climbing-wall-framing.jpg|760|68|0,0,1,1}}" alt="Multi-story steel stud framing for the climbing walls at Project Rock, with a crew working from a scissor lift" loading="lazy">
-        <img class="feat-inset" src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-07-osb-sheathed-climbing-wall-faces.jpg|420|70|0,0.05,1,0.85}}" alt="Climbing wall faces sheathed in OSB at Project Rock" loading="lazy">
-        <figcaption>Steel stud framing, then OSB sheathing. Both by Carolina Partitions.</figcaption>
-      </figure>
+      <p class="lead">Carolina Partitions built the steel stud framing and the OSB and plywood sheathing behind Project Rock's multi-story climbing walls, freestanding boulders, and its arch and cave features.</p>
+    </div>
+    <div class="feat-stage pop" id="featStage">
+      <div class="feat-frames">
+        <figure class="feat-frame on"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-04-tall-steel-stud-climbing-wall-framing.jpg|1500|70|0,0.22,1,0.78}}" alt="Multi-story steel stud framing for the climbing walls at Project Rock" loading="lazy"></figure>
+        <figure class="feat-frame"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-07-osb-sheathed-climbing-wall-faces.jpg|1500|70|0,0.12,1,0.72}}" alt="Climbing wall faces sheathed in OSB at Project Rock" loading="lazy"></figure>
+        <figure class="feat-frame"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-09-finished-boulder-arch.jpg|1500|70|0,0.16,1,0.74}}" alt="Finished boulder arch at Project Rock" loading="lazy"></figure>
+      </div>
+      <ol class="feat-steps" aria-label="Project Rock build sequence">
+        <li><button type="button" class="on" aria-label="Show step 1, steel stud framing"><b>01</b><strong>Steel stud framing</strong><small>Multi-story climbing walls</small></button></li>
+        <li><button type="button" aria-label="Show step 2, OSB and plywood sheathing"><b>02</b><strong>OSB and plywood sheathing</strong><small>Wall faces and boulders</small></button></li>
+        <li><button type="button" aria-label="Show step 3, arch and cave features"><b>03</b><strong>Arch and cave features</strong><small>The finished boulder arch</small></button></li>
+      </ol>
+    </div>
+    <div class="feat-cta">
+      <a class="btn btn--solid" href="#contact">Talk to Jack About Your Project</a>
+      <p>From bare studs to a finished gym. One crew, one schedule.</p>
     </div>
   </div>
 </section>
@@ -900,5 +914,21 @@ h1,h2,h3,h4,p{margin:0}
   - retail-store-interior-modern.jpg       career: Cabela's
   - (no photo)                             career: Gatlinburg Aquarium, navy card until a real photo exists
 -->
+<script>
+(function(){
+  var sec=document.getElementById("featured"); if(!sec) return;
+  var frames=sec.querySelectorAll(".feat-frame"), btns=sec.querySelectorAll(".feat-steps button"), i=0, t=null;
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function show(n){ i=n; for(var k=0;k<frames.length;k++){ frames[k].classList.toggle("on",k===n); btns[k].classList.remove("on"); }
+    void sec.offsetWidth; btns[n].classList.add("on"); }
+  function start(){ stop(); if(reduce) return; t=setInterval(function(){ show((i+1)%frames.length); },5500); }
+  function stop(){ if(t){ clearInterval(t); t=null; } }
+  for(var k=0;k<btns.length;k++) (function(n){ btns[n].addEventListener("click",function(){ show(n); start(); }); })(k);
+  var st=document.getElementById("featStage");
+  st.addEventListener("mouseenter",function(){ sec.classList.add("paused"); stop(); });
+  st.addEventListener("mouseleave",function(){ sec.classList.remove("paused"); show(i); start(); });
+  start();
+})();
+</script>
 </body>
 </html>
