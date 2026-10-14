@@ -137,7 +137,9 @@ h1,h2,h3,h4,p{margin:0}
 @media (min-width:641px){.hslide{left:auto; right:0; width:64%}}
 .hero .row{position:relative; z-index:3; padding-block:80px}
 .hero__text{max-width:800px}
-.hero__est{display:inline-block; font-family:var(--head); font-weight:900; font-size:12px; letter-spacing:1.4px; text-transform:uppercase; color:var(--ink); background:var(--sand); padding:6px 12px; margin-bottom:16px}
+.hero__tag{display:flex; align-items:center; flex-wrap:wrap; gap:10px 16px; margin-bottom:16px}
+.hero__slogan{font-family:var(--head); font-weight:900; font-size:15px; letter-spacing:2px; text-transform:uppercase; color:var(--sand)}
+.hero__est{display:inline-block; font-family:var(--head); font-weight:900; font-size:12px; letter-spacing:1.4px; text-transform:uppercase; color:var(--ink); background:var(--sand); padding:6px 12px}
 .hero h1{font-family:var(--head); font-weight:900; font-size:12px; letter-spacing:1.1px; text-transform:uppercase; color:var(--white)}
 .rotator{position:relative; height:44px; margin:14px 0 8px}
 .rotator span{position:absolute; left:0; top:0; white-space:nowrap; font-family:var(--head); font-weight:500; font-size:clamp(26px,1.2rem + 1.4vw,40px); line-height:44px; letter-spacing:.64px; text-transform:uppercase; color:var(--white); opacity:0; transform:translateY(24px); transition:opacity .6s linear, transform .6s ease-out}
@@ -326,7 +328,8 @@ h1,h2,h3,h4,p{margin:0}
   linear-gradient(118deg,transparent 0 60%,rgba(10,31,74,.35) 60% 70%,transparent 70%),
   repeating-linear-gradient(118deg,transparent 0 220px,rgba(231,232,233,.05) 220px 221px)}
 .footer .row{position:relative}
-.footer .logo{height:58px; width:auto; margin-bottom:34px}
+.footer .logo{height:58px; width:auto; margin-bottom:14px}
+.footer .f-slogan{font-family:var(--head); font-weight:900; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:var(--sand); margin:0 0 30px}
 .f-main{display:grid; grid-template-columns:1fr 1.4fr 1fr; gap:5.5%}
 .footer h4{font-family:var(--body); font-weight:600; font-size:14px; text-transform:uppercase; color:var(--white); margin:0 0 8px}
 .f-block + .f-block{margin-top:22px}
@@ -502,7 +505,7 @@ h1,h2,h3,h4,p{margin:0}
   </svg>
   <div class="row">
     <div class="hero__text">
-      <span class="hero__est">Established 2004</span>
+      <div class="hero__tag"><span class="hero__est">Established 2004</span><span class="hero__slogan">Discover the Difference</span></div>
       <h1>Greenville's commercial interiors contractor</h1>
       <div class="rotator" id="rotator" aria-live="off">
         <span class="on"><b>Precision</b> is our</span>
@@ -747,6 +750,7 @@ h1,h2,h3,h4,p{margin:0}
 <footer class="footer">
   <div class="row">
     <img class="logo" src="__LOGO_WHITE__" alt="Carolina Partitions LLC">
+    <p class="f-slogan">Discover the Difference</p>
     <div class="f-main">
       <div>
         <div class="f-block"><h4>Office</h4><a href="https://maps.google.com/?q=16+Rutledge+Ave+Greenville+SC+29617" target="_blank" rel="noopener">16 Rutledge Ave<br>Greenville, SC 29617</a></div>

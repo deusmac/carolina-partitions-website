@@ -16,6 +16,7 @@
 **Every agent updates this section before ending a session.** A new agent must be able
 to read only section 0 and know exactly where things stand. History lives in section 9.
 
+- **SLOGAN "Discover the Difference"** (JC, 2026-10-14): in the hero next to the Established 2004 badge and in the footer under the logo.
 - **ESTABLISHED 2004** (JC, 2026-10-14): shown as a sand badge above the hero headline, in the About bio, and as JSON-LD foundingDate.
 - **Project:** Marketing website for Carolina Partitions LLC, a Greenville SC COMMERCIAL
   drywall, metal stud framing and acoustical ceilings contractor (no painting, no residential).
