@@ -66,7 +66,8 @@ to read only section 0 and know exactly where things stand. History lives in sec
   = AI 4x upscales in `brand-assets/woodlands-at-furman-interiors/hd/` made once with
   `build/upscale_woodlands.py` (Real-ESRGAN x4plus, torch from PyPI; pytorch.org is blocked in
   the sandbox). Originals untouched. HTML ~2.36MB.
-- **Quote form = sends in the page (VERIFIED WORKING 2026-10-01).** fetch POST (no-cors,
+- **QUOTE FORM NOW USES FORMSPREE (2026-10-14, JC): endpoint https://formspree.io/f/xbgdpjvy** (`FORM_URL` in the template). Replaces the Google Apps Script/Sheet below, which sent to Jack's Junk. Form has a real `action` (works without JS) plus an in-page fetch with `Accept: application/json`; success only on HTTP ok. Honeypot `_gotcha`, `_subject` set. Tested with a mocked endpoint only (sandbox cannot reach formspree.io); JC must send one real test and confirm the Formspree activation email. The Google Sheet notes below are legacy.
+- **(Legacy, replaced) Quote form = sends in the page (VERIFIED WORKING 2026-10-01).** fetch POST (no-cors,
   credentials:"omit") to the live web app. Verified end to end from GitHub Actions
   (`.github/workflows/leads-endpoint-test.yml`, runs when that file changes or by hand): 2 TEST
   rows landed in the Leads tab and 2 emails reached jmorgan@, BUT IN JACK'S JUNK FOLDER (sender
@@ -237,8 +238,8 @@ Now: client go-live (domain, Formspree, real photos per PUBLISHING.md), Lighthou
   (3-column grid), About/Jack section moved after Services. Rebuilt index-v3.html, copied to index.html.
 - Same day, JC feedback: Woodlands slide made full-bleed (the single small photo looked sad); Featured
   project rebuilt as the build-sequence showcase. Published to main.
-- Open: contact form reliability (mail goes to Jack's Junk, no real inbox alert). Awaiting JC's pick of
-  a replacement email + database.
+- Contact form switched to Formspree (xbgdpjvy), see section 0. Open: JC sends a real test; confirm recipient
+  is jmorgan@ in the Formspree dashboard.
 
 ### 2026-10-01 - Session 11 (brochure cleanup + mobile)
 - JC wants a clean brochure look, not a report. Removed the RS Spartanburg project card and the

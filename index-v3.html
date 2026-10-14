@@ -719,9 +719,10 @@ h1,h2,h3,h4,p{margin:0}
       </div>
     </div>
     <div class="rise">
-      <!-- Leads go to the "Carolina Partitions Website Leads" Google Sheet and email Jack.
-           Setup: leads/SETUP.md. Paste the Apps Script web app URL into LEADS_URL in the script below. -->
-      <form class="form" id="quoteForm" method="POST" novalidate>
+      <!-- Leads go to Formspree (form xbgdpjvy): emailed to Jack on every submission and stored in the Formspree dashboard.
+           No-JS fallback: the action posts the form normally. The script below sends it in the page instead. -->
+      <form class="form" id="quoteForm" action="https://formspree.io/f/xbgdpjvy" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New quote request from carolina-partitions website">
         <h3>Request a quote</h3>
         <label class="form__hp" aria-hidden="true">Do not fill this in<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
         <div class="two">
@@ -863,25 +864,28 @@ h1,h2,h3,h4,p{margin:0}
     })();
   }
 
-  // Quote form -> Google Sheet (Apps Script web app, see leads/SETUP.md)
-  var LEADS_URL = "https://script.google.com/macros/s/AKfycbwYNTrmw5_wEzBCh35W6OGrQBdi7URQiIQ2jZa_a-v2uPDn1DIpqkconLUn1ALymyL2/exec";
+  // Quote form -> Formspree (emails Jack, stores the lead)
+  var FORM_URL = "https://formspree.io/f/xbgdpjvy";
   var form = document.getElementById("quoteForm"), msg = document.getElementById("formMsg");
-  // Sends in the page: POST to the leads web app (Google Sheet + email to Jack). credentials are
-  // omitted so a visitor's own Google login can never interfere. The response is opaque, so a
-  // network-level failure is the only error the browser can report.
+  // Sends in the page: POST to Formspree (emails Jack, stores the lead). Formspree allows cross-origin
+  // JSON posts, so a rejected submission (bad email, spam flag, quota) shows a real error here.
   form.addEventListener("submit", function(e){
     e.preventDefault();
     msg.className = "form__msg";
     if (!form.checkValidity()) { msg.classList.add("err"); msg.textContent = "Please fill in the required fields marked with *, and check the plans link starts with https://."; return; }
     var d = new FormData(form), link = String(d.get("plans_link") || "").trim();
-    var fields = new URLSearchParams();
+    var fields = new FormData();
     d.forEach(function(v, k){ if (k !== "plans_link") fields.append(k, k === "project" && link ? v + "\n\nPlans link: " + link : v); });
     var btn = form.querySelector("button[type=submit]"), label = btn.textContent;
     btn.disabled = true; btn.style.opacity = ".7"; btn.textContent = "Sending...";
     msg.textContent = "Sending your request...";
-    fetch(LEADS_URL, { method:"POST", mode:"no-cors", credentials:"omit", body:fields })
-      .then(function(){ form.reset(); msg.classList.add("ok"); msg.textContent = "Thank you. Your request is in, and Jack will get back to you within one business day. If you have drawings, email them to jmorgan@carolina-partitions.com."; })
-      .catch(function(){ msg.classList.add("err"); msg.textContent = "Something went wrong sending the form. Please call (864) 505-0066 or email jmorgan@carolina-partitions.com."; })
+    var fail = function(){ msg.classList.add("err"); msg.textContent = "Something went wrong sending the form. Please call (864) 505-0066 or email jmorgan@carolina-partitions.com."; };
+    fetch(FORM_URL, { method:"POST", headers:{ "Accept":"application/json" }, body:fields })
+      .then(function(r){
+        if (!r.ok) { fail(); return; }
+        form.reset(); msg.classList.add("ok"); msg.textContent = "Thank you. Your request is in, and Jack will get back to you within one business day. If you have drawings, email them to jmorgan@carolina-partitions.com.";
+      })
+      .catch(fail)
       .then(function(){ btn.disabled = false; btn.style.opacity = "1"; btn.textContent = label; });
   });
 })();
