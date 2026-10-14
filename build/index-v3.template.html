@@ -222,30 +222,16 @@ h1,h2,h3,h4,p{margin:0}
 /* ---------- Featured project: Project Rock ---------- */
 .feature{padding:96px 0 104px; background:var(--navy); color:var(--line); position:relative; overflow:hidden}
 .feat-ghost{position:absolute; right:-1vw; top:6px; font-family:var(--head); font-weight:900; font-size:clamp(160px,28vw,420px); line-height:.8; text-transform:uppercase; color:transparent; -webkit-text-stroke:2px rgba(230,218,195,.13); pointer-events:none; user-select:none}
-.feat-head{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(28px,5vw,90px); align-items:end; margin-bottom:40px; position:relative}
+.feat-grid{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:clamp(32px,5vw,84px); align-items:center; position:relative}
 .feature .h2{color:var(--sand)}
 .feature .h2 span{display:block; font-size:.5em; color:var(--white); margin-top:10px}
-.feat-stage{position:relative}
-.feat-frames{position:relative; aspect-ratio:21/9; min-height:380px; background:var(--ink); overflow:hidden; border-top:4px solid var(--sand); box-shadow:0 28px 60px rgba(0,0,0,.4)}
-.feat-frame{position:absolute; inset:0; margin:0; opacity:0; transition:opacity 1s ease}
-.feat-frame.on{opacity:1}
-.feat-frame img{width:100%; height:100%; object-fit:cover; transform:scale(1.08); transition:transform 7s var(--ease)}
-.feat-frame.on img{transform:scale(1)}
-.feat-frames::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,20,47,0) 40%,rgba(6,20,47,.9) 100%); pointer-events:none}
-.feat-steps{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; position:absolute; left:28px; right:28px; bottom:22px; z-index:2}
-.feat-steps button{all:unset; box-sizing:border-box; display:block; width:100%; cursor:pointer; padding-top:14px; position:relative; color:var(--line)}
-.feat-steps button::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:rgba(255,255,255,.28)}
-.feat-steps button::after{content:""; position:absolute; left:0; top:0; height:3px; width:100%; background:var(--sand); transform:scaleX(0); transform-origin:left}
-.feat-steps button.on::after{animation:featFill 5.5s linear forwards}
-.feature.paused .feat-steps button.on::after{animation:none; transform:scaleX(1)}
-@keyframes featFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-.feat-steps b{display:block; font-family:var(--head); font-weight:900; font-size:clamp(26px,1.2rem + 1.2vw,40px); line-height:1; color:rgba(255,255,255,.4)}
-.feat-steps .on b{color:var(--sand)}
-.feat-steps strong{display:block; font-family:var(--head); font-weight:800; font-size:13px; letter-spacing:1.1px; text-transform:uppercase; color:var(--white); margin:6px 0 4px}
-.feat-steps small{display:block; font-size:14px; line-height:1.45; color:var(--line)}
-.feat-steps button:focus-visible{outline:2px solid var(--sand); outline-offset:4px}
-.feat-cta{margin-top:40px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; position:relative}
-.feat-cta p{font-size:14px; color:var(--line); max-width:52ch}
+.feat-photo{margin:0; position:relative}
+.feat-photo img{width:100%; height:auto; display:block; border-top:4px solid var(--sand); box-shadow:0 28px 60px rgba(0,0,0,.45)}
+.feat-photo::after{content:""; position:absolute; right:-14px; bottom:-14px; width:38%; height:38%; border-right:4px solid var(--sand); border-bottom:4px solid var(--sand); pointer-events:none}
+.feat-photo figcaption{font-size:14px; line-height:1.5; color:var(--line); margin-top:16px}
+.feat-facts{list-style:none; padding:0; margin:24px 0 30px; display:grid; gap:10px}
+.feat-facts li{display:flex; gap:12px; align-items:baseline; font-weight:600; color:var(--white)}
+.feat-facts li::before{content:""; flex:none; width:10px; height:10px; background:var(--sand); clip-path:polygon(100% 0,100% 100%,0 100%)}
 
 /* ---------- Career carousel ---------- */
 .career{background:var(--paper); padding:56px 0 64px}
@@ -368,7 +354,8 @@ h1,h2,h3,h4,p{margin:0}
   .strip:hover img{transform:scale(1.05)}
   .strip em{transform:translateX(-50%); font-size:12px; bottom:18px}
   .cur-head{flex-direction:column; align-items:flex-start}
-  .feat-head{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr}
+  .feat-photo{max-width:640px}
   .cur-grid{grid-template-columns:1fr}
   .founder .row,.contact .row{grid-template-columns:1fr}
   .f-photo{max-width:480px}
@@ -400,11 +387,7 @@ h1,h2,h3,h4,p{margin:0}
   .cur-grid{gap:24px}
   .cur__body{padding:18px 20px 22px}
   .feature{padding:56px 0 64px}
-  .feat-head{grid-template-columns:1fr; gap:14px; margin-bottom:26px}
-  .feat-frames{aspect-ratio:auto; height:420px; min-height:0}
-  .feat-steps{left:14px; right:14px; bottom:14px; gap:10px}
-  .feat-steps strong{font-size:11px; letter-spacing:.6px}
-  .feat-steps small{display:none}
+  .feat-photo::after{right:-8px; bottom:-8px}
   .why{padding:52px 0 56px}
   .why-grid{grid-template-columns:1fr; gap:16px; margin-top:32px}
   .why-card{padding:26px 22px}
@@ -630,31 +613,26 @@ h1,h2,h3,h4,p{margin:0}
 </section>
 
 <section class="feature dark" id="featured">
-  <!-- REAL PHOTOS: Project Rock (brand-assets/project-rock-climbing-gym). Facts per brand-assets/README.md only. -->
+  <!-- REAL PHOTO: Project Rock 01, our crew on site with the Carolina Partitions banner (brand-assets/project-rock-climbing-gym). Facts per brand-assets/README.md only.
+       NOTE: the banner shows 864-288-7663 and www.carolinapartitions.com, not Jack's current number. Flagged to JC. -->
   <div class="feat-ghost" aria-hidden="true">Rock</div>
   <div class="row">
-    <div class="feat-head rise">
-      <div>
+    <div class="feat-grid">
+      <figure class="feat-photo pop">
+        <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-01-carolina-partitions-crew-framing-and-sheathing-climbing-walls.jpg|1086|78|0,0.36,1,1}}" alt="Carolina Partitions crew framing and sheathing the climbing walls at Project Rock, with the Carolina Partitions banner on site" loading="lazy">
+        <figcaption>Our crew on site at Project Rock.</figcaption>
+      </figure>
+      <div class="rise">
         <span class="eyebrow">Featured project</span>
         <h2 class="h2">Project Rock<span>Indoor climbing gym, Greenville, SC</span></h2>
+        <p class="lead">Carolina Partitions built the steel stud framing and the OSB and plywood sheathing behind Project Rock's multi-story climbing walls, freestanding boulders, and its arch and cave features.</p>
+        <ul class="feat-facts">
+          <li>Steel stud framing for multi-story climbing walls</li>
+          <li>OSB and plywood sheathing</li>
+          <li>Freestanding boulders, arch and cave features</li>
+        </ul>
+        <a class="btn btn--solid" href="#contact">Talk to Jack About Your Project</a>
       </div>
-      <p class="lead">Carolina Partitions built the steel stud framing and the OSB and plywood sheathing behind Project Rock's multi-story climbing walls, freestanding boulders, and its arch and cave features.</p>
-    </div>
-    <div class="feat-stage pop" id="featStage">
-      <div class="feat-frames">
-        <figure class="feat-frame on"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-04-tall-steel-stud-climbing-wall-framing.jpg|1500|70|0,0.22,1,0.78}}" alt="Multi-story steel stud framing for the climbing walls at Project Rock" loading="lazy"></figure>
-        <figure class="feat-frame"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-07-osb-sheathed-climbing-wall-faces.jpg|1500|70|0,0.12,1,0.72}}" alt="Climbing wall faces sheathed in OSB at Project Rock" loading="lazy"></figure>
-        <figure class="feat-frame"><img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-09-finished-boulder-arch.jpg|1500|70|0,0.16,1,0.74}}" alt="Finished boulder arch at Project Rock" loading="lazy"></figure>
-      </div>
-      <ol class="feat-steps" aria-label="Project Rock build sequence">
-        <li><button type="button" class="on" aria-label="Show step 1, steel stud framing"><b>01</b><strong>Steel stud framing</strong><small>Multi-story climbing walls</small></button></li>
-        <li><button type="button" aria-label="Show step 2, OSB and plywood sheathing"><b>02</b><strong>OSB and plywood sheathing</strong><small>Wall faces and boulders</small></button></li>
-        <li><button type="button" aria-label="Show step 3, arch and cave features"><b>03</b><strong>Arch and cave features</strong><small>The finished boulder arch</small></button></li>
-      </ol>
-    </div>
-    <div class="feat-cta">
-      <a class="btn btn--solid" href="#contact">Talk to Jack About Your Project</a>
-      <p>From bare studs to a finished gym. One crew, one schedule.</p>
     </div>
   </div>
 </section>
@@ -898,7 +876,8 @@ h1,h2,h3,h4,p{margin:0}
 
  REAL CAROLINA PARTITIONS PHOTOS (client-owned, from brand-assets/, see brand-assets/README.md):
   - Project Rock 06 steel stud boulder framing    hero slide 1 (09 finished arch now only in Featured step 3; JC: it looked like CMU)
-  - Project Rock 04 tall steel stud framing       featured project (10, the skull boulder, dropped per JC)
+  - Project Rock 01 crew + Carolina Partitions banner   featured project (single large photo, JC 2026-10-14)
+  - Project Rock 04 tall steel stud framing       hero slide 3 (10, the skull boulder, dropped per JC)
   - Project Rock 01-03, 05-08 framing/sheathing   "What we build" grid
   - Project Rock 03                                services: metal framing strip
   - RS Spartanburg 07                              services: drywall strip
@@ -922,21 +901,5 @@ h1,h2,h3,h4,p{margin:0}
   - retail-store-interior-modern.jpg       career: Cabela's
   - (no photo)                             career: Gatlinburg Aquarium, navy card until a real photo exists
 -->
-<script>
-(function(){
-  var sec=document.getElementById("featured"); if(!sec) return;
-  var frames=sec.querySelectorAll(".feat-frame"), btns=sec.querySelectorAll(".feat-steps button"), i=0, t=null;
-  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches;
-  function show(n){ i=n; for(var k=0;k<frames.length;k++){ frames[k].classList.toggle("on",k===n); btns[k].classList.remove("on"); }
-    void sec.offsetWidth; btns[n].classList.add("on"); }
-  function start(){ stop(); if(reduce) return; t=setInterval(function(){ show((i+1)%frames.length); },5500); }
-  function stop(){ if(t){ clearInterval(t); t=null; } }
-  for(var k=0;k<btns.length;k++) (function(n){ btns[n].addEventListener("click",function(){ show(n); start(); }); })(k);
-  var st=document.getElementById("featStage");
-  st.addEventListener("mouseenter",function(){ sec.classList.add("paused"); stop(); });
-  st.addEventListener("mouseleave",function(){ sec.classList.remove("paused"); show(i); start(); });
-  start();
-})();
-</script>
 </body>
 </html>

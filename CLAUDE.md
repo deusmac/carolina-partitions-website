@@ -49,8 +49,7 @@ to read only section 0 and know exactly where things stand. History lives in sec
   slide, clickable progress dots; stats bar; Services (text + 3 slanted photo strips: RS 07,
   Rock 03, stock ceilings); Current projects (3 cards: Woodlands at Furman tiles, Bedrock
   Veterinary Clinic (stock clinic reception photo), RS Spartanburg (real photo 04), re-added 2026-10-14 per JC);
-  Featured project Project Rock (2026-10-14 redesign: navy band, ghost ROCK text, full-width auto-playing
-  build sequence 01 framing (photo 04), 02 OSB sheathing (07), 03 arch (09) with progress tabs); Why (4 cards); Jack's career projects carousel (auto-drifts,
+  Featured project Project Rock (2026-10-14, JC: no 1-2-3 slider): one large photo, Rock 01 crew with the Carolina Partitions banner, beside the text on a navy band with ghost ROCK; Why (4 cards); Jack's career projects carousel (auto-drifts,
   loops by moving cards, pauses on hover/touch, arrows still work); About Jack (real headshot, moved up to right after Services on 2026-10-14);
   Contact (Jack card + quote form); footer.
 - **Image sizing (2026-10-01, JC: "images are so small"):** build now outputs WebP (about a
@@ -238,6 +237,7 @@ Now: client go-live (domain, Formspree, real photos per PUBLISHING.md), Lighthou
   (3-column grid), About/Jack section moved after Services. Rebuilt index-v3.html, copied to index.html.
 - Same day, JC feedback: Woodlands slide made full-bleed (the single small photo looked sad); Featured
   project rebuilt as the build-sequence showcase. Published to main.
+- Featured project simplified to ONE large photo (Rock 01 with the banner, which shows 864-288-7663, not Jack's number; flagged). Hero slide 1 = Rock 06 framing.
 - Contact form switched to Formspree (xbgdpjvy), see section 0. Open: JC sends a real test; confirm recipient
   is jmorgan@ in the Formspree dashboard.
 
