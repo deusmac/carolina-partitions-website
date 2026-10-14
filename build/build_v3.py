@@ -8,7 +8,7 @@ Template tokens:
   {{IMG path|width|quality|x0,y0,x1,y1[|sharpN]}}      photo, cropped by fractions, resized to width,
                                                        re-encoded as WebP and embedded as base64;
                                                        sharpN upscales N times + sharpens (tiny originals)
-Also writes og-image.jpg (1200x630, Project Rock arch) for social link previews.
+Also writes og-image.jpg (1200x630, Project Rock steel stud framing) for social link previews.
 """
 import base64, io, json, os, re, sys
 from PIL import Image, ImageFilter, ImageOps
@@ -45,8 +45,8 @@ if '{{IMG' in t or re.search(r'__[A-Z_]+__', t):
     sys.exit('unreplaced token left in output')
 open('index-v3.html', 'w', encoding='utf-8').write(t)
 
-im = ImageOps.exif_transpose(Image.open('brand-assets/project-rock-climbing-gym/project-rock-09-finished-boulder-arch.jpg')).convert('RGB')
-W, H = im.size; ch = round(W * 630 / 1200); top = round(H * 0.30)
+im = ImageOps.exif_transpose(Image.open('brand-assets/project-rock-climbing-gym/project-rock-06-steel-stud-boulder-framing.jpg')).convert('RGB')
+W, H = im.size; ch = round(W * 630 / 1200); top = round(H * 0.05)
 im.crop((0, top, W, top + ch)).resize((1200, 630), Image.LANCZOS).save('og-image.jpg', quality=80, optimize=True)
 
 print('%d images, %d KB raw, index-v3.html %d KB' % (len(sizes), sum(s for s, _ in sizes) // 1024, len(t.encode()) // 1024))

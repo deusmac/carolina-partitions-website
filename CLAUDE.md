@@ -44,7 +44,7 @@ to read only section 0 and know exactly where things stand. History lives in sec
   diagonal angle. No orange anywhere, no yellow (JC chose sand over usagg yellow).
 - **Page, top to bottom:** utility bar, sticky white nav (About, Services, Projects, Project
   Rock, Why Us, Contact, Call Jack); HERO = 5-slide crossfade synced with "<word> is our
-  STANDARD" every 5.5s (Precision/Rock 09 arch, Safety/Rock 01 crew on lifts, Stability/Rock 04
+  STANDARD" every 5.5s (Precision/Rock 06 steel stud framing (09 arch dropped from hero 2026-10-14, JC: looked like CMU/EIFS), Safety/Rock 01 crew on lifts, Stability/Rock 04
   steel framing, Craftsmanship/Woodlands full-bleed like the other slides (round tables 06, AI 4x upscale, cropped wide), Quality/RS 03), caption chip per
   slide, clickable progress dots; stats bar; Services (text + 3 slanted photo strips: RS 07,
   Rock 03, stock ceilings); Current projects (3 cards: Woodlands at Furman tiles, Bedrock
