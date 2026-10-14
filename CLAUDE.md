@@ -16,6 +16,7 @@
 **Every agent updates this section before ending a session.** A new agent must be able
 to read only section 0 and know exactly where things stand. History lives in section 9.
 
+- **ESTABLISHED 2004** (JC, 2026-10-14): shown as a sand badge above the hero headline, in the About bio, and as JSON-LD foundingDate.
 - **Project:** Marketing website for Carolina Partitions LLC, a Greenville SC COMMERCIAL
   drywall, metal stud framing and acoustical ceilings contractor (no painting, no residential).
   Audience: GC project managers, owners/developers, architects. Owner and only public contact:
@@ -43,13 +44,13 @@ to read only section 0 and know exactly where things stand. History lives in sec
 - **Page, top to bottom:** utility bar, sticky white nav (About, Services, Projects, Project
   Rock, Why Us, Contact, Call Jack); HERO = 5-slide crossfade synced with "<word> is our
   STANDARD" every 5.5s (Precision/Rock 09 arch, Safety/Rock 01 crew on lifts, Stability/Rock 04
-  steel framing, Craftsmanship/Woodlands as 3 small tiles, Quality/RS 03), caption chip per
+  steel framing, Craftsmanship/Woodlands as ONE large photo (round tables 06, AI 4x upscale), Quality/RS 03), caption chip per
   slide, clickable progress dots; stats bar; Services (text + 3 slanted photo strips: RS 07,
-  Rock 03, stock ceilings); Current projects (2 cards only: Woodlands at Furman tiles, Bedrock
-  Veterinary Clinic stock (drywall on steel studs); RS card + RS gallery REMOVED per JC);
+  Rock 03, stock ceilings); Current projects (3 cards: Woodlands at Furman tiles, Bedrock
+  Veterinary Clinic (stock clinic reception photo), RS Spartanburg (real photo 04), re-added 2026-10-14 per JC);
   Featured project Project Rock (photo 04 with photo 07 as an overlapping inset; the "What we
   build" photo grid was REMOVED per JC, "looks like a report"); Why (4 cards); Jack's career projects carousel (auto-drifts,
-  loops by moving cards, pauses on hover/touch, arrows still work); About Jack (real headshot);
+  loops by moving cards, pauses on hover/touch, arrows still work); About Jack (real headshot, moved up to right after Services on 2026-10-14);
   Contact (Jack card + quote form); footer.
 - **Image sizing (2026-10-01, JC: "images are so small"):** build now outputs WebP (about a
   third smaller than JPEG) and encodes every photo at or above its on-screen size. Project Rock
@@ -227,6 +228,14 @@ Now: client go-live (domain, Formspree, real photos per PUBLISHING.md), Lighthou
 ---
 
 ## 9. SESSION CHANGELOG (newest first; never delete old entries)
+
+### 2026-10-14 - Session 12 (edits on top of main)
+- Based on origin/main (an earlier stale branch was discarded). Template edits: Est. 2004 badge,
+  Woodlands hero slide = one large photo, Bedrock = clinic reception stock (Carolina Oaks now uses
+  medical-treatment-room.jpg to avoid a duplicate), RS Spartanburg card back in Current projects
+  (3-column grid), About/Jack section moved after Services. Rebuilt index-v3.html, copied to index.html.
+- Open: contact form reliability (mail goes to Jack's Junk, no real inbox alert). Awaiting JC's pick of
+  a replacement email + database.
 
 ### 2026-10-01 - Session 11 (brochure cleanup + mobile)
 - JC wants a clean brochure look, not a report. Removed the RS Spartanburg project card and the

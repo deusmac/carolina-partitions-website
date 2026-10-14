@@ -48,6 +48,7 @@
     { "@type": "City", "name": "Anderson, SC" },
     { "@type": "AdministrativeArea", "name": "Upstate South Carolina" }
   ],
+  "foundingDate": "2004",
   "knowsAbout": ["Commercial drywall", "Gypsum wall assemblies", "Metal stud framing", "Acoustical ceilings"]
 }
 </script>
@@ -126,11 +127,10 @@ h1,h2,h3,h4,p{margin:0}
 .hslide.on > img{transform:scale(1); transition:transform 7s var(--ease)}
 .hslide figcaption{position:absolute; z-index:4; right:120px; bottom:26px; background:rgba(6,20,47,.82); color:var(--white); font-family:var(--head); font-weight:800; font-size:12px; letter-spacing:1.1px; text-transform:uppercase; padding:8px 12px; border-left:3px solid var(--sand)}
 .hslide figcaption span{font-family:var(--body); font-weight:400; letter-spacing:0; text-transform:none; color:var(--line); margin-left:8px}
-/* Woodlands photos are only 240x320: shown as crisp small tiles, never stretched */
+/* Woodlands: one large photo (AI 4x upscale, 960x1280), shown no bigger than its natural size */
 .hslide--tiles{z-index:3; background:linear-gradient(90deg,var(--navy) 0%,var(--card) 45%,var(--ink) 100%)}
-.hslide--tiles .tiles{position:absolute; right:4%; top:50%; transform:translateY(-54%); display:grid; grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(2,1fr); gap:14px; width:min(56%,560px); height:min(80%,600px)}
+.hslide--tiles .tiles{position:absolute; right:6%; top:50%; transform:translateY(-54%); height:min(90%,640px); aspect-ratio:3/4}
 .hslide--tiles .tiles img{width:100%; height:100%; min-height:0; object-fit:cover; border-top:4px solid var(--sand); box-shadow:0 18px 40px rgba(0,0,0,.35)}
-.hslide--tiles .tiles img:first-child{grid-row:span 2}
 .hero__dots{display:flex; gap:8px; margin-top:34px}
 .hero__dots button{width:34px; height:4px; padding:0; border:0; background:rgba(255,255,255,.3); cursor:pointer; position:relative; overflow:hidden}
 .hero__dots button.on{background:rgba(255,255,255,.3)}
@@ -141,6 +141,7 @@ h1,h2,h3,h4,p{margin:0}
 @media (min-width:641px){.hslide:not(.hslide--tiles){left:auto; right:0; width:64%}.hslide--tiles{left:36%}}
 .hero .row{position:relative; z-index:3; padding-block:80px}
 .hero__text{max-width:800px}
+.hero__est{display:inline-block; font-family:var(--head); font-weight:900; font-size:12px; letter-spacing:1.4px; text-transform:uppercase; color:var(--ink); background:var(--sand); padding:6px 12px; margin-bottom:16px}
 .hero h1{font-family:var(--head); font-weight:900; font-size:12px; letter-spacing:1.1px; text-transform:uppercase; color:var(--white)}
 .rotator{position:relative; height:44px; margin:14px 0 8px}
 .rotator span{position:absolute; left:0; top:0; white-space:nowrap; font-family:var(--head); font-weight:500; font-size:clamp(26px,1.2rem + 1.4vw,40px); line-height:44px; letter-spacing:.64px; text-transform:uppercase; color:var(--white); opacity:0; transform:translateY(24px); transition:opacity .6s linear, transform .6s ease-out}
@@ -184,7 +185,7 @@ h1,h2,h3,h4,p{margin:0}
 .dark{background:var(--ink); color:var(--line)}
 .current{padding:72px 0 64px; position:relative}
 .cur-head{display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-bottom:40px}
-.cur-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:32px}
+.cur-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
 .cur{position:relative; background:var(--card); border-top:4px solid var(--sand); overflow:hidden}
 .cur__img{position:relative; aspect-ratio:16/10; overflow:hidden}
 .cur__img img{width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease)}
@@ -374,7 +375,8 @@ h1,h2,h3,h4,p{margin:0}
   .hero__cta .btn{flex:1 1 100%}
   .hero__deco{width:100%; height:40%}
   .hslide figcaption{right:auto; left:16px; bottom:16px}
-  .hslide--tiles .tiles{right:auto; left:16px; top:auto; bottom:64px; transform:none; width:calc(100% - 32px); height:230px; gap:8px}
+  .hslide--tiles .tiles{right:auto; left:16px; top:auto; bottom:64px; transform:none; width:calc(100% - 32px); height:200px; aspect-ratio:auto}
+  .hslide--tiles .tiles img{object-position:50% 55%}
   .hero__dots{margin-top:26px}
   .hero::before{background:linear-gradient(180deg,rgba(10,31,74,.92) 0%,rgba(10,31,74,.78) 48%,rgba(10,31,74,.1) 82%)}
   .hero__p{font-size:15px; line-height:1.6; margin:18px 0 24px}
@@ -469,12 +471,10 @@ h1,h2,h3,h4,p{margin:0}
       <img src="{{IMG brand-assets/project-rock-climbing-gym/project-rock-04-tall-steel-stud-climbing-wall-framing.jpg|1040|56|0,0.14,1,0.76}}" alt="Multi-story steel stud framing for a climbing wall at Project Rock">
       <figcaption>Project Rock<span>Multi-story steel stud framing</span></figcaption>
     </figure>
-    <!-- Woodlands: 240x320 originals AI-upscaled 4x (build/upscale_woodlands.py). Keep as tiles. PLACEHOLDER: replace with real high-res Woodlands photos from Jack -->
+    <!-- Woodlands: 240x320 original AI-upscaled 4x (build/upscale_woodlands.py), one large photo. PLACEHOLDER: replace with a real high-res Woodlands photo from Jack -->
     <figure class="hslide hslide--tiles">
       <div class="tiles">
-        <img src="{{IMG brand-assets/woodlands-at-furman-interiors/hd/woodlands-furman-cafe-coffee-bar-01-4x.jpg|560|80|0,0,1,1}}" alt="Finished cafe coffee bar at Woodlands at Furman">
-        <img src="{{IMG brand-assets/woodlands-at-furman-interiors/hd/woodlands-furman-dining-round-tables-06-4x.jpg|560|80|0,0,1,1}}" alt="Finished dining room with round tables at Woodlands at Furman">
-        <img src="{{IMG brand-assets/woodlands-at-furman-interiors/hd/woodlands-furman-servery-wood-ceiling-09-4x.jpg|560|80|0,0,1,1}}" alt="Finished servery with a wood slat ceiling at Woodlands at Furman">
+        <img src="{{IMG brand-assets/woodlands-at-furman-interiors/hd/woodlands-furman-dining-round-tables-06-4x.jpg|960|84|0,0,1,1}}" alt="Finished dining room with round tables and a coffered ceiling at Woodlands at Furman">
       </div>
       <figcaption>Woodlands at Furman<span>Greenville, SC</span></figcaption>
     </figure>
@@ -494,6 +494,7 @@ h1,h2,h3,h4,p{margin:0}
   </svg>
   <div class="row">
     <div class="hero__text">
+      <span class="hero__est">Established 2004</span>
       <h1>Greenville's commercial interiors contractor</h1>
       <div class="rotator" id="rotator" aria-live="off">
         <span class="on"><b>Precision</b> is our</span>
@@ -555,6 +556,26 @@ h1,h2,h3,h4,p{margin:0}
   </div>
 </section>
 
+<section class="founder" id="about">
+  <div class="row">
+    <div class="f-photo pop">
+      <img src="__JACK__" alt="Jack Morgan, founder of Carolina Partitions" loading="lazy">
+      <div class="badge"><b>37</b><span>Years in the trade</span></div>
+    </div>
+    <div class="rise">
+      <span class="eyebrow">About</span>
+      <h2 class="h2">The name on the door<br>is on the job</h2>
+      <blockquote>Carolina Partitions is dedicated to one standard on every job since day one: finish it right, hit the schedule, and leave it clean. When you hire Carolina, you are hiring the man whose name is on the door.</blockquote>
+      <p class="bio">Jack has been in the trade since he was 16. Born and raised in Greenville, he has spent 37 years hanging, framing, and finishing across the Upstate and the Southeast. Carolina Partitions is his family-owned company, established in 2004.</p>
+      <p class="sig">Jack Morgan<small>Founder, Carolina Partitions</small></p>
+      <div class="btn-row">
+        <a class="btn btn--solid" href="tel:8645050066">Call Jack</a>
+        <a class="btn btn--line-dark" href="#contact">Send a Message</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="current dark" id="current">
   <div class="row">
     <div class="cur-head">
@@ -580,10 +601,18 @@ h1,h2,h3,h4,p{margin:0}
       <article class="cur pop d1">
         <div class="cur__img">
           <!-- PLACEHOLDER: stock photo, replace with a real Bedrock Veterinary Clinic photo -->
-          <img src="{{IMG assets/stock/metal-stud-drywall-screwing.jpg|760|72|0.12,0,0.88,1}}" alt="Drywall being screwed to steel studs (representative stock photo)" loading="lazy">
+          <img src="{{IMG assets/stock/clinic-waiting-room-reception.jpg|900|76|0,0,1,1}}" alt="Finished clinic reception and waiting area (representative stock photo)" loading="lazy">
           <span class="cur__tag"><i></i>In progress</span>
         </div>
         <div class="cur__body"><span>Veterinary clinic</span><h3>Bedrock Veterinary Clinic</h3><p>Greer, SC</p></div>
+      </article>
+      <article class="cur pop d2">
+        <div class="cur__img">
+          <!-- REAL PHOTO: RS Spartanburg interior build-out. PHOTO CREDIT: Frank Costa, Heritage Paintworks. A visible credit may be needed; ask JC before adding one. -->
+          <img src="{{IMG brand-assets/rs-spartanburg-finished-paint/rs-spartanburg-glass-partition-blue-wall-04.jpg|900|74|0,0,1,1}}" alt="Glass partition and blue accent wall at RS Spartanburg" loading="lazy">
+          <span class="cur__tag"><i></i>In progress</span>
+        </div>
+        <div class="cur__body"><span>Interior build-out</span><h3>RS Spartanburg</h3><p>Spartanburg, SC</p></div>
       </article>
     </div>
   </div>
@@ -643,7 +672,7 @@ h1,h2,h3,h4,p{margin:0}
     <article class="car"><img src="{{IMG assets/stock/performing-arts-hall-wood-ceiling.jpg|560|68|0,0,1,1}}" alt="Performing arts hall interior (representative stock photo)" loading="lazy"><div class="car__top"><h3>Peace Center</h3><em>Greenville, SC</em></div><span class="car__foot">Performing arts</span></article>
     <article class="car"><img src="{{IMG assets/stock/hospital-corridor-ceiling-grid.jpg|560|68|0,0,1,1}}" alt="Finished medical corridor with ceiling grid (representative stock photo)" loading="lazy"><div class="car__top"><h3>Spartanburg Regional MOB</h3><em>Spartanburg, SC</em></div><span class="car__foot">Healthcare</span></article>
     <article class="car"><img src="{{IMG assets/stock/office-lobby-atrium.jpg|560|68|0,0,1,1}}" alt="Finished two-story office lobby (representative stock photo)" loading="lazy"><div class="car__top"><h3>Poinsett Plaza</h3><em>Greenville, SC</em></div><span class="car__foot">Office</span></article>
-    <article class="car"><img src="{{IMG assets/stock/clinic-waiting-room-reception.jpg|560|68|0,0,1,1}}" alt="Finished clinic reception and waiting room (representative stock photo)" loading="lazy"><div class="car__top"><h3>Carolina Oaks Dental Care</h3><em>Greenville, SC</em></div><span class="car__foot">Healthcare</span></article>
+    <article class="car"><img src="{{IMG assets/stock/medical-treatment-room.jpg|560|68|0,0,1,1}}" alt="Finished clinic treatment room (representative stock photo)" loading="lazy"><div class="car__top"><h3>Carolina Oaks Dental Care</h3><em>Greenville, SC</em></div><span class="car__foot">Healthcare</span></article>
     <article class="car"><img src="{{IMG assets/stock/retail-store-interior-modern.jpg|560|68|0,0,1,1}}" alt="Retail store interior (representative stock photo)" loading="lazy"><div class="car__top"><h3>Cabela's, 6 stores</h3><em>Across the Southeast</em></div><span class="car__foot">Retail</span></article>
     <article class="car"><img src="{{IMG assets/stock/care-facility-corridor-wheelchair.jpg|560|68|0,0,1,1}}" alt="Finished care facility corridor (representative stock photo)" loading="lazy"><div class="car__top"><h3>Inverness Assisted Living</h3><em>Spartanburg, SC</em></div><span class="car__foot">Healthcare</span></article>
     <article class="car"><!-- PLACEHOLDER: no photo yet for Gatlinburg Aquarium --><div class="car__top"><h3>Gatlinburg Aquarium</h3><em>Gatlinburg, TN</em></div><span class="car__foot">Attractions</span></article>
@@ -654,25 +683,6 @@ h1,h2,h3,h4,p{margin:0}
   </div>
 </section>
 
-<section class="founder" id="about">
-  <div class="row">
-    <div class="f-photo pop">
-      <img src="__JACK__" alt="Jack Morgan, founder of Carolina Partitions" loading="lazy">
-      <div class="badge"><b>37</b><span>Years in the trade</span></div>
-    </div>
-    <div class="rise">
-      <span class="eyebrow">About</span>
-      <h2 class="h2">The name on the door<br>is on the job</h2>
-      <blockquote>Carolina Partitions is dedicated to one standard on every job since day one: finish it right, hit the schedule, and leave it clean. When you hire Carolina, you are hiring the man whose name is on the door.</blockquote>
-      <p class="bio">Jack has been in the trade since he was 16. Born and raised in Greenville, he has spent 37 years hanging, framing, and finishing across the Upstate and the Southeast. Carolina Partitions is his family-owned company.</p>
-      <p class="sig">Jack Morgan<small>Founder, Carolina Partitions</small></p>
-      <div class="btn-row">
-        <a class="btn btn--solid" href="tel:8645050066">Call Jack</a>
-        <a class="btn btn--line-dark" href="#contact">Send a Message</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="contact dark" id="contact">
   <div class="row">
@@ -870,20 +880,21 @@ h1,h2,h3,h4,p{margin:0}
   - Project Rock 01-03, 05-08 framing/sheathing   "What we build" grid
   - Project Rock 03                                services: metal framing strip
   - RS Spartanburg 07                              services: drywall strip
-  - RS Spartanburg 03, 02, 04, 05, 08              current projects card + gallery
+  - RS Spartanburg 03                              hero slide 5
+  - RS Spartanburg 04                              current projects card
       PHOTO CREDIT: Frank Costa, Heritage Paintworks (subcontractor). Confirm with Frank, via JC,
       whether a visible credit line is wanted before launch. Do not add one without JC's OK.
-  - Woodlands at Furman 01, 04, 06, 07, 09        hero tiles + current card (240x320 originals AI-upscaled 4x,
-      small tiles only). PLACEHOLDER: replace with higher-res Woodlands photos from Jack.
+  - Woodlands at Furman 06                        hero slide 4, one large photo; 01, 04, 07 current card tiles
+      (240x320 originals AI-upscaled 4x). PLACEHOLDER: replace with higher-res Woodlands photos from Jack.
 
  STOCK PLACEHOLDERS (Pexels License, https://www.pexels.com/license/, free for commercial use;
  credits in assets/stock/PHOTOS.md). Replace with real photos when available:
   - office-open-plan-ceiling-grid.jpg      services: ceilings strip
-  - metal-stud-drywall-screwing.jpg        current: Bedrock Veterinary Clinic (drywall on steel studs)
+  - clinic-waiting-room-reception.jpg      current: Bedrock Veterinary Clinic
   - performing-arts-hall-wood-ceiling.jpg  career: Peace Center
   - hospital-corridor-ceiling-grid.jpg     career: Spartanburg Regional MOB
   - office-lobby-atrium.jpg                career: Poinsett Plaza
-  - clinic-waiting-room-reception.jpg      career: Carolina Oaks Dental Care
+  - medical-treatment-room.jpg             career: Carolina Oaks Dental Care
   - care-facility-corridor-wheelchair.jpg  career: Inverness Assisted Living
   - lounge-lobby-seating.jpg               career: Captain's Quarters
   - retail-store-interior-modern.jpg       career: Cabela's
